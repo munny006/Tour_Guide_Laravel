@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
+use App\Models\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+//admin//////////
+
+Route::group(['prefix' =>'admin','as' =>'admin.' , 'namespace'=>'Admin','middleware'=>['auth','admin']],function(){
+	Route::get('dashboard','DeshboardController@index')->name('dashboard');
+});
+
+
+
+///user
+
+Route::group(['prefix' =>'user','as' =>'user.' ,'namespace'=>'User','middleware'=>['auth','user']],function(){
+	Route::get('dashboard','DashboardController@index')->name('dashboard');
+});
