@@ -26,14 +26,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //admin//////////
 
-Route::group(['prefix' =>'admin','as' =>'admin.' , 'namespace'=>'Admin','middleware'=>['auth','admin']],function(){
-	Route::get('dashboard','DeshboardController@index')->name('dashboard');
+Route::group(['prefix' => 'admin'], function(){
+	Route::get('dashboard',[App\Http\Controllers\Admin\DeshboardController::class, 'index'])->name('admin.dashboard');
 });
 
 
 
 ///user
 
-Route::group(['prefix' =>'user','as' =>'user.' ,'namespace'=>'User','middleware'=>['auth','user']],function(){
-	Route::get('dashboard','DashboardController@index')->name('dashboard');
+// Route::group(['prefix' =>'user','as' =>'user.' ,'namespace'=>'User','middleware'=>['auth','user']],function(){
+// 	// Route::get('dashboard','DashboardController@index')->name('dashboard');
+// 	Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');	
+// });
+
+Route::group(['prefix' => 'user'], function(){
+    Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
 });
