@@ -18,9 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/user', function () {
-    return view('admin.users.index');
-});
 
 
 Auth::routes();
@@ -33,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix' => 'admin'], function(){
 	Route::get('dashboard',[App\Http\Controllers\Admin\DeshboardController::class, 'index'])->name('admin.dashboard');
+	Route::resource('user',[App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.users.index');
 });
 
 

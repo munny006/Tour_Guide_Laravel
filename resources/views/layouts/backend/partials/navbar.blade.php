@@ -16,10 +16,10 @@
                     </li>
                     <h3 class="menu-title">CMS</h3><!-- /.menu-title -->
                     <li class="active">
-                        <a href="{{url('/admin/user')}}"> <i class="menu-icon fa fa-dashboard"></i>Users </a>
+                        <a href="{{route('admin.users')}}"> <i class="menu-icon fa fa-dashboard"></i>Users </a>
                     </li>
                  
                 </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
         </nav>
     </aside>
