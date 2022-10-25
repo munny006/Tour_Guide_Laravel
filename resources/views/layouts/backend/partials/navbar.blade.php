@@ -12,11 +12,11 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-user"></i>Dashboard </a>
+                        <a href="{{route('admin.dashboard')}}"> <i class="menu-icon fa fa-user"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">CMS</h3><!-- /.menu-title -->
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Users </a>
+                        <a href="{{url('/admin/user')}}"> <i class="menu-icon fa fa-dashboard"></i>Users </a>
                     </li>
                  
                 </ul>
