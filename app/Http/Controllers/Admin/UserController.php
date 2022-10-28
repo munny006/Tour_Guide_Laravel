@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,8 +15,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.users.index');
+    {   
+        $users = User::all();
+        $roles = Role::All();
+        return view('admin.users.index',compact('users','roles'));
     }
 
     /**
@@ -69,7 +73,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->role_id = $request->role;
+        $use->save();
+
+
+        return redirect()->back();
     }
 
     /**

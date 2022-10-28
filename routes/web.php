@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
-use App\Models\Admin;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +28,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //admin//////////
 
 Route::group(['prefix' => 'admin'], function(){
+
 	Route::get('dashboard',[App\Http\Controllers\Admin\DeshboardController::class, 'index'])->name('admin.dashboard');
-	Route::resource('user',[App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.users.index');
+
+	Route::get('users',[App\Http\Controllers\Admin\UserController::class,'index']);
+	Route::get('users.$user->id',[App\Http\Controllers\Admin\UserController::class,'update']);
+	//Route::resource('user',[App\Http\Controllers\Admin\UserController::class,'index']);
 });
 
 

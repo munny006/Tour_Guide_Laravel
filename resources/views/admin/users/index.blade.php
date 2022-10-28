@@ -39,9 +39,9 @@
                     <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>ID</th>
                                 <th>Name</th>
-                                <th>Role</th>
+                               <th>Roll</th>
                                 <th>User Id</th>
                                 <th>Email</th>
                                 <th>Created_At</th>
@@ -50,32 +50,34 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($users as $key => $user)
 
                             <tr>
-                                <td>id</td>
-                                <td>name</td>
-                             <th>Role</th>
-                                <td>userid</td>
-                                <td>email</td>
-                                <td>created_at</td>
-                                <td>updated_at</td>
+                                <td>{{$key+1}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->role->name}}</td>
+                                <td>{{$user->userid}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->created_at}}</td>
+                                <td>{{$user->updated_at}}</td>
                                 <td>
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
-                                    data-target="#viewModal">
+                                    data-target="#viewModal-{{$user->id}}">
                                     <i class="fa fa-eye"></i>
                                 </button>
 
                                 <button type="button" class="btn btn-secondary mb-1" data-toggle="modal"
-                                data-target="#editModal">
+                                data-target="#editModal-{{$user->id}}">
                                 <i class="fa fa-pencil"></i>
-                            </button>
+                              </button>
                             <button type="button" class="btn btn-danger mb-1" data-toggle="modal"
-                            data-target="#deleteModal">
+                            data-target="#deleteModal-{{$user->id}}">
                             <i class="fa fa-trash-o"></i>
                         </button>
                     </td>
                 </tr>
+                @endforeach
            
             </tbody>
         </table>
@@ -87,8 +89,9 @@
     </div>
     <!-- .animated -->
     <div class="animated">
+        @foreach($users as $user)
       
-    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog"  aria-labelledby=  "mediumModalLabel"
+    <div class="modal fade" id="viewModal-{{$user->id}}" tabindex="-1" role="dialog"  aria-labelledby=  "mediumModalLabel"
         data-backdrop="static" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -99,55 +102,55 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row form-group">
-                      <div class="col col-md-3"><label class=" form-control-label"> Name   </label>
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <p class="form-control-static"></p>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label class=" form-control-label">User Id</label>
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <p class="form-control-static"></p>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label class=" form-control-label">Role</label>
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <p class="form-control-static"></p>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label class=" form-control-label">Email</label>
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <p class="form-control-static"></p>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label class=" form-control-label">Created At</label>
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <p class="form-control-static"></p>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label class=" form-control-label">Updated At</label>
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <p class="form-control-static"></p>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col col-md-3"><label class=" form-control-label">About</label>
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <p class="form-control-static"></p>
-                        </div>
-                    </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Name</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{$user->name}}</p>
+                            </div>
+                         </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">User ID</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{$user->userid}}</p>
+                            </div>
+                            </div>
+                             <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Role</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{$user->role->name}}</p>
+                            </div>
+                            </div>
+                             <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Email</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{$user->email}}</p>
+                            </div>
+                            </div>
+                             <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Created At</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{$user->created_at}}</p>
+                            </div>
+                            </div>
+                             <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Updated At</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{$user->updated_at}}</p>
+                            </div>
+                            </div>
+                             <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">About</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">{{$user->about}}</p>
+                            </div>
+                            </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -155,7 +158,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+    <div class="modal fade" id="editModal-{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
         data-backdrop="static" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -166,21 +169,21 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post" id="editUser" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="{{url('admin/users',$user->id)}}" method="post" id="editUser-{{$user->id}}" enctype="multipart/form-data" class="form-horizontal">
                         @csrf
                         @method('PUT')
                         <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">Name</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <p class="form-control-static"></p>
+                                <p class="form-control-static">{{$user->name}}</p>
                             </div>
-                        </div>
-                        <div class="row form-group">
+                            </div>
+                           <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">User Id</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <p class="form-control-static"></p>
+                                <p class="form-control-static">{{$user->userid}}</p>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -188,13 +191,19 @@
                             </div>
                             <div class="col col-md-9">
                                 <div class="form-check">
-                                   
-
+                                   @foreach($roles as $role)
+                                    <div class="radio">
+                                    <label for="radio1" class="form-check-label1">
+                                        <input type="radio" name="role" id="radio1" value="{{$role->id}}" class="form-chck-input" {{$user->role->id == $role->id ? 'checked' : " "}}>{{$role->name}}
+                                    </label>
+                                       
+                                   </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-md" onclick="event.preventDefault();
-                        document.getElementById('editUser').submit();">
+                        document.getElementById('editUser-{{$user->id}}').submit();">
                             <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
                     </form>
@@ -202,7 +211,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel"
+    <div class="modal fade" id="deleteModal-{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel"
         data-backdrop="static" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -231,7 +240,7 @@
     </div>
    </div>
 
-
+@endforeach
         <!-- .content -->
     </div>
 
