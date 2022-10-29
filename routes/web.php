@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\DeshboardController;
+use App\Http\Controllers\Admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +32,8 @@ Route::group(['prefix' => 'admin'], function(){
 
 	Route::get('dashboard',[App\Http\Controllers\Admin\DeshboardController::class, 'index'])->name('admin.dashboard');
 
-	Route::get('users',[App\Http\Controllers\Admin\UserController::class,'index']);
-	Route::get('users.$user->id',[App\Http\Controllers\Admin\UserController::class,'update']);
+	Route::GET('users',[App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.users.index');
+	//Route::put('user/{$user->id}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.users.update');
 	//Route::resource('user',[App\Http\Controllers\Admin\UserController::class,'index']);
 });
 

@@ -73,9 +73,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
+        $user = User::findOrFile($id);
         $user->role_id = $request->role;
-        $use->save();
+        $user->save();
 
 
         return redirect()->back();
