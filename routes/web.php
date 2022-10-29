@@ -33,6 +33,10 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('dashboard',[App\Http\Controllers\Admin\DeshboardController::class, 'index'])->name('admin.dashboard');
 
 	Route::GET('users',[App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.users.index');
+
+	Route::GET('users/{$user->id}',[App\Http\Controllers\Admin\UserController::class,'update'])->name('admin.user.update');
+
+
 	//Route::put('user/{$user->id}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.users.update');
 	//Route::resource('user',[App\Http\Controllers\Admin\UserController::class,'index']);
 });
