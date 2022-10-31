@@ -41,7 +41,7 @@
                        <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Roll</th>
+                        <th>Role</th>
                         <th>User Id</th>
                         <th>Email</th>
                         <th>Created_At</th>

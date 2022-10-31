@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
@@ -16,6 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {   
+
         $users = User::all();
         $roles = Role::All();
         return view('admin.users.index',compact('users','roles'));
@@ -73,12 +74,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $user = User::find($id);
+        //dd(Auth::user());
+        if (Auth::user()->id == $id){
+            return redirect()->back();
+        }
+
         $user->role_id = $request->role;
         $user->save();
 
+        return redirect()->back();
 
-        return view('admin.users.index');
+
+
     }
 
     /**

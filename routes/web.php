@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	Route::GET('users',[App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.users.index');
 
-	Route::GET('users/{$user->id}',[App\Http\Controllers\Admin\UserController::class,'update'])->name('admin.user.update');
+	Route::PUT('users/{id}',[App\Http\Controllers\Admin\UserController::class,'update'])->name('admin.user.update');
 
 
 	//Route::put('user/{$user->id}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.users.update');
