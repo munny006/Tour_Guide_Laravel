@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DeshboardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,8 +40,9 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::POST('users/{id}',[App\Http\Controllers\Admin\UserController::class,'destroy'])->name('admin.user.destroy');
 
 
-	//Route::put('user/{$user->id}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.users.update');
-	//Route::resource('user',[App\Http\Controllers\Admin\UserController::class,'index']);
+	//category
+
+	Route::GET('category',[App\Http\Controllers\Admin\CategoryController::class,'index'])->name('admin.category.index')
 });
 
 
@@ -55,3 +57,6 @@ Route::group(['prefix' => 'admin'], function(){
 Route::group(['prefix' => 'user'], function(){
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
 });
+
+
+//category
