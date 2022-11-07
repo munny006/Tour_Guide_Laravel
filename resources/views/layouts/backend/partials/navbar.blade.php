@@ -18,6 +18,10 @@
                     <li class="active">
                         <a href="{{route('admin.users.index')}}"> <i class="menu-icon fa fa-dashboard"></i>Users </a>
                     </li>
+
+                    <li class="active">
+                        <a href="{{route('admin.category.index')}}"> <i class="menu-icon fa fa-file"></i>Category</a>
+                    </li>
                  
                 </ul>
             </div>

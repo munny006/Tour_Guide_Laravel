@@ -42,7 +42,8 @@ Route::group(['prefix' => 'admin'], function(){
 
 	//category
 
-	Route::GET('category',[App\Http\Controllers\Admin\CategoryController::class,'index'])->name('admin.category.index')
+	Route::GET('category',[App\Http\Controllers\Admin\CategoryController::class,'index'])->name('admin.category.index');
+
 });
 
 
@@ -59,4 +60,3 @@ Route::group(['prefix' => 'user'], function(){
 });
 
 
-//category

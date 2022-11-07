@@ -10,7 +10,7 @@
                <div class="col-sm-4">
                  <div class="page-header float-left">
                   <div class="page-title">
-                   <h1>Dashboard</h1>
+                   <h1>Category</h1>
                 </div>
              </div>
           </div>
@@ -20,7 +20,7 @@
                 <ol class="breadcrumb text-right">
                  <li><a href="#">Dashboard</a></li>
                  <li>
-                  <a href="#" class="active">Users Table</a>
+                  <a href="#" class="active">Category Table</a>
                </li>
             </ol>
          </div>
@@ -34,7 +34,7 @@
                   <div class="col-md-12">
                    <div class="card">
                     <div class="card-header">
-                     <strong class="card-title">Users Table</strong>
+                     <strong class="card-title">Category Table</strong>
                   </div>
                   <div class="card-body">
                      <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -42,9 +42,7 @@
                        <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Role</th>
-                        <th>User Id</th>
-                        <th>Email</th>
+                        <th>Slug</th>
                         <th>Created_At</th>
                         <th>Updated_At</th>
                         <th>Action</th>
@@ -53,29 +51,27 @@
                   <tbody>
 
 
-                    @foreach($users as $key => $user)
+                    @foreach($categories as $key => $category)
                     <tr>
 
                      <td>{{$key+1}}</td>
-                     <td>{{$user->name}}</td>
-                     <td>{{$user->role->name}}</td>
-                     <td>{{$user->userid}}</td>
-                     <td>{{$user->email}}</td>
-                     <td>{{$user->created_at}}</td>
-                     <td>{{$user->updated_at}}</td>
+                     <td>{{$category->name}}</td>
+                     <td>{{$category->slug}}</td>
+                     <td>{{$category->created_at}}</td>
+                     <td>{{$category->updated_at}}</td>
                      <td>
                       <!-- Button trigger modal -->
                       <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
-                      data-target="#viewModal-{{$user->id}}">
+                      data-target="#viewModal-{{$category->id}}">
                       <i class="fa fa-eye"></i>
                    </button>
 
                    <button type="button" class="btn btn-secondary mb-1" data-toggle="modal"
-                   data-target="#editModal-{{$user->id}}">
+                   data-target="#editModal-{{$category->id}}">
                    <i class="fa fa-pencil"></i>
                 </button>
                 <button type="button" class="btn btn-danger mb-1" data-toggle="modal"
-                data-target="#deleteModal-{{$user->id}}">
+                data-target="#deleteModal-{{$category->id}}">
                 <i class="fa fa-trash-o"></i>
              </button>
           </td>
@@ -93,8 +89,8 @@
          </div>
          <!-- .animated -->
          <div class="animated">
-         @foreach($users as $user)
-       <div class="modal fade" id="viewModal-{{$user->id}}" tabindex="-1" role="dialog"  aria-labelledby=  "mediumModalLabel"
+         @foreach($categories as $category)
+       <div class="modal fade" id="viewModal-{{$category->id}}" tabindex="-1" role="dialog"  aria-labelledby=  "mediumModalLabel"
                data-backdrop="static" aria-hidden="true" style="display: none;">
                <div class="modal-dialog modal-lg" role="document">
                  <div class="modal-content">
@@ -110,49 +106,37 @@
                 <div class="col col-md-3"><label class=" form-control-label">Name</label>
                 </div>
                 <div class="col-12 col-md-9">
-                 <p class="form-control-static">{{$user->name}}</p>
+                 <p class="form-control-static">{{$category->name}}</p>
               </div>
            </div>
            <div class="row form-group">
-             <div class="col col-md-3"><label class=" form-control-label">User ID</label>
+             <div class="col col-md-3"><label class=" form-control-label">Slug</label>
              </div>
              <div class="col-12 col-md-9">
-              <p class="form-control-static">{{$user->userid}}</p>
+              <p class="form-control-static">{{$category->slug}}</p>
            </div>
          </div>
+         
+        
          <div class="row form-group">
-            <div class="col col-md-3"><label class=" form-control-label">Role</label>
-            </div>
-            <div class="col-12 col-md-9">
-              <p class="form-control-static">{{$user->role->name}}</p>
-           </div>
-         </div>
-         <div class="row form-group">
-             <div class="col col-md-3"><label class=" form-control-label">Email</label>
+             <div class="col col-md-3"><label class=" form-control-label">Created_At</label>
              </div>
              <div class="col-12 col-md-9">
-              <p class="form-control-static">{{$user->email}}</p>
-           </div>
-         </div>
-         <div class="row form-group">
-             <div class="col col-md-3"><label class=" form-control-label">Crreated_At</label>
-             </div>
-             <div class="col-12 col-md-9">
-              <p class="form-control-static">{{$user->created_at}}</p>
+              <p class="form-control-static">{{$category->created_at}}</p>
            </div>
          </div>
          <div class="row form-group">
              <div class="col col-md-3"><label class=" form-control-label">Updated_At</label>
              </div>
              <div class="col-12 col-md-9">
-              <p class="form-control-static">{{$user->updated_at}}</p>
+              <p class="form-control-static">{{$category->updated_at}}</p>
            </div>
          </div>
          <div class="row form-group">
-             <div class="col col-md-3"><label class=" form-control-label">About</label>
+             <div class="col col-md-3"><label class=" form-control-label">Description</label>
              </div>
              <div class="col-12 col-md-9">
-              <p class="form-control-static"></p>
+              <p class="form-control-static">{{$category->description}}</p>
            </div>
          </div>
          
@@ -164,7 +148,7 @@
          </div>
          </div>
       </div>
-         <div class="modal fade" id="editModal-{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+         <div class="modal fade" id="editModal-{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
             data-backdrop="static" aria-hidden="true" style="display: none;">
             <div class="modal-dialog modal-lg" role="document">
                <div class="modal-content">
@@ -175,39 +159,39 @@
                </button>
             </div>
             <div class="modal-body">
-              <form action="{{route('admin.user.update',$user->id)}}" method="post" id = "editUser-{{$user->id}}" enctype="multipart/form-data" class="form-horizontal">
+              <form action="{{route('admin.user.update',$$category->id)}}" method="post" id = "editUser-{{$category->id}}" enctype="multipart/form-data" class="form-horizontal">
                @csrf
                   @method('PUT')
                <div class="row form-group">
                 <div class="col col-md-3"><label class=" form-control-label">Name</label>
                 </div>
                 <div class="col-12 col-md-9">
-                 <p class="form-control-static">{{$user->name}}</p>
+                 <p class="form-control-static">{{$category->name}}</p>
               </div>
            </div>
            <div class="row form-group">
-             <div class="col col-md-3"><label class=" form-control-label">User Id</label>
+             <div class="col col-md-3"><label class=" form-control-label">Slug</label>
              </div>
              <div class="col-12 col-md-9">
-              <p class="form-control-static">{{$user->userid}}</p>
+              <p class="form-control-static">{{$category->slug}}</p>
            </div>
          </div>
-         <div class="row form-group">
+         <!--<div class="row form-group">
              <div class="col col-md-3"><label class=" form-control-label">Role</label>
               </div>
             <div class="col col-md-9">
               <div class="form-check">
-                 @foreach($roles as $role)
+                 @//foreach($roles as $role)
                   <div class="radio">
                     <label for="radio1" class="form-check-label1">
-                    <input type="radio" name="role" id="radio1" value="{{$role->id}}" class="form-chck-input" {{$user->role->id == $role->id ? 'checked' : " "}}>{{$role->name}}
+                    <input type="radio" name="role" id="radio1" value="{//{$role->id}}" class="form-chck-input" {//{$user->role->id == $role->id ? 'checked' : " "}}>{//{$role->name}}
                     </label>
                   </div>
-                  @endforeach
+                  @//endforeach
                </div>
             </div>
-         </div>
-         <button type="submit" class="btn btn-primary btn-md"  onclick="event.preventDefault(); document.getElementById('editUser-{{$user->id}}').submit();">
+         </div>-->
+         <button type="submit" class="btn btn-primary btn-md"  onclick="event.preventDefault(); document.getElementById('editUser-{{$category->id}}').submit();">
             <i class="fa fa-dot-circle-o"></i> Submit
          </button>
          </form>
@@ -215,7 +199,7 @@
          </div>
          </div>
          </div>
-         <div class="modal fade" id="deleteModal-{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel"
+         <div class="modal fade" id="deleteModal-{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel"
             data-backdrop="static" aria-hidden="true" style="display: none;">
             <div class="modal-dialog modal-sm" role="document">
                <div class="modal-content">
@@ -232,8 +216,8 @@
          </div>
          <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('deleteUser-{{$user->id}}').submit();">Confirm</button>
-            <form action="{{route('admin.user.destroy',$user->id)}}" style="display: none" id="deleteUser-{{$user->id}}" method="POST">
+            <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('deleteUser-{{$category->id}}').submit();">Confirm</button>
+            <form action="{{route('admin.user.destroy',$category->id)}}" style="display: none" id="deleteUser-{{$category->id}}" method="POST">
                @csrf
 
 
