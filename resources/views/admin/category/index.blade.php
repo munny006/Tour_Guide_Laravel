@@ -159,7 +159,7 @@
                </button>
             </div>
             <div class="modal-body">
-              <form action="{{route('admin.user.update',$$category->id)}}" method="post" id = "editUser-{{$category->id}}" enctype="multipart/form-data" class="form-horizontal">
+              <form action="" method="post" id = "editUser-{{$category->id}}" enctype="multipart/form-data" class="form-horizontal">
                @csrf
                   @method('PUT')
                <div class="row form-group">

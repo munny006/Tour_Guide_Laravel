@@ -20,7 +20,7 @@
                     </li>
 
                     <li class="active">
-                        <a href="{{route('admin.category.index')}}"> <i class="menu-icon fa fa-file"></i>Category</a>
+                        <a href="{{route('admin.category.index')}}"> <i class="menu-icon fa fa-file"></i>Categories</a>
                     </li>
                  
                 </ul>
