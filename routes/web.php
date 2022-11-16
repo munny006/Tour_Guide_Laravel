@@ -44,7 +44,13 @@ Route::group(['prefix' => 'admin'], function(){
 
 	Route::GET('category',[App\Http\Controllers\Admin\CategoryController::class,'index'])->name('admin.category.index');
 
+
+	Route::POST('category',[App\Http\Controllers\Admin\CategoryController::class,'store'])->name('admin.category.store');
+
+
 });
+	
+
 
 
 

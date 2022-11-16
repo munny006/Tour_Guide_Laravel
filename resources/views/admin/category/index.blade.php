@@ -35,6 +35,10 @@
                    <div class="card">
                     <div class="card-header">
                      <strong class="card-title">Category Table</strong>
+                     <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
+                      data-target="#createModal">
+                      <i class="fa fa-plus"></i>
+                   </button>
                   </div>
                   <div class="card-body">
                      <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -89,6 +93,60 @@
          </div>
          <!-- .animated -->
          <div class="animated">
+
+            <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+            data-backdrop="static" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg" role="document">
+               <div class="modal-content">
+                <div class="modal-header">
+                 <h5 class="modal-title" id="mediumModalLabel">Create Category</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+               </button>
+            </div>
+            <div class="modal-body">
+              <form action="{{route('admin.category.store')}}" method="post" id = "createCategory" enctype="multipart/form-data" class="form-horizontal">
+               @csrf
+                 
+               <div class="row form-group">
+                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Name</label></div>
+                 <div class="col-12 col-md-9">
+                  <input type="text" id="name" name="name" placeholder="Text" class="form-control">
+                  <small class="form-text text-muted">This is a help text</small>
+               </div>
+              </div>
+
+              <div class="row form-group">
+               <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Description</label></div>
+                 <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
+              </div>
+
+              <div class="row form-group">
+               <div class="col col-md-3"><label for="file-input" class=" form-control-label">Category Image</label></div>
+                <div class="col-12 col-md-9">
+                  <input type="file" id="image" name="image" class="form-control-file"></div>
+             </div>
+           
+         <button type="submit" class="btn btn-primary btn-md"  onclick="event.preventDefault(); document.getElementById('createCategory').submit();">
+            <i class="fa fa-dot-circle-o"></i> Submit
+         </button>
+         </form>
+         </div>
+         </div>
+         </div>
+         </div>
+
+
+
+
+
+
+
+
+
+
+
+
          @foreach($categories as $category)
        <div class="modal fade" id="viewModal-{{$category->id}}" tabindex="-1" role="dialog"  aria-labelledby=  "mediumModalLabel"
                data-backdrop="static" aria-hidden="true" style="display: none;">

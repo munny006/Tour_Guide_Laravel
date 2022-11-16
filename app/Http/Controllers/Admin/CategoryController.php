@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -37,7 +40,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+            'description' =>'sometimes'
+
+        ]);
+        $category = new Category();
+        $category->name = $request->name;
+        $category->slug =Str::slug($request->name,'-');
+        $category->description = $request->description;
+        $category->image = 'default.jpg';
+        $category->save();
+        Toastr::success('Category Created Successfully');
+        return redirect()->back();
     }
 
     /**
