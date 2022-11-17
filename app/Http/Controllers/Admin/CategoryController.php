@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -42,14 +43,28 @@ class CategoryController extends Controller
     {
         $this->validate($request,[
             'name'=>'required',
-            'description' =>'sometimes'
+            'description' =>'sometimes',
+            'image' =>'required|mimes:jpg,png,bmp,jpeg'
 
         ]);
+        //image
+        $image = $request->image;
+        $imageName = Str::slug($request->name,'-') .uniqid().'.'.$image->getClientOriginalExtension();
+        if(!Storage::disk('public')->exists('category')){
+            Storage::disk('public')->makeDirectory('category');
+
+        }
+
+        //store
+
+        $image->storeAs('category',$imageName,'public');
+
+
         $category = new Category();
         $category->name = $request->name;
         $category->slug =Str::slug($request->name,'-');
         $category->description = $request->description;
-        $category->image = 'default.jpg';
+        $category->image = $imageName;
         $category->save();
         Toastr::success('Category Created Successfully');
         return redirect()->back();

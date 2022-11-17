@@ -187,6 +187,15 @@
               <p class="form-control-static">{{$category->description}}</p>
            </div>
          </div>
+
+
+         <div class="row form-group">
+             <div class="col col-md-3"><label class=" form-control-label">Image</label>
+             </div>
+             <div class="col-12 col-md-9">
+             <img src="{{asset('public/category/'.$category->image)}}}">
+           </div>
+         </div>
          
          
          <div class="modal-footer">
