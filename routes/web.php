@@ -47,6 +47,10 @@ Route::group(['prefix' => 'admin'], function(){
 
 	Route::POST('category',[App\Http\Controllers\Admin\CategoryController::class,'store'])->name('admin.category.store');
 
+	Route::PUT('category/{id}',[App\Http\Controllers\Admin\CategoryController::class,'update'])->name('admin.category.update');
+
+	Route::POST('category/{id}',[App\Http\Controllers\Admin\CategoryController::class,'destroy'])->name('admin.category.destroy');
+
 
 });
 	

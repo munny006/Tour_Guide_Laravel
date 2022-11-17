@@ -137,16 +137,6 @@
          </div>
 
 
-
-
-
-
-
-
-
-
-
-
          @foreach($categories as $category)
        <div class="modal fade" id="viewModal-{{$category->id}}" tabindex="-1" role="dialog"  aria-labelledby=  "mediumModalLabel"
                data-backdrop="static" aria-hidden="true" style="display: none;">
@@ -211,45 +201,35 @@
             <div class="modal-dialog modal-lg" role="document">
                <div class="modal-content">
                 <div class="modal-header">
-                 <h5 class="modal-title" id="mediumModalLabel">Edit User</h5>
+                 <h5 class="modal-title" id="mediumModalLabel">Edit Category</h5>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                </button>
             </div>
             <div class="modal-body">
-              <form action="" method="post" id = "editUser-{{$category->id}}" enctype="multipart/form-data" class="form-horizontal">
+              <form action="{{route('admin.category.update',$category->id)}}" method="POST" id = "editCategory-{{$category->id}}" enctype="multipart/form-data" class="form-horizontal">
                @csrf
                   @method('PUT')
-               <div class="row form-group">
-                <div class="col col-md-3"><label class=" form-control-label">Name</label>
-                </div>
-                <div class="col-12 col-md-9">
-                 <p class="form-control-static">{{$category->name}}</p>
-              </div>
-           </div>
-           <div class="row form-group">
-             <div class="col col-md-3"><label class=" form-control-label">Slug</label>
-             </div>
-             <div class="col-12 col-md-9">
-              <p class="form-control-static">{{$category->slug}}</p>
-           </div>
-         </div>
-         <!--<div class="row form-group">
-             <div class="col col-md-3"><label class=" form-control-label">Role</label>
-              </div>
-            <div class="col col-md-9">
-              <div class="form-check">
-                 @//foreach($roles as $role)
-                  <div class="radio">
-                    <label for="radio1" class="form-check-label1">
-                    <input type="radio" name="role" id="radio1" value="{//{$role->id}}" class="form-chck-input" {//{$user->role->id == $role->id ? 'checked' : " "}}>{//{$role->name}}
-                    </label>
-                  </div>
-                  @//endforeach
+                <div class="row form-group">
+                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Name</label></div>
+                 <div class="col-12 col-md-9">
+                  <input type="text" id="name" name="name" placeholder="Text" class="form-control" value="{{$category->name}}">
+                  <small class="form-text text-muted">This is a help text</small>
                </div>
-            </div>
-         </div>-->
-         <button type="submit" class="btn btn-primary btn-md"  onclick="event.preventDefault(); document.getElementById('editUser-{{$category->id}}').submit();">
+              </div>
+
+              <div class="row form-group">
+               <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Description</label></div>
+                 <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{$category->description}}</textarea></div>
+              </div>
+
+              <div class="row form-group">
+               <div class="col col-md-3"><label for="file-input" class=" form-control-label">Category Image</label></div>
+                <div class="col-12 col-md-9">
+                  <input type="file" id="image" name="image" class="form-control-file"></div>
+             </div>
+           
+         <button type="submit" class="btn btn-primary btn-md"  onclick="event.preventDefault(); document.getElementById('editCategory-{{$category->id}}').submit();">
             <i class="fa fa-dot-circle-o"></i> Submit
          </button>
          </form>
@@ -262,7 +242,7 @@
             <div class="modal-dialog modal-sm" role="document">
                <div class="modal-content">
                 <div class="modal-header">
-                 <h5 class="modal-title" id="staticModalLabel">Delete User</h5>
+                 <h5 class="modal-title" id="staticModalLabel">Delete Category</h5>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                </button>
@@ -275,7 +255,7 @@
          <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('deleteUser-{{$category->id}}').submit();">Confirm</button>
-            <form action="{{route('admin.user.destroy',$category->id)}}" style="display: none" id="deleteUser-{{$category->id}}" method="POST">
+            <form action="{{route('admin.category.destroy',$category->id)}}" style="display: none" id="deleteUser-{{$category->id}}" method="POST">
                @csrf
 
 

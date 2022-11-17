@@ -86,7 +86,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+        $this->validate($request,[
+            'name'=>'required',
+            'description' =>'sometimes'
+
+        ]);
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->slug =Str::slug($request->name,'-');
+        $category->description = $request->description;
+        $category->image = 'default.jpg';
+        $category->save();
+        Toastr::success('Category Updated Successfully');
+        return redirect()->back();
     }
 
     /**
@@ -97,6 +110,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $category = Category::find($id);
+       $category->delete();
+       Toastr::success('Category Deleted Successfully');
+        return redirect()->back();
     }
 }
