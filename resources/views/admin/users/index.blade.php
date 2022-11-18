@@ -200,7 +200,7 @@
                  @foreach($roles as $role)
                   <div class="radio">
                     <label for="radio1" class="form-check-label1">
-                    <input type="radio" name="role" id="radio1" value="{{$role->id}}" class="form-chck-input" {{$user->role->id == $role->id ? 'checked' : " "}}>{{$role->name}}
+                    <input type="radio" name="role" id="radio1" value="{{$role->id}}" class="form-check-input" {{$user->role->id == $role->id ? 'checked' : " "}}>{{$role->name}}
                     </label>
                   </div>
                   @endforeach

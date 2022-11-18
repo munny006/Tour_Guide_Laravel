@@ -101,21 +101,52 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
-        $this->validate($request,[
+
+        if($request->name == Category::find($id)->name){
+           $this->validate($request,[
             'name'=>'required',
-            'description' =>'sometimes'
+            'description' =>'sometimes',
+            'image' =>'sometimes|mimes:jpg,png,bmp,jpeg'
 
         ]);
-        $category = Category::find($id);
-        $category->name = $request->name;
-        $category->slug =Str::slug($request->name,'-');
-        $category->description = $request->description;
-        $category->image = 'default.jpg';
-        $category->save();
-        Toastr::success('Category Updated Successfully');
-        return redirect()->back();
+
+       }
+       else{
+         $this->validate($request,[
+            'name'=>'required',
+            'description' =>'sometimes',
+            'image' =>'sometimes|mimes:jpg,png,bmp,jpeg'
+             ]);
+       }
+
+       $category = Category::find($id);
+       if($category->image !=null){
+              //image
+        $image = $request->image;
+        $imageName = Str::slug($request->name,'-') .uniqid().'.'.$image->getClientOriginalExtension();
+        if(!Storage::disk('public')->exists('category')){
+            Storage::disk('public')->makeDirectory('category');
+
+        }
+        //delete
+        if(Storage::disk('public')->exists('category/'.$category->image)){
+            Storage::disk('public')->delete('category/'.$category->image);
+        }
+        //store
+        $image->storeAs('category',$imageName,'public');
     }
+    else{
+        $imageName = $category->image;
+    }
+
+    $category->name = $request->name;
+    $category->slug =Str::slug($request->name,'-');
+    $category->description = $request->description;
+    $category->image = $imageName;
+    $category->save();
+    Toastr::success('Category Updated Successfully');
+    return redirect()->back();
+}
 
     /**
      * Remove the specified resource from storage.
@@ -125,9 +156,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-       $category = Category::find($id);
-       $category->delete();
-       Toastr::success('Category Deleted Successfully');
-        return redirect()->back();
-    }
+     $category = Category::find($id);
+      Storage::disk('public')->delete('category/'.$category->image);
+     $category->delete();
+     Toastr::success('Category Deleted Successfully');
+     return redirect()->back();
+ }
 }
