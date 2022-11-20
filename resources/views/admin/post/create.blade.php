@@ -40,11 +40,11 @@
             <div class="card-body">
 
               <div class="row form-group">
-                <div class="col col-md-3">
+                <div class="col">
                   <label for="title" class=" form-control-label">Title</label>
                 </div>
                 <div class="col-12 col-md-9">
-                  <input type="text" id="title" name="title" placeholder="Text" class="form-control">
+                  <input type="text" id="title" name="title" placeholder="title" class="form-control">
                 </div>
               </div>
 
@@ -53,63 +53,100 @@
                 </div>
                 <div class="col-12 col-md-9">
                   <select name="category" id="select" class="form-control">
-                    
+
                     @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
-                     @endforeach
+                    @endforeach
                   </select>
                 </div>
               </div>
+              <div class="row form-group">
+                <div class="col col-md-3">
+                  <label for="tags" class=" form-control-label">Tags</label>
+                </div>
+                <div class="col-12 col-md-9">
+                  <input type="text" id="tags" name="tags" placeholder="Tag(separated by ,)" class="form-control">
+                </div>
+              </div>
 
+              <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Status</label></div>
+                <div class="col col-md-9">
+                  <div class="form-check">
+                    <div class="checkbox">
+                      <label for="checkbox1" class="form-check-label ">
+                        <input type="checkbox" id="status" name="status" value="1" class="form-check-input">Published
+                      </label>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-3">
+                  <label for="file-input" class=" form-control-label">File input</label></div>
+                  <div class="col-12 col-md-9">
+                    <input type="file" id="image" name="image" class="form-control-file"></div>
+                  </div>
+
+                  <div class="form-group">
+
+                    <label for="textarea-input" class=" form-control-label">Textarea</label>
+                    
+                    <textarea name="body" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary ">
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- .animated -->
+
         </div>
       </div>
     </div>
-    <!-- .animated -->
 
+
+
+
+
+    <!-- .content -->
   </div>
-</div>
-</div>
 
 
+  @endsection
+  @push('footer')
+  <script src="{{asset('backend/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('backend/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+  <script src="{{asset('backend/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+  <script src="{{asset('backend/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+  <script src="{{asset('backend/vendors/jszip/dist/jszip.min.js')}}"></script>
+  <script src="{{asset('backend/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
+  <script src="{{asset('backend/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
+  <script src="{{asset('backend/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+  <script src="{{asset('backend/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+  <script src="{{asset('backend/vendors/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
+  <script src="{{asset('backend/assets/js/init-scripts/data-table/datatables-init.js')}}"></script>
 
 
+  <script>
 
-<!-- .content -->
-</div>
+   $(document).ready(function (){
 
+    (function ($){
+     $('#filter').keyup(function () {
+       var rex = new RegExp($(this).val(),'i');
+       $('.searchable tr').hide();
+       $('.searchable tr').filter(function () {
+         return rex.test($(this).text());
+       }).show();
 
-@endsection
-@push('footer')
-<script src="{{asset('backend/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('backend/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('backend/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('backend/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('backend/vendors/jszip/dist/jszip.min.js')}}"></script>
-<script src="{{asset('backend/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
-<script src="{{asset('backend/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
-<script src="{{asset('backend/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{asset('backend/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{asset('backend/vendors/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-<script src="{{asset('backend/assets/js/init-scripts/data-table/datatables-init.js')}}"></script>
-
-
-<script>
-
- $(document).ready(function (){
-
-  (function ($){
-   $('#filter').keyup(function () {
-     var rex = new RegExp($(this).val(),'i');
-     $('.searchable tr').hide();
-     $('.searchable tr').filter(function () {
-       return rex.test($(this).text());
-     }).show();
-
-   })
- }(jQuery));
-})
+     })
+   }(jQuery));
+  })
 </script>
 
 <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
