@@ -1,143 +1,144 @@
-         @extends('layouts.backend.app')
-         @push('header')
-         <link rel="stylesheet" href="{{asset('backend/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
-         <link rel="stylesheet" href="{{asset('backend/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
-         <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
-         @endpush
-         @section('content')
-         <div id="right-panel" class="right-panel">
-           <div class="content mt-3">
-            <div class="animated fadeIn">
-             <div class="row">
-              <div class="col-md-12">
-               <!--error msg-->
-               @if ($errors->any())
+       @extends('layouts.backend.app')
+       @push('header')
+       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+       <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+       <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+       <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+       @endpush
+       @section('content')
+       <div id="right-panel" class="right-panel">
+         <div class="content mt-3">
+          <div class="animated fadeIn">
+           <div class="row">
+            <div class="col-md-12">
+             <!--error msg-->
+             @if ($errors->any())
 
-               @foreach ($errors->all() as $error)
-               <div class="alert  alert-danger alert-dismissible fade show" role="alert">
-                <span class="badge badge-pill badge-danger">Error !!</span>{{$error}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              @endforeach
-
-            </div>
-            @endif 
-            <!--End error msg-->
-
-
-          </div>
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <strong class="card-title">Create Post</strong>
-                <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
-                data-target="#createModal">
-                <i class="fa fa-plus"></i>
+             @foreach ($errors->all() as $error)
+             <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+              <span class="badge badge-pill badge-danger">Error !!</span>{{$error}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
               </button>
             </div>
-            <div class="card-body">
+            @endforeach
 
-              <div class="row form-group">
-                <div class="col">
-                  <label for="title" class=" form-control-label">Title</label>
-                </div>
-                <div class="col-12 col-md-9">
-                  <input type="text" id="title" name="title" placeholder="title" class="form-control">
-                </div>
+          </div>
+          @endif 
+          <!--End error msg-->
+
+
+        </div>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <strong class="card-title">Create Post</strong>
+              <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
+              data-target="#createModal">
+              <i class="fa fa-plus"></i>
+            </button>
+          </div>
+          <div class="card-body">
+
+           <form action="{{route('admin.post.create')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+             <div class="row form-group">
+              <div class="col">
+                <label for="title" class=" form-control-label">Title</label>
               </div>
-
-              <div class="row form-group">
-                <div class="col col-md-3"><label for="select" class=" form-control-label">Category</label>
-                </div>
-                <div class="col-12 col-md-9">
-                  <select name="category" id="select" class="form-control">
-
-                    @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
-                    @endforeach
-                  </select>
-                </div>
+              <div class="col-12 col-md-9">
+                <input type="text" id="title" name="title" placeholder="title" class="form-control">
               </div>
-              <div class="row form-group">
-                <div class="col col-md-3">
-                  <label for="tags" class=" form-control-label">Tags</label>
-                </div>
-                <div class="col-12 col-md-9">
-                  <input type="text" id="tags" name="tags" placeholder="Tag(separated by ,)" class="form-control">
-                </div>
-              </div>
+            </div>
 
-              <div class="row form-group">
-                <div class="col col-md-3"><label class=" form-control-label">Status</label></div>
-                <div class="col col-md-9">
-                  <div class="form-check">
-                    <div class="checkbox">
-                      <label for="checkbox1" class="form-check-label ">
-                        <input type="checkbox" id="status" name="status" value="1" class="form-check-input">Published
-                      </label>
-                    </div>
-                    
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="select" class=" form-control-label">Category</label>
+              </div>
+              <div class="col-12 col-md-9">
+                <select name="category" id="select" class="form-control">
+
+                  @foreach($categories as $category)
+                  <option value="{{$category->id}}">{{$category->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <label for="tags" class=" form-control-label">Tags</label>
+              </div>
+              <div class="col-12 col-md-9">
+                <input type="text" id="tags" name="tags" placeholder="Tag(separated by ,)" class="form-control">
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col col-md-3"><label class=" form-control-label">Status</label></div>
+              <div class="col col-md-9">
+                <div class="form-check">
+                  <div class="checkbox">
+                    <label for="checkbox1" class="form-check-label ">
+                      <input type="checkbox" id="status" name="status" value="1" class="form-check-input">Published
+                    </label>
                   </div>
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col col-md-3">
-                  <label for="file-input" class=" form-control-label">File input</label></div>
-                  <div class="col-12 col-md-9">
-                    <input type="file" id="image" name="image" class="form-control-file"></div>
-                  </div>
-
-                  <div class="form-group">
-
-                    <label for="textarea-input" class=" form-control-label">Textarea</label>
-                    
-                    <textarea name="body" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea>
-                  </div>
-
-                  <button type="submit" class="btn btn-primary ">
-                    <i class="fa fa-dot-circle-o"></i> Submit
-                  </button>
+                  
                 </div>
               </div>
             </div>
-          </div>
-          <!-- .animated -->
+            <div class="row form-group">
+              <div class="col col-md-3">
+                <label for="file-input" class=" form-control-label">File input</label></div>
+                <div class="col-12 col-md-9">
+                  <input type="file" id="image" name="image" class="form-control-file"></div>
+                </div>
 
+                <div class="form-group">
+
+                  <label for="textarea-input" class=" form-control-label">Body</label>
+                  
+                  <textarea name="body" id="summernote" rows="9" placeholder="Content..." class="form-control"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary ">
+                  <i class="fa fa-dot-circle-o"></i> Submit
+                </button>
+              </div>
+
+            </form>
+          </div>
         </div>
       </div>
+      <!-- .animated -->
+
     </div>
-
-
-
-
-
-    <!-- .content -->
   </div>
+</div>
 
 
-  @endsection
-  @push('footer')
-  <script src="{{asset('backend/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-  <script src="{{asset('backend/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-  <script src="{{asset('backend/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-  <script src="{{asset('backend/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-  <script src="{{asset('backend/vendors/jszip/dist/jszip.min.js')}}"></script>
-  <script src="{{asset('backend/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
-  <script src="{{asset('backend/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
-  <script src="{{asset('backend/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-  <script src="{{asset('backend/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-  <script src="{{asset('backend/vendors/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-  <script src="{{asset('backend/assets/js/init-scripts/data-table/datatables-init.js')}}"></script>
 
 
-  <script>
 
-   $(document).ready(function (){
+<!-- .content -->
+</div>
+
+
+@endsection
+@push('footer')
+<script>
+      $('#summernote').summernote({
+       
+        tabsize: 2,
+        height: 300,
+      
+      });
+    </script>
+
+
+<script>
+
+  $(document).ready(function (){
 
     (function ($){
-     $('#filter').keyup(function () {
+      $('#filter').keyup(function () {
        var rex = new RegExp($(this).val(),'i');
        $('.searchable tr').hide();
        $('.searchable tr').filter(function () {
@@ -145,7 +146,7 @@
        }).show();
 
      })
-   }(jQuery));
+    }(jQuery));
   })
 </script>
 
