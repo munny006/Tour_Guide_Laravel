@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use App\Models\Category;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 
 class PostController extends Controller
 {
@@ -16,8 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-       $posts = Post::latest()->get();
-       return view('admin.post.index',compact('posts'));
+        $post = Post::latest()->get();
+        return view('admin.post.index',compact('posts'));
     }
 
     /**
@@ -27,8 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-     return view('admin.post.create',compact('categories'));
+        //
     }
 
     /**
