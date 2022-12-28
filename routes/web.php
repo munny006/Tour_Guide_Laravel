@@ -52,6 +52,10 @@ Route::group(['prefix' => 'admin'], function(){
 
 	Route::POST('category/{id}',[App\Http\Controllers\Admin\CategoryController::class,'destroy'])->name('admin.category.destroy');
 
+///
+
+	Route::GET('post',[App\Http\Controllers\Admin\PostController::class,'index'])->name('admin.post.index');
+	Route::GET('post/create',[App\Http\Controllers\Admin\PostController::class,'create'])->name('admin.post.create');
 
 
 });
