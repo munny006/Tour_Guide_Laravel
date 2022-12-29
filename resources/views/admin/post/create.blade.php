@@ -9,7 +9,7 @@
 @section('content')
 <div id="right-panel" class="right-panel">
 <div class="content mt-3">
-   <div class="animated fadeIn">
+
       <div class="row">
          <div class="col-md-12">
             <!--error msg-->
@@ -34,13 +34,13 @@
      <div class="card">
        <div class="card-header">
          <strong class="card-title">Create Post</strong>
-         <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
+        <!-- <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
          data-target="#createModal">
          <i class="fa fa-plus"></i>
-      </button>
+      </button> -->
    </div>
    <div class="card-body">
-      <form action="{{route('admin.post.create')}}" method="POST" enctype="multipart/form-data"c class="form-horizontal">
+      <form action="{{route('admin.post.store')}}" method="POST" enctype="multipart/form-data"c class="form-horizontal">
          @csrf
              <div class="row form-group">
          <div class="col col-md-3">
@@ -117,7 +117,7 @@
 
 </div>
 </div>
-</div>
+
 <!-- .animated -->
 
 <!-- .content -->
