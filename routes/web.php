@@ -57,6 +57,9 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::GET('post',[App\Http\Controllers\Admin\PostController::class,'index'])->name('admin.post.index');
 	Route::GET('post/create',[App\Http\Controllers\Admin\PostController::class,'create'])->name('admin.post.create');
 		Route::POST('post/create',[App\Http\Controllers\Admin\PostController::class,'store'])->name('admin.post.store');
+		Route::GET('post/show',[App\Http\Controllers\Admin\PostController::class,'show'])->name('admin.post.show');
+		Route::POST('post/edit',[App\Http\Controllers\Admin\PostController::class,'edit'])->name('admin.post.edit');
+		Route::POST('post/{id}',[App\Http\Controllers\Admin\PostController::class,'destroy'])->name('admin.post.destroy');
 
 
 });
