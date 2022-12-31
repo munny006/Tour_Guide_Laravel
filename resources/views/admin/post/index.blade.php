@@ -128,7 +128,7 @@ data-target="#deleteModal-{{$post->id}}">
 <div class="modal-footer">
    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
    <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('deleteUser-{{$post->id}}').submit();">Confirm</button>
-   <form action="{{route('admin.post.destroy',$post->id)}}" style="display: none" id="deleteUser-{{$post->id}}" method="POST">
+   <form action="{{route('admin.post.delete',$post->id)}}" style="display: none" id="deleteUser-{{$post->id}}" method="POST">
       @csrf
       @method('DELETE');
 

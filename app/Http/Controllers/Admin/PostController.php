@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use App\Models\Category;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
@@ -95,7 +95,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+       return view('admin.post.show',compact('post'));
     }
 
     /**
@@ -106,7 +107,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+       $post = Post::findOrFail($id);
+       $categories =Category::all();
+       return view('admin.post.edit',compact('post','categories'));
     }
 
     /**
@@ -118,7 +121,54 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+       $this->validate($request,[
+        'title' =>'required',
+        'image' =>'required|mimes:jpg,png,jpeg',
+        'category'=> 'required',
+        'tags' =>'required',
+        'body' => 'required',
+       ]);
+       $post = Post::find($id);
+
+       $slug       =  Str::slug($request->title,'-');
+       if(isset($request->image)){
+         $image      =  $request->image;
+       $imageName = Str::slug($request->name,'-') .uniqid().'.'.$image->getClientOriginalExtension();
+
+        //image upload
+       if(!Storage::disk('public')->exists('post')){
+        Storage::disk('public')->makeDirectory('post');
+       }
+       //delete old image
+
+       if(Storage::disk('public')->exists('post/'.$post->image)){
+        Storage::disk('public')->delete('post/'.$post->image);
+       }
+        $image->storeAs('post',$imageName,'public');
+    }
+    else{
+        $imageName = $post->image;
+    }
+       }
+$post->user_id = Auth::id();
+
+    $post->category_id =$request->category;
+    $post->slug = $slug ;
+    $post->image = $imageName ;
+    $post->body =$request->body;
+    $post->body =$request->body;
+    if(isset($request->status)){
+        $post->status =true;
+    }
+    else{
+        $post->status =false;
+    }
+    $post->save();
+    Toastr::success('Post Created Successfully');
+    return redirect()->route('admin.post.index');
+
+
     }
 
     /**
@@ -127,7 +177,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         //
     }
