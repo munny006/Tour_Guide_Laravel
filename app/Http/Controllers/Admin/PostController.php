@@ -129,29 +129,24 @@ class PostController extends Controller
         'tags' =>'required',
         'body' => 'required',
        ]);
-       $post = Post::find($id);
 
-       $slug       =  Str::slug($request->title,'-');
-       if(isset($request->image)){
-         $image      =  $request->image;
-       $imageName = Str::slug($request->name,'-') .uniqid().'.'.$image->getClientOriginalExtension();
+      $post = Post::find($id);
+      $slug = Str::slug($request->title,"-");
+      if(isset($request->image))
+      {
+        $image = $request->image;
+         $imageName = Str::slug($request->name,'-') .uniqid().'.'.$image->getClientOriginalExtension();
+         if(!Storage::disk('public')->exists('post'))
+          {
+          Storage::disk('public')->makeDirectory('post');
+         }
 
-        //image upload
-       if(!Storage::disk('public')->exists('post')){
-        Storage::disk('public')->makeDirectory('post');
-       }
-       //delete old image
 
-       if(Storage::disk('public')->exists('post/'.$post->image)){
-        Storage::disk('public')->delete('post/'.$post->image);
-       }
-        $image->storeAs('post',$imageName,'public');
-    }
-    else{
-        $imageName = $post->image;
-    }
-       }
-$post->user_id = Auth::id();
+    Storage::put('post',$imageName,'public');;
+    
+    $post = new Post();
+    $post->title = $request->title;
+    $post->user_id = Auth::id();
 
     $post->category_id =$request->category;
     $post->slug = $slug ;
@@ -160,15 +155,15 @@ $post->user_id = Auth::id();
     $post->body =$request->body;
     if(isset($request->status)){
         $post->status =true;
-    }
-    else{
-        $post->status =false;
+    }else{
+         $post->status =false;
     }
     $post->save();
-    Toastr::success('Post Created Successfully');
+    Toastr::success('Post Updated Successfully');
     return redirect()->route('admin.post.index');
 
 
+      }
     }
 
     /**
@@ -179,6 +174,10 @@ $post->user_id = Auth::id();
      */
     public function delete($id)
     {
-        //
+         $post = Post::find($id);
+         Storage::disk('public')->delete('post/'.$post->image);
+     $post->delete();
+      Toastr::success('Post Deleted Successfully');
+      return redirect()->back();
     }
 }

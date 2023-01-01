@@ -40,7 +40,7 @@
       </button> -->
    </div>
    <div class="card-body">
-      <form action="{{route('admin.post.update',$post->id)}}" enctype="multipart/form-data"c class="form-horizontal">
+      <form action="{{route('admin.post.update',$post->id)}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
          @csrf
          @method('PUT')
              <div class="row form-group">

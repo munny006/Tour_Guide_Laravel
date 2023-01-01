@@ -130,8 +130,7 @@ data-target="#deleteModal-{{$post->id}}">
    <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('deleteUser-{{$post->id}}').submit();">Confirm</button>
    <form action="{{route('admin.post.delete',$post->id)}}" style="display: none" id="deleteUser-{{$post->id}}" method="POST">
       @csrf
-      @method('DELETE');
-
+      
    </form>
 </div>
 </div>
