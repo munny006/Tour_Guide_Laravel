@@ -52,7 +52,7 @@
     <div class="card">
      <div class="card-header">
       
-      <a href="{{route('admin.post.edit')}}" class="btn btn-info"><i class="fa fa-pencil"></i></a>
+      <a href="{{route('admin.post.edit',$post->id)}}" class="btn btn-info"><i class="fa fa-pencil"></i></a>
             <button type="button" class="btn btn-danger float-right" data-toggle="modal"
             data-target="#deleteModal-{{$post->id}}">
             <i class="fa fa-trash-o"></i>
@@ -60,11 +60,23 @@
    
 </div>
 <div class="card-body">
-   
+   <div class="col-md-12">
+      <img src="{{asset('storage/post/'.$post->image)}}" alt="$post-image" class="image w-100">
+      
+   </div>
    <h1>{{$post->title}}</h1>
    <h5>{{$post->category->name}}</h5>
    <p>Created At : {{$post->created_at}}</p>
-   <p>Tags : </p>
+   <h5>Tags : </h5>
+   <br>
+   <div>
+      @if($post->tags)
+      @foreach($post->tags as $tag)
+         <a href="" class="btn btn-outline-primary btn-flat btn-sm">{{$tag->name}}</a>
+      @endforeach
+
+      @endif
+   </div>
    <hr>
    <div>{!!$post->body!!}</div>
 

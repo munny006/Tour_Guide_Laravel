@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
@@ -83,6 +83,16 @@ class PostController extends Controller
         $post->status =1;
     }
     $post->save();
+
+    $tags=[];
+    $stingTags = array_map('trim',explode(',',$request->tags));
+    foreach($stingTags as $tag){
+        array_push($tags,['name' => $tag]);
+
+    }
+
+    $post->tags()->createMany($tags);
+
     Toastr::success('Post Created Successfully');
     return redirect()->route('admin.post.index');
     }
@@ -159,6 +169,20 @@ class PostController extends Controller
          $post->status =false;
     }
     $post->save();
+
+    //delete old tag system
+    $post->tags()->delete();
+
+    $tags=[];
+    $stingTags = array_map('trim',explode(',',$request->tags));
+    foreach($stingTags as $tag){
+        array_push($tags,['name' => $tag]);
+
+    }
+
+    $post->tags()->createMany($tags);
+
+
     Toastr::success('Post Updated Successfully');
     return redirect()->route('admin.post.index');
 
@@ -176,6 +200,7 @@ class PostController extends Controller
     {
          $post = Post::find($id);
          Storage::disk('public')->delete('post/'.$post->image);
+          $post->tags()->delete();
      $post->delete();
       Toastr::success('Post Deleted Successfully');
       return redirect()->back();

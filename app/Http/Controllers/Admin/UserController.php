@@ -104,11 +104,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
          if (Auth::user()->id == $id){
-             Toastr::danger('Role changed successfully');
+             Toastr::success('Role Deleted successfully');
             return redirect()->back();
         }
         $user->delete();
-         Toastr::danger('Role changed successfully');
+         Toastr::success('Role Deleted successfully');
         return redirect()->back();
 
     }

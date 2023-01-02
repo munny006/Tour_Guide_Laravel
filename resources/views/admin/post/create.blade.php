@@ -95,7 +95,7 @@
 </div>
 <div class="row form-group">
        <div class="col col-md-12">
-         <label for="textarea-input" class=" form-control-label">Body</label>
+         <label for="textarea-input" class=" form-control-label">Body[for embedde google drive image use :https://drive.google.com/uc?export=view&id=file_id ]</label>
        </div>
       <div class="form-group">
           <div class="col col-md-12">

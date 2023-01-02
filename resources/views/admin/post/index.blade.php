@@ -77,7 +77,7 @@
   <tr>
 
    <td>{{$key+1}}</td>
-   <td>{{$post->name}}</td>
+   <td>{{$post->title}}</td>
    <td>{{$post->slug}}</td>
    <td>{{$post->created_at}}</td>
    <td>{{$post->updated_at}}</td>
@@ -89,7 +89,7 @@
  <a href="{{route('admin.post.edit',$post->id)}}" class="btn btn-success">
     <i class="fa fa-pencil"></i>
  </a>
-<button type="button" class="btn btn-danger mb-1" data-toggle="modal"
+<button type="button" class="btn btn-danger" data-toggle="modal"
 data-target="#deleteModal-{{$post->id}}">
 <i class="fa fa-trash-o"></i>
 </button>

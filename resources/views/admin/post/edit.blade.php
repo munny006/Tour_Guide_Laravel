@@ -33,11 +33,8 @@
    <div class="col-md-12">
      <div class="card">
        <div class="card-header">
-         <strong class="card-title">Create Post</strong>
-        <!-- <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
-         data-target="#createModal">
-         <i class="fa fa-plus"></i>
-      </button> -->
+         <strong class="card-title">Update Post</strong>
+        
    </div>
    <div class="card-body">
       <form action="{{route('admin.post.update',$post->id)}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
@@ -69,7 +66,7 @@
       <label for="tags" class=" form-control-label">Tags</label>
    </div>
    <div class="col-12 col-md-9">
-      <input type="text" id="tags" name="tags" placeholder="Tags (spearated By ,)" class="form-control" value="tags">
+      <input type="text" id="tags" name="tags" placeholder="Tags (spearated By ,)" class="form-control" value="@foreach($post->tags as $key=> $tag) {{$key+1 < count($post->tags) ? $tag->name.',' :$tag->name}} @endforeach">
    </div>
 </div>
 <div class="row form-group">
@@ -96,11 +93,11 @@
 </div>
 <div class="row form-group">
        <div class="col col-md-12">
-         <label for="textarea-input" class=" form-control-label">Body</label>
+         <label for="textarea-input" class=" form-control-label">Body [for embedde google drive image use :https://drive.google.com/uc?export=view&id=file_id ]</label>
        </div>
       <div class="form-group">
           <div class="col col-md-12">
-         <textarea name="body" id="summernote" rows="7" cols="60" placeholder="Content..." class="form-control">{{$post->body}}
+         <textarea name="body" id="summernote" rows="7" cols="60" placeholder="Content..." class="form-control">{!!$post->body!!}
          </textarea>
       </div>
       </div>
