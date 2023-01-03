@@ -34,6 +34,10 @@ Route::group(['prefix' => 'admin'], function(){
 
 	Route::get('dashboard',[App\Http\Controllers\Admin\DeshboardController::class, 'index'])->name('admin.dashboard');
 
+	Route::get('profile',[App\Http\Controllers\Admin\DeshboardController::class, 'showProfile'])->name('admin.profile');
+
+
+
 	Route::GET('users',[App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.users.index');
 
 	Route::PUT('users/{id}',[App\Http\Controllers\Admin\UserController::class,'update'])->name('admin.user.update');
