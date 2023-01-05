@@ -24,6 +24,25 @@
 
 <div class="content mt-3">
 <div class="row">
+        <div class="col-md-12">
+            <!--error msg-->
+            @if ($errors->any())
+
+            @foreach ($errors->all() as $error)
+            <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+             <span class="badge badge-pill badge-danger">Error !!</span>{{$error}}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">×</span>
+            </button>
+         </div>
+         @endforeach
+
+      </div>
+      @endif 
+      <!--End error msg-->
+
+
+   </div>
     
         <div class="col-md-4">
         <div class="card">
@@ -32,17 +51,11 @@
             </div>
             <div class="card-body">
                 <div class="mx-auto d-block">
-                    <img class="rounded-circle mx-auto d-block" src="{{asset('backend/images/admin.jpg')}}" alt="Card image cap">
-                    <h5 class="text-sm-center mt-2 mb-1">Steven Lee</h5>
-                    <div class="location text-sm-center"><i class="fa fa-map-marker"></i> California, United States</div>
-                </div>
+                    <img class="rounded-circle mx-auto d-block" src="{{asset('storage/user/'.$user->image)}}" alt="Card image cap">
+                    <h5 class="text-sm-center mt-2 mb-1">{{$user->name}}</h5>
+                 
                 <hr>
-                <div class="card-text text-sm-center">
-                    <a href="#"><i class="fa fa-facebook pr-1"></i></a>
-                    <a href="#"><i class="fa fa-twitter pr-1"></i></a>
-                    <a href="#"><i class="fa fa-linkedin pr-1"></i></a>
-                    <a href="#"><i class="fa fa-pinterest pr-1"></i></a>
-                </div>
+            </div>
             </div>
         </div>
    
@@ -64,15 +77,16 @@
                         </nav>
                         <div class="tab-content pl-3 pt-2" id="nav-tabContent">
                             <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <form action="{{route('admin.profile.update')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                 @csrf
+                                @method('PUT')
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label class=" form-control-label">Email
                                         </label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <p class="form-control-static">Email</p>
+                                        <p class="form-control-static">{{$user->email}}</p>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -80,7 +94,7 @@
                                         <label for="userid" class=" form-control-label">User ID</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="text" id="userid" name="userid" placeholder="id" class="form-control">
+                                        <input type="text" id="userid" name="userid" placeholder="id" class="form-control" value="{{$user->userid}}">
                                         
                                     </div>
                                  </div>
@@ -90,7 +104,7 @@
                                         <label for="name" class=" form-control-label">Name</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="text" id="name" name="name" placeholder="Text" class="form-control">
+                                        <input type="text" id="name" name="name" placeholder="Text" class="form-control" value="{{$user->name}}">
                                         
                                     </div>
                                  </div>
@@ -109,10 +123,14 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <textarea name="about" id="about" rows="4" placeholder="Content..." class="form-control">
-                                            
+                                            {{$user->about}}
                                         </textarea>
                                     </div>
                                  </div>
+                                 <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> 
+                                    Submit
+                                </button>
 
                             </form>
                             </div>
@@ -147,6 +165,10 @@
                                         
                                     </div>
                                  </div>
+                                  <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> 
+                                    Submit
+                                </button>
 
                              </form>
                             
