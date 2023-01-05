@@ -64,13 +64,91 @@
                         </nav>
                         <div class="tab-content pl-3 pt-2" id="nav-tabContent">
                             <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
-                                butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
+                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                @csrf
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label class=" form-control-label">Email
+                                        </label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <p class="form-control-static">Email</p>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="userid" class=" form-control-label">User ID</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="userid" name="userid" placeholder="id" class="form-control">
+                                        
+                                    </div>
+                                 </div>
+
+                                 <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="name" class=" form-control-label">Name</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="name" name="name" placeholder="Text" class="form-control">
+                                        
+                                    </div>
+                                 </div>
+                                 <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="image" class=" form-control-label">Profile Image</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="file" id="image" name="image" class="form-control-file">
+                                    </div>
+                                 </div>
+
+                                 <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="about" class=" form-control-label">About</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <textarea name="about" id="about" rows="4" placeholder="Content..." class="form-control">
+                                            
+                                        </textarea>
+                                    </div>
+                                 </div>
+
+                            </form>
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
-                                butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
-                            </div>
+                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                @csrf
+                               <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="old_password" class=" form-control-label">Old Password</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="password" id="old_password" name="old_password" placeholder="Password" class="form-control">
+                                        
+                                    </div>
+                                 </div>
+
+                                   <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="password" class=" form-control-label">New Password</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+                                       
+                                    </div>
+                                 </div>
+                                   <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="password_confirmation" class=" form-control-label">Confirm Password</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Password" class="form-control">
+                                        
+                                    </div>
+                                 </div>
+
+                             </form>
                             
                         </div>
 
