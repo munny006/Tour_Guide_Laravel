@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	Route::get('profile',[App\Http\Controllers\Admin\DeshboardController::class, 'showProfile'])->name('admin.profile');
 	Route::PUT('profile',[App\Http\Controllers\Admin\DeshboardController::class, 'updateProfile'])->name('admin.profile.update');
-
+Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::class, 'changePassword'])->name('admin.profile.password');
 
 	Route::GET('users',[App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.users.index');
 

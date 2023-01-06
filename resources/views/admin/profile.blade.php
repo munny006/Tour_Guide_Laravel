@@ -1,5 +1,8 @@
 @extends('layouts.backend.app')
-
+@push('header')
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+@endpush
 @section('content')
 <div class="container">
     <div class="breadcrumbs">
@@ -135,8 +138,9 @@
                             </form>
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <form action="{{route('admin.profile.password')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                 @csrf
+                                @method('PUT')
                                <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="old_password" class=" form-control-label">Old Password</label>
@@ -184,3 +188,10 @@
             
  </div>
 @endsection
+@push('footer')
+
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
+@endpush

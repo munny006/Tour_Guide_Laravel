@@ -8,6 +8,9 @@ use App\Models\Role;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
+use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
     /**
@@ -107,6 +110,10 @@ class UserController extends Controller
              Toastr::success('Role Deleted successfully');
             return redirect()->back();
         }
+        if($user->image !== 'default.jpg' && Storage::disk('public')->exists('user/'.$user->image)){
+            Storage::disk('public')->delete('user/'.$user->image);
+        }
+        
         $user->delete();
          Toastr::success('Role Deleted successfully');
         return redirect()->back();
