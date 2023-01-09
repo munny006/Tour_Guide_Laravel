@@ -4,21 +4,20 @@
       class="banner-area relative"
       id="home"
       data-parallax="scroll"
-      data-image-src="img/header-bg.jpg"
-    >
+      data-image-src="{{asset('frontend/img/head.jpg')}}"style="background-image: url({{asset('frontend/img/head.jpg')}});"
+      >
       <div class="overlay-bg overlay"></div>
       <div class="container">
         <div class="row fullscreen">
-          <div
-            class="banner-content d-flex align-items-center col-lg-12 col-md-12"
-          >
+          <div class="banner-content d-flex align-items-center col-lg-12 col-md-12">
             <h1>
               Welcome to myiotlab<br />
               <p>
-                L<span style="font-size: 0.7em">earn</span> &nbspC<span
+                <span style="font-size: 0.7em">earn</span> &nbspC<span
                   style="font-size: 0.7em"
                   >reate</span
                 >
+
                 &nbspS<span style="font-size: 0.7em">hare</span>
               </p>
             </h1>
@@ -39,7 +38,7 @@
                 <h4 class="text-white">Mark wiens</h4>
                 <p>12 Dec, 2017 11:21 am</p>
               </div>
-              <img class="img-fluid user-img" src="img/user.jpg" alt="" />
+              <img class="img-fluid user-img" src="{{asset('frontend/img/user.jpg')}}" alt="" />
             </div>
           </div>
         </div>
@@ -92,14 +91,14 @@
         <div class="container">
         <div class="row justify-content-center">
                   <div class="single-posts col-lg-4 col-sm-4 mb-3">
-            <img class="img-fluid" src="img/c1.jpg" alt="">
+            <img class="img-fluid" src="{{asset('frontend/img/c1.jpg')}}" alt="">
             <div class="date mt-20 mb-20">2 months ago</div>
             <div class="detail">
               <a href="http://localhost:8000/post/1-air-quality-monitoring-iot-project-with-ubidots-iot-dashboard"><h4 class="pb-20">#1 Air quality Monitoring  - IOT Project – with Ubidots Iot Dashboard</h4></a>
               <p>
-                </p><h2 style="box-sizing: inherit; margin-bottom: 0px; line-height: 36px;"><span style="box-sizing: inherit;"><span style="box-sizing: inherit;"><b>Introduction:</b></span></span></h2><h2 style="box-sizing: inherit; margin-bottom: 0px; line-height: 36px;"><span style="box-sizing: inherit;"><span style="box-sizing: inherit;"><b><br></b></span></span></h2><p class="MsoNormal" style="box-sizing: inherit...
+                </p><h2 style="box-sizing: inherit; margin-bottom: 0px; line-height: 36px;"><span style="box-sizing: inherit;"><span style="box-sizing: inherit;"><b>Introduction:</b></span></span></h2><h2 style="box-sizing: inherit; margin-bottom: 0px; line-height: 36px;"><span style="box-sizing: inherit;"><span style="box-sizing: inherit;"><b><br></b></span></span></h2><p class="MsoNormal" style="box-sizing: inherit...">
               </p>
-              <p class=" footer"="">
+              <p class="" footer="">
                 <br>
                 </p><ul class="d-flex space-around">
                                   <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> 0</span></a></li>
