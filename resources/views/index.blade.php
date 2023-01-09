@@ -50,31 +50,30 @@
     <section class="category-area section-gap" id="news">
       <div class="container">
         <div class="row d-flex justify-content-center">
-          <div class="menu-content pb-70 col-lg-8">
+          <div class="menu-content pb-70 col-lg-12">
             <div class="title text-center">
               <h1 class="mb-10">Latest Posts from all categories</h1>
               <p>Find the Latest Post from all category.</p>
             </div>
           </div>
+          
+           <div class="row d-flex justify-content-center">
+        <div class="active-cat-carusel col-lg-4">
+          @foreach($posts as $post)
+          <div class="item single-cat">
+            <img src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}" />
+            <p class="date">{{$post->created_at->diffForHumans()}}</p>
+            <h4><a href="#">{{$post->title}}</a></h4>
+          </div>
         </div>
-        <div class="active-cat-carusel">
-          <div class="item single-cat">
-            <img src="img/c1.jpg" alt="" />
-            <p class="date">10 Jan 2018</p>
-            <h4><a href="#">It S Hurricane Season Visiting Hilton</a></h4>
-          </div>
-          <div class="item single-cat">
-            <img src="img/c2.jpg" alt="" />
-            <p class="date">10 Jan 2018</p>
-            <h4><a href="#">What Makes A Hotel Boutique</a></h4>
-          </div>
-          <div class="item single-cat">
-            <img src="img/c3.jpg" alt="" />
-            <p class="date">10 Jan 2018</p>
-            <h4><a href="#">Les Houches The Hidden Gem Valley</a></h4>
-          </div>
+          @endforeach
+      
+        
+       
         </div>
       </div>
+    </div>
+       </div>
     </section>
     <!-- End category Area -->
 
@@ -159,7 +158,7 @@
             <div class="detail">
               <a href="http://localhost:8000/post/new-possstss"><h4 class="pb-20">New Possstss</h4></a>
               <p>
-                </p><p>helo&nbsp;&nbsp;<span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><sp... <="" p="">
+                </p><p>helo&nbsp;&nbsp;<span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><sp...  p="">
               </sp...></p><p class="footer">
                 <br>
                 </p><ul class="d-flex space-around">
@@ -253,7 +252,7 @@
           <div class="row">
             <div class="single-team">
               <div class="thumb">
-                <img class="img-fluid w-75 mx-auto" src="./img/admin.png" alt="admin">
+                <img class="img-fluid w-75 mx-auto" src="{{asset('frontend/img/admin.png')}}" alt="admin">
                 <div class="align-items-center justify-content-center d-flex">
                   <a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                   <a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
