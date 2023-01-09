@@ -90,7 +90,7 @@
 <label for="file-input" class=" form-control-label">File input</label>
 </div>
 <div class="col-12 col-md-9">
-<input type="file" id="image" name="image" class="form-control-file">
+<input type="file" id="image" name="image" class="form-control-file" style="width:270px;">
 </div>
 </div>
 <div class="row form-group">

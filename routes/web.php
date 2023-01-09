@@ -25,7 +25,8 @@ use App\Http\Controllers\Admin\PostController;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/posts', [App\Http\Controllers\HomeController::class, 'posts'])->name('posts');
+Route::get('/posts/{id}', [App\Http\Controllers\HomeController::class, 'post'])->name('post');
 
 
 //admin//////////

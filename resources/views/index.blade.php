@@ -58,7 +58,7 @@
           </div>
           
            <div class="row d-flex justify-content-center">
-        <div class="active-cat-carusel col-lg-4">
+        <div class="active-cat-carusel ">
           @foreach($posts as $post)
           <div class="item single-cat">
             <img src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}" />
@@ -89,131 +89,28 @@
       </div>
         <div class="container">
         <div class="row justify-content-center">
-                  <div class="single-posts col-lg-4 col-sm-4 mb-3">
-            <img class="img-fluid" src="{{asset('frontend/img/c1.jpg')}}" alt="">
-            <div class="date mt-20 mb-20">2 months ago</div>
+         @foreach($posts as $post)
+          <div class="single-posts col-lg-4 col-sm-4 mb-3"style="width:250px">
+            <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}">
+            <div class="date mt-20 mb-20">{{$post->created_at->diffForHumans()}}</div>
             <div class="detail">
-              <a href="http://localhost:8000/post/1-air-quality-monitoring-iot-project-with-ubidots-iot-dashboard"><h4 class="pb-20">#1 Air quality Monitoring  - IOT Project – with Ubidots Iot Dashboard</h4></a>
+              <a href=""><h4 class="pb-20">{{$post->title}}</h4></a>
               <p>
-                </p><h2 style="box-sizing: inherit; margin-bottom: 0px; line-height: 36px;"><span style="box-sizing: inherit;"><span style="box-sizing: inherit;"><b>Introduction:</b></span></span></h2><h2 style="box-sizing: inherit; margin-bottom: 0px; line-height: 36px;"><span style="box-sizing: inherit;"><span style="box-sizing: inherit;"><b><br></b></span></span></h2><p class="MsoNormal" style="box-sizing: inherit...">
+              {!!Str::limit($post->body,400)!!}
               </p>
               <p class="" footer="">
                 <br>
                 </p><ul class="d-flex space-around">
-                                  <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> 0</span></a></li>
-
-
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> 0</span></li>
+                    <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> 0</span></a></li>
+                  <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> 0</span></li>
                   <li><i class="fa fa-eye" aria-hidden="true"></i> <span>5</span></li>
                 </ul>
 
             <p></p>
             </div>
           </div>
-                  <div class="single-posts col-lg-4 col-sm-4 mb-3">
-            <img class="img-fluid" src="img/c2.jpg" alt="">
-            <div class="date mt-20 mb-20">2 months ago</div>
-            <div class="detail">
-              <a href="http://localhost:8000/post/ssssssssssss"><h4 class="pb-20">ssssssssssss</h4></a>
-              <p>
-                </p><p>qqqqqq</p>
-              <p></p>
-              <p class="footer">
-                <br>
-                </p><ul class="d-flex space-around">
-                                  <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> 0</span></a></li>
 
-
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> 0</span></li>
-                  <li><i class="fa fa-eye" aria-hidden="true"></i> <span>3</span></li>
-                </ul>
-
-            <p></p>
-            </div>
-          </div>
-                  <div class="single-posts col-lg-4 col-sm-4 mb-3">
-            <img class="img-fluid" src="img/c3.jpg" alt="">
-            <div class="date mt-20 mb-20">7 months ago</div>
-            <div class="detail">
-              <a href="http://localhost:8000/post/kkkkkkkkkkkkkk"><h4 class="pb-20">kkkkkkkkkkkkkk</h4></a>
-              <p>
-                </p><p>jjjjjjjjjjjjjjjjj</p>
-              <p></p>
-              <p class="footer">
-                <br>
-                </p><ul class="d-flex space-around">
-                                  <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> 0</span></a></li>
-
-
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> 1</span></li>
-                  <li><i class="fa fa-eye" aria-hidden="true"></i> <span>1</span></li>
-                </ul>
-
-            <p></p>
-            </div>
-          </div>
-                  <div class="single-posts col-lg-4 col-sm-4 mb-3">
-            <img class="img-fluid" src="img/c1.jpg" alt="">
-            <div class="date mt-20 mb-20">7 months ago</div>
-            <div class="detail">
-              <a href="http://localhost:8000/post/new-possstss"><h4 class="pb-20">New Possstss</h4></a>
-              <p>
-                </p><p>helo&nbsp;&nbsp;<span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><span style="font-size: 1rem;">helo&nbsp;&nbsp;</span><sp...  p="">
-              </sp...></p><p class="footer">
-                <br>
-                </p><ul class="d-flex space-around">
-                                  <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> 0</span></a></li>
-
-
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> 1</span></li>
-                  <li><i class="fa fa-eye" aria-hidden="true"></i> <span>1</span></li>
-                </ul>
-
-            <p></p>
-            </div>
-          </div>
-                  <div class="single-posts col-lg-4 col-sm-4 mb-3">
-            <img class="img-fluid" src="img/c1.jpg" alt="">
-            <div class="date mt-20 mb-20">7 months ago</div>
-            <div class="detail">
-              <a href="http://localhost:8000/post/hello-world"><h4 class="pb-20">hello world</h4></a>
-              <p>
-                </p><p>&nbsp;<span style="font-size: 1rem;">Hleo world&nbsp;</span><span style="font-size: 1rem;">&nbsp;</span><span style="font-size: 1rem;">Hleo world&nbsp;</span><span style="font-size: 1rem;">&nbsp;</span><span style="font-size: 1rem;">Hleo world&nbsp;</span><span style="font-size: 1rem;">&nbsp;</span><span style="font-size: 1rem;">Hleo world&nbsp;</span><span style="font-size: 1rem;">&nbsp;
-              </span></p><p class="footer">
-                <br>
-                </p><ul class="d-flex space-around">
-                                  <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> 1</span></a></li>
-
-
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> 0</span></li>
-                  <li><i class="fa fa-eye" aria-hidden="true"></i> <span>2</span></li>
-                </ul>
-
-            <p></p>
-            </div>
-          </div>
-                  <div class="single-posts col-lg-4 col-sm-4 mb-3">
-            <img class="img-fluid" src="img/c1.jpg" alt="">
-            <div class="date mt-20 mb-20">7 months ago</div>
-            <div class="detail">
-              <a href="http://localhost:8000/post/something"><h4 class="pb-20">Something</h4></a>
-              <p>
-                </p><p>cv xcvxc</p>
-              <p></p>
-              <p class="footer">
-                <br>
-                </p><ul class="d-flex space-around">
-                                  <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> 0</span></a></li>
-
-
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> 0</span></li>
-                  <li><i class="fa fa-eye" aria-hidden="true"></i> <span>0</span></li>
-                </ul>
-
-            <p></p>
-            </div>
-          </div>
-                </div>
+        @endforeach           
       </div>
     </div>
   </section>
