@@ -11,7 +11,7 @@
         <div class="row fullscreen">
           <div class="banner-content d-flex align-items-center col-lg-12 col-md-12">
             <h1>
-              Welcome to myiotlab<br />
+              Welcome to MF<br />
               <p>
                 <span style="font-size: 0.7em">earn</span> &nbspC<span
                   style="font-size: 0.7em"
@@ -56,24 +56,23 @@
               <p>Find the Latest Post from all category.</p>
             </div>
           </div>
+        
           
-           <div class="row d-flex justify-content-center">
+     <div class="row d-flex justify-content-center">
         <div class="active-cat-carusel ">
-          @foreach($posts as $post)
-          <div class="item single-cat">
+            @foreach($posts as $post)
+            <div class="item single-cat">
             <img src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}" />
             <p class="date">{{$post->created_at->diffForHumans()}}</p>
             <h4><a href="#">{{$post->title}}</a></h4>
-          </div>
+           </div>
         </div>
+    
           @endforeach
-      
-        
-       
         </div>
       </div>
-    </div>
-       </div>
+      </div>
+
     </section>
     <!-- End category Area -->
 
@@ -116,7 +115,7 @@
   </section>
 
     <!-- Start team Area -->
-    <section class="team-area section-gap" id="about">
+  <section class="team-area section-gap" id="about">
     <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="menu-content pb-70 col-lg-8">
