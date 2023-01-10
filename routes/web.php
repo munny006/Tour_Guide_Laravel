@@ -26,7 +26,8 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/posts', [App\Http\Controllers\HomeController::class, 'posts'])->name('posts');
-Route::get('/posts/{id}', [App\Http\Controllers\HomeController::class, 'post'])->name('post');
+Route::get('/categories', [App\Http\Controllers\HomeController::class, 'categories'])->name('categories');
+Route::get('/post/{slug}', [App\Http\Controllers\HomeController::class, 'post'])->name('post');
 
 
 //admin//////////

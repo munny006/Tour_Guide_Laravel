@@ -28,4 +28,17 @@ class HomeController extends Controller
         $categories = Category::take(10)->get();
         return view('posts',compact('posts','categories'));
     }
+  public function post($slug){
+        $post = Post::where('slug',$slug)->first();
+        $categories = Category::take(10)->get();
+        $posts = Post::latest()->take(3)->get();
+        return view('post',compact('post','categories','posts'));
+    }
+
+      public function categories(){
+        $categories = Category::all();
+        
+        return view('categories',compact('categories'));
+    }
+
 }

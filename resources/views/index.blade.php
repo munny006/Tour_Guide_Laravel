@@ -64,7 +64,7 @@
             <div class="item single-cat">
             <img src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}" />
             <p class="date">{{$post->created_at->diffForHumans()}}</p>
-            <h4><a href="#">{{$post->title}}</a></h4>
+            <h4><a href="{{route('post',$post->slug)}}">{{$post->title}}</a></h4>
            </div>
         </div>
     
@@ -90,10 +90,10 @@
         <div class="row justify-content-center">
          @foreach($posts as $post)
           <div class="single-posts col-lg-4 col-sm-4 mb-3"style="width:250px">
-            <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}">
+            <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}" width="250px">
             <div class="date mt-20 mb-20">{{$post->created_at->diffForHumans()}}</div>
             <div class="detail">
-              <a href=""><h4 class="pb-20">{{$post->title}}</h4></a>
+              <a href="{{route('post',$post->slug)}}"><h4 class="pb-20">{{$post->title}}</h4></a>
               <p>
               {!!Str::limit($post->body,400)!!}
               </p>

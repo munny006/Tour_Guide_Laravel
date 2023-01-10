@@ -38,7 +38,7 @@
                         {{$post->created_at->diffForHumans()}}
                       </div>
                         <div class="detail">
-                            <a href="#"><h4 class="pb-20">{{$post->title}}</h4></a>
+                            <a href="{{route('post',$post->slug)}}"><h4 class="pb-20">{{$post->title}}</h4></a>
                          
                         <p>{!!Str::limit($post->body,400)!!}</p>
 
