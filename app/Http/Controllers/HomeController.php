@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->take(6)->get();
+        $posts = Post::latest()->take(6)->published()->get();
         return view('index',compact('posts'));
     }
     public function posts(){
@@ -29,9 +29,9 @@ class HomeController extends Controller
         return view('posts',compact('posts','categories'));
     }
   public function post($slug){
-        $post = Post::where('slug',$slug)->first();
+        $post = Post::where('slug',$slug)->published()->first();
         $categories = Category::take(10)->get();
-        $posts = Post::latest()->take(3)->get();
+        $posts = Post::latest()->take(3)->published()->get();
         return view('post',compact('post','categories','posts'));
     }
 
@@ -39,6 +39,12 @@ class HomeController extends Controller
         $categories = Category::all();
         
         return view('categories',compact('categories'));
+    }
+
+    public function categoryPost($slug){
+             $category = Category::where('slug',$slug)->first();
+             $post = $category->posts->published()->get();
+             return view('categoryPost',compact('post'))
     }
 
 }
