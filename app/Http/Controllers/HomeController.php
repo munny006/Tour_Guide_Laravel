@@ -24,7 +24,7 @@ class HomeController extends Controller
         return view('index',compact('posts'));
     }
     public function posts(){
-        $posts = Post::latest()->paginate(10);
+        $posts = Post::latest()->published()->paginate(10);
         $categories = Category::take(10)->get();
         return view('posts',compact('posts','categories'));
     }

@@ -62,7 +62,7 @@
         <div class="active-cat-carusel ">
             @foreach($posts as $post)
             <div class="item single-cat">
-            <img src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}" />
+            <img src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}" width="250px" />
             <p class="date">{{$post->created_at->diffForHumans()}}</p>
             <h4><a href="{{route('post',$post->slug)}}">{{$post->title}}</a></h4>
            </div>

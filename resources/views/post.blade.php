@@ -343,7 +343,7 @@
               <div class="single_widget recent_widget">
                 <h4 class="text-uppercase pb-20">Recent Posts</h4>
                 <div class="active-recent-carusel">
-                  @foreach($posts as $latestPost)
+                  @foreach($posts->take(3) as $latestPost)
                   	<div class="item">
                     <img src="{{asset('storage/post/'.$latestPost->image)}}" alt="{{$latestPost->image}}" width="250px" />
                     <a href="{{route('post',$post->slug)}}">
