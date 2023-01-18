@@ -7,14 +7,14 @@
             <h1 class="text-white mb-20">All Post</h1>
             <ul>
               <li>
-                <a href="index.html">Home</a
+                <a href="{{route('home')}}">Home</a
                 ><span class="lnr lnr-arrow-right"></span>
               </li>
               <li>
-                <a href="category.html">Category</a
+                <a href="{{route('categories')}}">Category</a
                 ><span class="lnr lnr-arrow-right"></span>
               </li>
-              <li><a href="single.html">Posts</a></li>
+              <li><a href="{{route('posts')}}">Posts</a></li>
             </ul>
           </div>
         </div>
@@ -31,6 +31,7 @@
               <div class="top-posts pt-50">
                 <div class="container">
                   <div class="row justify-content-center">
+                     @if($posts->count()>0)
                       @foreach($posts as $post)
                     <div class="single-posts col-lg-6 col-sm-6">
                         <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="$post->image" />
@@ -52,6 +53,9 @@
                     </div>
  
                       @endforeach 
+                      @else
+                      <h3>No Post available</h3>
+                      @endif
               </div>
                <div class="justify-content-center d-flex mt-5">
                       {{$posts->links()}}
@@ -63,102 +67,7 @@
               </div>
             </div>
 
-            <div class="col-lg-4 sidebar-area">
-              <div class="single_widget search_widget">
-                <div id="imaginary_container">
-                  <div class="input-group stylish-input-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Search"
-                    />
-                    <span class="input-group-addon">
-                      <button type="submit">
-                        <span class="lnr lnr-magnifier"></span>
-                      </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="single_widget cat_widget">
-                <h4 class="text-uppercase pb-20">post categories</h4>
-                <ul>
-                @foreach($categories as $category)
-                 <li>
-                    <a href="#">{{$category->name}}<span>{{$category->posts->count()}}</span></a>
-                  </li>
-                 @endforeach
-                  
-                  
-                </ul>
-              </div>
-
-              <div class="single_widget recent_widget">
-                <h4 class="text-uppercase pb-20">Recent Posts</h4>
-                <div class="active-recent-carusel">
-                  <div class="item">
-                    <img src="img/asset/slider.jpg" alt="" />
-                    <p class="mt-20 title text-uppercase">
-                      Home Audio Recording <br />
-                      For Everyone
-                    </p>
-                    <p>
-                      02 Hours ago
-                      <span>
-                        <i class="fa fa-heart-o" aria-hidden="true"></i> 06
-                        <i class="fa fa-comment-o" aria-hidden="true"></i
-                        >02</span
-                      >
-                    </p>
-                  </div>
-                  <div class="item">
-                    <img src="img/asset/slider.jpg" alt="" />
-                    <p class="mt-20 title text-uppercase">
-                      Home Audio Recording <br />
-                      For Everyone
-                    </p>
-                    <p>
-                      02 Hours ago
-                      <span>
-                        <i class="fa fa-heart-o" aria-hidden="true"></i> 06
-                        <i class="fa fa-comment-o" aria-hidden="true"></i
-                        >02</span
-                      >
-                    </p>
-                  </div>
-                  <div class="item">
-                    <img src="img/asset/slider.jpg" alt="" />
-                    <p class="mt-20 title text-uppercase">
-                      Home Audio Recording <br />
-                      For Everyone
-                    </p>
-                    <p>
-                      02 Hours ago
-                      <span>
-                        <i class="fa fa-heart-o" aria-hidden="true"></i> 06
-                        <i class="fa fa-comment-o" aria-hidden="true"></i
-                        >02</span
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="single_widget tag_widget">
-                <h4 class="text-uppercase pb-20">Tag Clouds</h4>
-                <ul>
-                  <li><a href="#">Lifestyle</a></li>
-                  <li><a href="#">Art</a></li>
-                  <li><a href="#">Adventure</a></li>
-                  <li><a href="#">Food</a></li>
-                  <li><a href="#">Technology</a></li>
-                  <li><a href="#">Fashion</a></li>
-                  <li><a href="#">Adventure</a></li>
-                  <li><a href="#">Food</a></li>
-                  <li><a href="#">Technology</a></li>
-                </ul>
-              </div>
-            </div>
+           @include('layouts.frontend.partials.sidebar')
           </div>
         </div>
 
