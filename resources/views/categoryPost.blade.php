@@ -33,6 +33,7 @@
               <div class="top-posts pt-50">
                 <div class="container">
                   <div class="row justify-content-center">
+                    @if($posts->count() > 0)
                     @foreach($posts as $post)
                       <div class="single-posts col-lg-6 col-sm-6">
                       <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}" />
@@ -57,8 +58,10 @@
                         </p>
                       </div>
                     </div>
-                    @endforeach()
-                   
+                    @endforeach
+                    @else
+                    <h1>No Posts Available</h1>
+                   @endif
                     <div class="justify-content-center d-flex mb-3">
                       {{$posts->links()}}
                     </div>
