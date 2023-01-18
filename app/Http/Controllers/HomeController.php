@@ -43,8 +43,9 @@ class HomeController extends Controller
 
     public function categoryPost($slug){
              $category = Category::where('slug',$slug)->first();
-             $post = $category->posts->published()->paginate(10);
-             return view('categoryPost',compact('post'));
+             $posts = $category->posts()->published()->paginate(10);
+             return view('categoryPost',compact('posts'));
     }
 
 }
+
