@@ -49,5 +49,16 @@ class HomeController extends Controller
              return view('categoryPost',compact('posts','categories'));
     }
 
+    public function search(Request $request){
+
+        $this->validate($request,['search'=>'required']);
+        $search = $request->search;
+        $posts = Post::where('title','like',"%$search%")->paginate(10);
+        $posts->appends(['search'=>$search]);
+        $categories = Category::all();
+        return view('search',compact('posts','categories'));
+
+    }
+
 }
 

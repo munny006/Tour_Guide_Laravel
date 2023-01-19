@@ -33,6 +33,10 @@ Route::get('/categories', [App\Http\Controllers\HomeController::class, 'categori
 Route::get('/category/{slug}', [App\Http\Controllers\HomeController::class, 'categoryPost'])->name('category.post');
 
 
+Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+
+
+
 //Route::get('/category/{slug}', [App\Http\Controllers\HomeController::class, 'categoryPost'])->name('category.post');
 
 //admin//////////
