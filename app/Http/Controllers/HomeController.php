@@ -56,7 +56,7 @@ class HomeController extends Controller
         $posts = Post::where('title','like',"%$search%")->paginate(10);
         $posts->appends(['search'=>$search]);
         $categories = Category::all();
-        return view('search',compact('posts','categories'));
+        return view('search',compact('posts','categories','search'));
 
     }
 
