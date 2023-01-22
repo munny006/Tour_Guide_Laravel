@@ -5,16 +5,20 @@
                     <div class="row justify-content-center align-items-center d-flex">
                         <div class="col-lg-8">
                             <div id="imaginary_container">
-                                <div class="input-group stylish-input-group">
-                                    <input type="text" class="form-control"  placeholder="Addictionwhen gambling" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Addictionwhen gambling '" required="">
+                                <form action="{{route('search')}}" method="GET">
+
+                                  <div class="input-group stylish-input-group">
+                                    <input type="text" class="form-control"  placeholder="Addictionwhen gambling" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Addictionwhen gambling '" required="" name="search" value="{{$search ?? ""}}">
                                     <span class="input-group-addon">
                                         <button type="submit">
                                             <span class="lnr lnr-magnifier"></span>
                                         </button>
                                     </span>
                                 </div>
+                                  
+                                </form>
                             </div>
-                            <p class="mt-20 text-center text-white">169 results found for “Addictionwhen gambling”</p>
+                            <p class="mt-20 text-center text-white">{{$posts->count() ?? "0"}}results found for “{{$search}}”</p>
                         </div>
                     </div>
                 </div>
