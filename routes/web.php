@@ -5,6 +5,9 @@ use App\Http\Controllers\Admin\DeshboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
+use Illuminate\Support\Facades\view;
+use App\Models\Category;
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -96,4 +99,12 @@ Route::group(['prefix' => 'user'], function(){
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
 });
 
+
+//view composer
+
+View::composer('layouts.frontend.partials.sidebar',function($view){
+$categories = Category::all()->take(10);
+$recentPost = Post::latest()->take(3)->get();
+return $view->with('categories',$categories)->with('recentPost',$recentPost);
+});
 

@@ -18,7 +18,7 @@
                                   
                                 </form>
                             </div>
-                            
+                            <p class="mt-20 text-center text-white">{{$posts->count() ?? "0"}} results found for “{{$search}}”</p>
                         </div>
                     </div>
                 </div>
