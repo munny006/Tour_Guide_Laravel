@@ -32,15 +32,15 @@
               <div class="single_widget recent_widget">
                 <h4 class="text-uppercase pb-20">Recent Posts</h4>
                 <div class="active-recent-carusel">
-                  @foreach($posts->take(3) as $latestPost)
+                  @foreach($recentPosts as $recentPost)
                   <div class="item">
-                    <img src="{{asset('storage/post/'.$latestPost->image)}}" alt="{{$latestPost->image}}" />
+                    <img src="{{asset('storage/post/'.$recentPost->image)}}" alt="{{$recentPost->image}}" />
                     <a href="{{route('post',$post->slug)}}"></a>
                     <p class="mt-20 title text-uppercase">
-                     {{$latestPost->title}}
+                     {{$recentPost->title}}
                     </p>
                     <p>
-                      {{$latestPost->created_at->diffForHumans()}}
+                      {{$recentPost->created_at->diffForHumans()}}
                       <span>
                         <i class="fa fa-heart-o" aria-hidden="true"></i> 06
                         <i class="fa fa-comment-o" aria-hidden="true"></i

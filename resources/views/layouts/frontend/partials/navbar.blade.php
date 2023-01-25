@@ -35,6 +35,12 @@
 
                               </div>
                           </li> -->
+                          @if (Route::has('login'))
+              
+                    @auth
+                    
+                       
+                 
                       <!-- Dropdown -->
                       <li class="dropdown">
                         <a href="#"  onclick="dropMenu()">
@@ -43,8 +49,16 @@
                         </a>
                         <div id="dropMenu" class="dropdown-menu menu1" style="display: none;">
                             <a href="/admin/dashboard/profile" class="dropdown-item" target="_blank">Admin Subhadip</a>
-                          <a class="dropdown-item" href="/admin/dashboard"><i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Dashboard</a>
-                          <a class="dropdown-item" href="/admin/dashboard"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
+                         @if(Auth::user()->role->id == 1)
+                    <a href="">Dashboard</a>
+                    <a class="dropdown-item" href="{{route('admin.dashboard')}}"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
+                    @elseif(Auth::user()->role->id == 2)
+                    <a href="{{route('user.dashboard')}}">Dashboard</a>
+                    <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
+                    @else
+                    null
+                    @endif
+                          
 
                           <a class="dropdown-item" href="/logout" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
@@ -56,6 +70,15 @@
 
                         </div>
                     </li>
+                       @else
+                        <li><a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
+
+                        @if (Route::has('register'))
+                            <li><a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a></li>
+                        @endif
+                    @endauth
+              
+            @endif
                     <script>
                         function dropMenu(){
                         var dropmenu = document.getElementById('dropMenu');
