@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 class HomeController extends Controller
 {
     /**
@@ -58,6 +59,13 @@ class HomeController extends Controller
         //$categories = Category::all();
         return view('search',compact('posts','search'));
 
+    }
+
+    public function tagPosts($name)
+    {
+        $tags= Tag::where('name','like',"%$name%")->paginate(10); 
+        $tags->appends(['search'=>$name])->paginate(10);
+        return view('tagPosts',compact('tags'));
     }
 
 }

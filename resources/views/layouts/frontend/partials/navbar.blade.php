@@ -49,29 +49,28 @@
                         </a>
                         <div id="dropMenu" class="dropdown-menu menu1" style="display: none;">
                           <a href="{{route('admin.profile')}}" class="dropdown-item" target="_blank"> <i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;{{Auth::user()->name}}</a>
+                           
                         @if(Auth::user()->role->id == 1)
                     
                     <a class="dropdown-item" href="{{route('admin.dashboard')}}">
-                      <i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Dashboard</a>
+                      <i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Dashboard</a>
+                      <a class="dropdown-item" href="{{route('admin.dashboard')}}"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
                     
 
                     @elseif(Auth::user()->role->id == 2)
-                    <a href="{{route('user.dashboard')}}">Dashboard</a>
+                    <a href="{{route('user.dashboard')}}"><i class="fa fa-tv" aria-hidden="true"></i>&nbsp;Dashboard</a>
                     <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
                     @else
                     null
                     @endif
                           
 
-                          <a class="dropdown-item" href="/logout" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout
-                       </a>
+                          
 
                      <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                           onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                                       <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; {{ __('Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

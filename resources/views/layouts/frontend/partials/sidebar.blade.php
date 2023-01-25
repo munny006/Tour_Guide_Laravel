@@ -55,3 +55,14 @@
               
               </div>
             </div>
+            <div class="single_widget tag_widget">
+                <h4 class="text-uppercase pb-20">Tag Clouds</h4>
+                <ul>
+                 @foreach($recentTags as $recentTag)
+                   <li><a href="{{route('tag.posts',$recentTag->name)}}">{{$recentTag->name}}</a></li>
+
+
+                 @endforeach
+                
+                </ul>
+              </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\view;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +39,7 @@ Route::get('/category/{slug}', [App\Http\Controllers\HomeController::class, 'cat
 
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
-
+Route::get('/tag/{name}', [App\Http\Controllers\HomeController::class, 'tagPosts'])->name('tag.posts');
 
 //Route::get('/category/{slug}', [App\Http\Controllers\HomeController::class, 'categoryPost'])->name('category.post');
 
@@ -104,7 +105,8 @@ Route::group(['prefix' => 'user'], function(){
 
 View::composer('layouts.frontend.partials.sidebar',function($view){
 $categories = Category::all()->take(10);
+$recentTags = Tag::all()->take(10);
 $recentPosts = Post::latest()->take(3)->get();
-return $view->with('categories',$categories)->with('recentPosts',$recentPosts);
+return $view->with('categories',$categories)->with('recentPosts',$recentPosts)->with('recentTags',$recentTags);
 });
 
