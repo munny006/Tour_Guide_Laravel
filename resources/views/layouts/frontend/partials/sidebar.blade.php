@@ -35,7 +35,7 @@
                   @foreach($recentPosts as $recentPost)
                   <div class="item">
                     <img src="{{asset('storage/post/'.$recentPost->image)}}" alt="{{$recentPost->image}}" />
-                    <a href="{{route('post',$post->slug)}}"></a>
+                    <a href="{{route('post',$recentPost->slug)}}"></a>
                     <p class="mt-20 title text-uppercase">
                      {{$recentPost->title}}
                     </p>

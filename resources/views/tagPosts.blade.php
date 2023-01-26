@@ -63,7 +63,7 @@
                     <h1>No Posts Available</h1>
                    @endif
                     <div class="justify-content-center d-flex mb-3">
-                      {{$tags->appends(Request::all()->links()}}
+                      {{$posts->appends(Request::all())->links()}}
                     </div>
                   </div>
                 </div>
