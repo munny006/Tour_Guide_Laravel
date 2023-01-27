@@ -278,17 +278,21 @@
                   <div class="container">
                     <h5 class="text-uppercas pb-50">Leave a Reply</h5>
                     <div class="row flex-row d-flex">
-                      <div class="col-lg-12">
+                     
+                        <div class="col-lg-12">
+                           <form action="{{route('comment.store',$post->id)}}" method="POST">
+                        @csrf
                         <textarea
                           class="form-control mb-10"
-                          name="message"
+                          name="comment"
                           placeholder="Messege"
                           onfocus="this.placeholder = ''"
                           onblur="this.placeholder = 'Messege'"
                           required=""
                         ></textarea>
-                        <a class="primary-btn mt-20" href="#">Comment</a>
+                        <button type="submit" class="primary-btn mt-20">Comment</button>
                       </div>
+                      </form>
                     </div>
                   </div>
                 </section>
