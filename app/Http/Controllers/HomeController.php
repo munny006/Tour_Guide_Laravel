@@ -63,9 +63,10 @@ class HomeController extends Controller
 
     public function tagPosts($name)
     {
+        $query = $name;
         $tags= Tag::where('name','like',"%$name%")->paginate(10); 
         $tags->appends(['search'=>$name]);
-        return view('tagPosts',compact('tags'));
+        return view('tagPosts',compact('tags','query'));
     }
 
 }

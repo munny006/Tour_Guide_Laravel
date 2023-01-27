@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row justify-content-between align-items-center d-flex">
           <div class="col-lg-8 top-left">
-            <h1 class="text-white mb-20">All Post of Tag 1</h1>
+            <h1 class="text-white mb-20">All Post of #{{$query}}</h1>
             <ul>
               <li>
                 <a href="index.html">Home</a
