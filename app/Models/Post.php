@@ -21,6 +21,10 @@ class Post extends Model
    public function tags(){
     return $this->hasMany('App\Models\Tag','postID','id');
    }
+
+   public function comments(){
+    return $this->hasMany('App\Models\Comment');
+   }
    public function scopePublished($query){
     return $query->where('status',1);
 
