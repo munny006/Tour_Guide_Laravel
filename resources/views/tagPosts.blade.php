@@ -37,7 +37,7 @@
                     @foreach($tags as $tag)
                       <div class="single-tags col-lg-6 col-sm-6">
                       <img class="img-fluid" src="{{asset('storage/post/'.$tag->post->image)}}" alt="{{$tag->post->image}}" />
-                      <div class="date mt-20 mb-20">{{$tag->created_at->format('D,d M Y H:i')}}</div>
+                      <div class="date mt-20 mb-20">{{$tag->post->created_at->format('D,d M Y H:i')}}</div>
                       <div class="detail">
                         <a href="{{route('post',$tag->post->slug)}}"
                           ><h4 class="pb-20">
@@ -63,7 +63,7 @@
                     <h1>No Posts Available</h1>
                    @endif
                     <div class="justify-content-center d-flex mb-3">
-                      {{$posts->appends(Request::all())->links()}}
+                      {{$tags->appends(Request::all())->links()}}
                     </div>
                   </div>
                 </div>
