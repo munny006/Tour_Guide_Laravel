@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\view;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Comment;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +42,9 @@ Route::get('/category/{slug}', [App\Http\Controllers\HomeController::class, 'cat
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 Route::get('/tag/{name}', [App\Http\Controllers\HomeController::class, 'tagPosts'])->name('tag.posts');
+
+
+Route::POST('/comment/{post}',[App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
 
 //Route::get('/category/{slug}', [App\Http\Controllers\HomeController::class, 'categoryPost'])->name('category.post');
 
