@@ -274,7 +274,15 @@
                 <!-- End comment-sec Area -->
 
                 <!-- Start commentform Area -->
-                <section class="commentform-area pb-120 pt-80 mb-100">
+                  <section class="commentform-area pb-120 pt-80 mb-100">
+               @guest
+                  <div class="container">
+                      <h4 class="py-3">Please Log in to Comment</h4>
+                    
+                  </div>
+
+               @else
+              
                   <div class="container">
                     <h5 class="text-uppercas pb-50">Leave a Reply</h5>
                     <div class="row flex-row d-flex">
@@ -295,7 +303,9 @@
                       </form>
                     </div>
                   </div>
+                  @endguest
                 </section>
+               
                 <!-- End commentform Area -->
               </div>
             </div>
