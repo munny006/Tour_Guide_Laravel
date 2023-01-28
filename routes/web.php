@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DeshboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\CommentController;
 use Illuminate\Support\Facades\view;
 use App\Models\Category;
 use App\Models\Post;
@@ -63,6 +64,7 @@ Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::c
 	Route::PUT('users/{id}',[App\Http\Controllers\Admin\UserController::class,'update'])->name('admin.user.update');
 
 	Route::POST('users/{id}',[App\Http\Controllers\Admin\UserController::class,'destroy'])->name('admin.user.destroy');
+	Route::POST('comment/{id}',[App\Http\Controllers\Admin\CommentController::class,'delete'])->name('comment.delete');
 
 
 	//category
