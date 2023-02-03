@@ -64,7 +64,10 @@ Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::c
 	Route::PUT('users/{id}',[App\Http\Controllers\Admin\UserController::class,'update'])->name('admin.user.update');
 
 	Route::POST('users/{id}',[App\Http\Controllers\Admin\UserController::class,'destroy'])->name('admin.user.destroy');
-	Route::POST('comment/{id}',[App\Http\Controllers\Admin\CommentController::class,'delete'])->name('comment.delete');
+
+	Route::GET('/comments',[App\Http\Controllers\Admin\CommentController::class,'index'])->name('comment.index');
+	Route::POST('comment/{id}',[App\Http\Controllers\Admin\CommentController::class,'delete'])->name('admin.comment.delete');
+
 
 
 	//category

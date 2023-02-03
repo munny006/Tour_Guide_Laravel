@@ -95,7 +95,7 @@
  <i class="fa fa-pencil"></i>
 </button> --}}
 <button type="button" class="btn btn-danger mb-1" data-toggle="modal"
-data-target="#deleteModal-{{$category->id}}">
+data-target="#deleteModal-{{$comment->id}}">
 <i class="fa fa-trash-o"></i>
 </button>
 </td>
@@ -176,7 +176,7 @@ data-target="#deleteModal-{{$category->id}}">
 <div class="modal-footer">
    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
    <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('deletecomment-{{$comment->id}}').submit();">Confirm</button>
-   <form action="{{route('admin.comment.ddelete',$comment->id)}}" style="display: none" id="deletecomment-{{$comment->id}}" method="POST">
+   <form action="{{route('admin.comment.delete',$comment->id)}}" style="display: none" id="deletecomment-{{$comment->id}}" method="POST">
       @csrf
 
 

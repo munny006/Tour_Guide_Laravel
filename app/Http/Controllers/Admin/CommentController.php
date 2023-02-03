@@ -10,6 +10,10 @@ use Brian2694\Toastr\Facades\Toastr;
 
 class CommentController extends Controller
 {
+    public function index(){
+        $comments = Comment::all();
+        return view('admin.comments.index',compact('comments'));
+    }
    public function delete($comment)
    {
     $comment = Comment::find($id);
