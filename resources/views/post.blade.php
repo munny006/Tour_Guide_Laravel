@@ -189,65 +189,7 @@
                         </div> --}}
                       </div>
                       <!-- 2nd Comment -->
-                      <div class="comment">
-                        
-                        <div class="comment-list left-padding">
-                          <div
-                            class="single-comment justify-content-between d-flex"
-                          >
-                            <div class="user justify-content-between d-flex">
-                              <div class="thumb">
-                                <img src="img/asset/c3.jpg" alt="" />
-                              </div>
-                              <div class="desc">
-                                <h5><a href="#">Sally Sally</a></h5>
-                                <p class="date">December 4, 2017 at 3:12 pm</p>
-                                <p class="comment">
-                                  @Emilly Blunt Never say goodbye till the end comes!
-                                </p>
-                              </div>
-                            </div>
-                            <div class="">
-                              <button class="btn-reply text-uppercase" id="reply-btn" 
-                                onclick="showReplyForm('2','Sally Sally')">reply 2</button
-                              >
-                            </div>
-                          </div>
-                        </div>
-                        <div class="comment-list left-padding" id="reply-form-2" style="display: none">
-                          <div
-                            class="single-comment justify-content-between d-flex"
-                          >
-                            <div class="user justify-content-between d-flex">
-                              <div class="thumb">
-                                <img src="img/asset/c2.jpg" alt="" />
-                              </div>
-                              <div class="desc">
-                                <h5><a href="#">Goerge Stepphen</a></h5>
-                                <p class="date">December 4, 2017 at 3:12 pm</p>
-                                <div class="row flex-row d-flex">
-                                  <form action="#" method="POST">
-                                  <div class="col-lg-12">
-                                    <textarea
-                                      id="reply-form-2-text"
-                                      cols="60"
-                                      rows="2"
-                                      class="form-control mb-10"
-                                      name="message"
-                                      placeholder="Messege"
-                                      onfocus="this.placeholder = ''"
-                                      onblur="this.placeholder = 'Messege'"
-                                      required=""
-                                    ></textarea>
-                                  </div>
-                                  <button type="submit" class="btn-reply text-uppercase ml-3">Reply</button>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                     
                     </div>
                   </div>
                 </section>

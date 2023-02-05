@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CommentController;
+
 use Illuminate\Support\Facades\view;
 use App\Models\Category;
 use App\Models\Post;
@@ -108,6 +109,10 @@ Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::c
 
 Route::group(['prefix' => 'user'], function(){
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
+
+      Route::get('comments', [App\Http\Controllers\User\CommentController::class, 'index'])->name('comments');
+
+
 });
 
 

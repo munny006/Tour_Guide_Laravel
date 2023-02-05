@@ -14,11 +14,11 @@ class CommentController extends Controller
         $comments = Comment::all();
         return view('admin.comments.index',compact('comments'));
     }
-   public function delete($comment)
+   public function delete($id)
    {
     $comment = Comment::find($id);
     $comment->delete();
-     Toastr::success('success','The Comment deleted Successfullu!!!');
+     Toastr::success('success','Comment Successfully Deleted!!!');
         return redirect()->back();
    }
 }
