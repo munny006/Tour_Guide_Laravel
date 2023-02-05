@@ -110,7 +110,7 @@ Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::c
 Route::group(['prefix' => 'user'], function(){
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
 
-      Route::get('comments', [App\Http\Controllers\User\CommentController::class, 'index'])->name('comments');
+      Route::get('comments', [App\Http\Controllers\User\CommentController::class, 'index'])->name('user.comments.index');
 
 
 });
