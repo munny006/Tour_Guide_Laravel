@@ -1,8 +1,8 @@
     <header class="default-header">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg" style="background-color: #f9f9ff4f;">
           <div class="container px-3">
             <a class="navbar-brand" href="index.html">
-              <img src="{{asset('frontend/img/sitelogo.jpg')}}" alt="" width="100px">
+              <img src="{{asset('frontend/img/logo2.jpg')}}" alt="" width="59px">
             </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="lnr lnr-menu"></span>
@@ -45,10 +45,14 @@
                       <li class="dropdown">
                         <a href="#"  onclick="dropMenu()">
                             <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;
+                              <span class="mr-2 d-none d-lg-inline text-black-700 medium">{{Auth::user()->name}}</span>
                             <!-- <i class="fas fa-user"></i> -->
                         </a>
                         <div id="dropMenu" class="dropdown-menu menu1" style="display: none;">
-                          <a href="{{route('admin.profile')}}" class="dropdown-item" target="_blank"> <i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;{{Auth::user()->name}}</a>
+
+                          <a href="{{route('admin.profile')}}" class="dropdown-item" target="_blank">
+
+                          </a>
                            
                         @if(Auth::user()->role->id == 1)
                     

@@ -176,7 +176,7 @@ data-target="#deleteModal-{{$comment->id}}">
 <div class="modal-footer">
    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
    <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('deletecomment-{{$comment->id}}').submit();">Confirm</button>
-   <form action="{{route('admin.comment.delete',$comment->id)}}" style="display: none" id="deletecomment-{{$comment->id}}" method="POST">
+   <form action="{{route('user.comment.delete',$comment->id)}}" style="display: none" id="deletecomment-{{$comment->id}}" method="POST">
       @csrf
 
 

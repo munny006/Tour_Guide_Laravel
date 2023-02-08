@@ -12,10 +12,17 @@
                 </div>
 
                 <div class="col-sm-5">
+
                     <div class="user-area dropdown float-right">
+
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{{asset('storage/user/'.Auth::user()->image)}}" alt="User Avatar">
+                             <span class="mr-2 d-none d-lg-inline text-black-700 medium">{{Auth::user()->name}}</span>
+                            
+                            <img class="user-avatar rounded-circle" src="{{asset('storage/user/'.Auth::user()->image)}}" alt="User Avatar" style="    float: left; margin-top: 1px;    margin-left: -44px;"> 
+
+                            
                         </a>
+                        
 
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="{{route('admin.profile')}}"><i class="fa fa-user"></i> My Profile</a>

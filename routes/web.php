@@ -111,6 +111,7 @@ Route::group(['prefix' => 'user'], function(){
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
 
       Route::get('comments', [App\Http\Controllers\User\CommentController::class, 'index'])->name('user.comments.index');
+      Route::POST('comment/{id}',[App\Http\Controllers\User\CommentController::class,'delete'])->name('user.comment.delete');
 
 
 });

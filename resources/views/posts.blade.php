@@ -34,7 +34,7 @@
                      @if($posts->count()>0)
                       @foreach($posts as $post)
                     <div class="single-posts col-lg-6 col-sm-6">
-                        <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="$post->image" />
+                        <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="$post->image" / style="width:960px; height: 637px;">
                       <div class="date mt-20 mb-20">
                         {{$post->created_at->diffForHumans()}}
                       </div>
