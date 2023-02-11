@@ -107,17 +107,17 @@
                       <!-- Frist Comment -->
                       <div class="comment">
                         @foreach($post->comments as $comment)
-                        <div class="comment-list">
+                         <div class="comment-list">
                           <div
                             class="single-comment justify-content-between d-flex"
                           >
                             <div class="user justify-content-between d-flex">
                               <div class="thumb">
-                                <img src="{{asset('storage/user/'.$comment->user->image)}}" alt="{{$comment->user->image}}" / style="width: 50px;">
+                                <img src="{{asset('storage/user/'.$comment->user->image)}}" alt="{{$comment->user->image}}" width="50px" />
                               </div>
                               <div class="desc">
                                 <h5><a href="#">{{$comment->user->name}}</a></h5>
-                                <p class="date">{{$comment->created_at->format('D,d M Y H:i')}}</p>
+                                <p class="date">{{$comment->created_at->format('D,d M Y H :i')}}</p>
                                 <p class="comment">
                                   {{$comment->comment}}
                                 </p>
@@ -125,36 +125,44 @@
                             </div>
                             <div class="">
                               <button class="btn-reply text-uppercase" id="reply-btn" 
-                                onclick="showReplyForm('1','Emilly Blunt')">reply 1</button
+                                onclick="showReplyForm('{{$comment->id}}','{{$comment->user->name}}')">reply </button
                               >
                             </div>
                           </div>
                         </div>
                         @endforeach
-                        {{-- <div class="comment-list left-padding">
+                       @if($comment->replies->count() > 0)
+
+                       @foreach($comment->replies as $reply)
+                        <div class="comment-list left-padding">
                           <div
                             class="single-comment justify-content-between d-flex"
                           >
                             <div class="user justify-content-between d-flex">
                               <div class="thumb">
-                                <img src="img/asset/c3.jpg" alt="" />
+                                <img src="{{asset('storage/user/'.$reply->user->image)}}" alt="{{$reply->user->image}}" width="50px" />
                               </div>
                               <div class="desc">
-                                <h5><a href="#">Sally Sally</a></h5>
-                                <p class="date">December 4, 2017 at 3:12 pm</p>
+                                <h5><a href="#">{{$reply->user->name}}</a></h5>
+                                <p class="date">{{$reply->created_at->format('D,d M Y H:i')}}</p>
                                 <p class="comment">
-                                  @Emilly Blunt Never say goodbye till the end comes!
+                                  {{$reply->message}}
                                 </p>
                               </div>
                             </div>
                             <div class="">
                               <button class="btn-reply text-uppercase" id="reply-btn" 
-                                onclick="showReplyForm('1','Sally Sally')">reply 1</button
+                                onclick="showReplyForm('{{$comment->id}}','{{$reply->user->name}}')">reply </button
                               >
                             </div>
                           </div>
                         </div>
-                        <div class="comment-list left-padding" id="reply-form-1" style="display: none">
+
+                       @endforeach
+
+                       @else
+                       @endif
+                        <div class="comment-list left-padding" id="reply-form-{{$comment->id}}" style="display: none">
                           <div
                             class="single-comment justify-content-between d-flex"
                           >
@@ -166,10 +174,11 @@
                                 <h5><a href="#">Goerge Stepphen</a></h5>
                                 <p class="date">December 4, 2017 at 3:12 pm</p>
                                 <div class="row flex-row d-flex">
-                                <form action="#" method="POST">
+                                <form action="{{route('reply.store',$comment->id)}}" method="POST">
+                                  @csrf
                                   <div class="col-lg-12">
                                     <textarea
-                                      id="reply-form-1-text"
+                                      id="reply-form-{{$comment->id}}-text"
                                       cols="60"
                                       rows="2"
                                       class="form-control mb-10"
@@ -186,7 +195,7 @@
                               </div>
                             </div>
                           </div>
-                        </div> --}}
+                        </div> 
                       </div>
                       <!-- 2nd Comment -->
                      
@@ -239,3 +248,20 @@
       <!-- End post Area -->
     </div>
 @endsection
+@push('footer')
+<script type="text/javascript">
+    function showReplyForm(commentId,user) {
+      var x = document.getElementById(`reply-form-${commentId}`);
+      var input = document.getElementById(`reply-form-${commentId}-text`);
+
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        input.innerText=`@${user} `;
+
+      } else {
+        x.style.display = "none";
+      }
+    }
+
+    </script>
+@endpush

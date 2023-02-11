@@ -9,7 +9,7 @@
       <div class="container">
         <div class="row fullscreen">
           <div class="banner-content d-flex align-items-center col-lg-12 col-md-12">
-            <h1 style="float: left;margin-left: 200px;    margin-top: -48px;">
+            <h1 style="float: left;margin-left: 144px;">
               TIRED OF A BUSY LIFE ?? <br />
               TAKE A BREAK & A RELAX TOUR..
               {{-- <p>
@@ -60,19 +60,25 @@
      <div class="row d-flex justify-content-center">
        
             @foreach($posts as $post)
-            <div class="single-posts col-lg-3 col-sm-3 mb-3">
+        <div class="single-posts col-lg-4 col-sm-4 mb-3">
             <div class="item single-cat">
-              <div  style="width:190px">
-            <img src="{{asset('storage/post/'.$post->image)}}" class="img-fluid " alt="{{$post->image}}" />
+            <div  style="width:190px">
+            <img src="{{asset('storage/post/'.$post->image)}}" class="img-fluid " alt="{{$post->image}}" /style="width:1000px; height: 200px;">
            </div>
-            <div class="ml-3">
-            <p class="date">{{$post->created_at->diffForHumans()}}</p>
+
+            <div>
+            <p class="date" style="float: left;margin-left: -1px; width: 140px;">{{$post->created_at->diffForHumans()}}</p>
           </div>
-          <div class="ml-3">
-            <h4><a href="{{route('post',$post->slug)}}">{{$post->title}}</a></h4>
+          <div>
+            <h4  style="float: left;margin-left: -144px; margin-top: 81px;">
+              <br>
+              <a href="{{route('post',$post->slug)}}">{{$post->title}}</a>
+            </h4>
            </div>
+
          </div>
          </div>
+
     
           @endforeach
         </div>
@@ -95,9 +101,9 @@
         <div class="container">
         <div class="row justify-content-center">
          @foreach($posts as $post)
-          <div class="single-posts col-lg-4 col-sm-4 mb-3"style="width:250px">
-            <img class="img-fluid w-75 mx-auto" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}">
-            <div class="date mt-20 mb-20">{{$post->created_at->diffForHumans()}}</div>
+          <div class="single-posts col-lg-4 col-sm-4 mb-3 py-3"style="width:250px">
+            <img class="img-fluid  mx-auto" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}"style="width:1000px; height: 250px;">
+            <div class="date mt-20 mb-20" style=" width: 140px;">{{$post->created_at->diffForHumans()}}</div>
             <div class="detail">
               <a href="{{route('post',$post->slug)}}"><h4 class="pb-20">{{$post->title}}</h4></a>
               <p>

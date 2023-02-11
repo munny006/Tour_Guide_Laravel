@@ -48,6 +48,10 @@ Route::get('/tag/{name}', [App\Http\Controllers\HomeController::class, 'tagPosts
 
 Route::POST('/comment/{post}',[App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
 
+//comment reply
+
+Route::POST('/comment-reply/{comment}',[App\Http\Controllers\CommentReplyController::class, 'store'])->name('reply.store');
+
 //Route::get('/category/{slug}', [App\Http\Controllers\HomeController::class, 'categoryPost'])->name('category.post');
 
 //admin//////////

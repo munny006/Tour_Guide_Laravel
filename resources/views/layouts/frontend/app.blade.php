@@ -165,5 +165,6 @@
     <script src="{{asset('frontend/js/jquery.magnific-popup.min.js')}}"></script>
     <script src="{{asset('frontend/js/jquery.sticky.js')}}"></script>
     <script src="{{asset('frontend/js/main.js')}}"></script>
+    @stack('footer')
   </body>
 </html>

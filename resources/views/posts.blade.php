@@ -1,24 +1,27 @@
 @extends('layouts.frontend.app')
 @section('content')
+
 <section class="top-section-area section-gap">
       <div class="container">
         <div class="row justify-content-between align-items-center d-flex">
           <div class="col-lg-8 top-left">
-            <h1 class="text-white mb-20">All Post</h1>
-            <ul>
+            <h1 class="text-dark mb-20" style="color: #343a40 !important; float:right; margin-right: 96px;">All Post</h1>
+            <ul >
               <li>
-                <a href="{{route('home')}}">Home</a
-                ><span class="lnr lnr-arrow-right"></span>
+                <a href="{{route('home')}}" style="color: #343a40 !important;
+    float: left;
+    margin-left: 443px;">Home</a
+                ><span class="lnr lnr-arrow-right"style="color: #343a40 !important;"></span>
               </li>
               <li>
-                <a href="{{route('categories')}}">Category</a
-                ><span class="lnr lnr-arrow-right"></span>
+                <a href="{{route('categories')}}"style="color: #343a40 !important;">Category</a
+                ><span class="lnr lnr-arrow-right"style="color: #343a40 !important;"></span>
               </li>
-              <li><a href="{{route('posts')}}">Posts</a></li>
+              <li><a href="{{route('posts')}}"style="color: #343a40 !important;">Posts</a></li>
             </ul>
           </div>
         </div>
-      </div>
+    </div>
     </section>
 
 
@@ -34,7 +37,7 @@
                      @if($posts->count()>0)
                       @foreach($posts as $post)
                     <div class="single-posts col-lg-6 col-sm-6">
-                        <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="$post->image" / style="width:960px; height: 637px;">
+                        <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="$post->image" / style="width:980px; height: 200px;">
                       <div class="date mt-20 mb-20">
                         {{$post->created_at->diffForHumans()}}
                       </div>
