@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CommentController;
-
+use App\Http\Controllers\Admin\CommentReplyController;
 use Illuminate\Support\Facades\view;
 use App\Models\Category;
 use App\Models\Post;
@@ -71,7 +71,16 @@ Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::c
 	Route::POST('users/{id}',[App\Http\Controllers\Admin\UserController::class,'destroy'])->name('admin.user.destroy');
 
 	Route::GET('/comments',[App\Http\Controllers\Admin\CommentController::class,'index'])->name('admin.comments.index');
+
+
+
+
 	Route::POST('comment/{id}',[App\Http\Controllers\Admin\CommentController::class,'delete'])->name('admin.comment.delete');
+
+
+	Route::GET('/reply-comment',[App\Http\Controllers\Admin\CommentReplyController::class,'index'])->name('admin.comment-reply.index');
+
+	Route::POST('reply/comment/{id}',[App\Http\Controllers\Admin\CommentReplyController::class,'delete'])->name('admin.comment-Reply.delete');
 
 
 
@@ -116,6 +125,12 @@ Route::group(['prefix' => 'user'], function(){
 
       Route::get('comments', [App\Http\Controllers\User\CommentController::class, 'index'])->name('user.comments.index');
       Route::POST('comment/{id}',[App\Http\Controllers\User\CommentController::class,'delete'])->name('user.comment.delete');
+
+
+      Route::GET('/reply-comment',[App\Http\Controllers\User\CommentReplyController::class,'index'])->name('user.comment-reply.index');
+
+	Route::POST('reply/comment/{id}',[App\Http\Controllers\User\CommentReplyController::class,'delete'])->name('user.comment-Reply.delete');
+
 
 
 });

@@ -130,7 +130,7 @@
                             </div>
                           </div>
                         </div>
-                        @endforeach
+                        
                        @if($comment->replies->count() > 0)
 
                        @foreach($comment->replies as $reply)
@@ -198,7 +198,7 @@
                         </div> 
                       </div>
                       <!-- 2nd Comment -->
-                     
+                     @endforeach
                     </div>
                   </div>
                 </section>

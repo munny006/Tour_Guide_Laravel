@@ -32,6 +32,10 @@
                      <li class="active">
                         <a href="{{route('admin.comments.index')}}"> <i class="menu-icon fa fa-file"></i>Comments</a>
                     </li>
+
+                    <li class="active">
+                        <a href="{{route('admin.comment-reply.index')}}"> <i class="menu-icon fa fa-file"></i>Replied Comments</a>
+                    </li>
                 </ul>
 
 
@@ -44,6 +48,9 @@
                    
                     <li class="active">
                         <a href="{{route('user.comments.index')}}"> <i class="menu-icon fa fa-file"></i>Comments</a>
+                    </li>
+                     <li class="active">
+                        <a href="{{route('user.comment-reply.index')}}"> <i class="menu-icon fa fa-file"></i>Replied Comments</a>
                     </li>
                 </ul>
 

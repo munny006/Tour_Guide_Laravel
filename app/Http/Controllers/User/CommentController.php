@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\CommentReply;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
@@ -21,6 +22,7 @@ public function delete($id)
 {
     $comment = Comment::find($id);
     if($comment->user_id == Auth::id()){
+        $replies = CommentReply::where('comment_id',$id)->delete();
         $comment->delete();
     Toastr::success('success','Comment Successfully Deleted!!!');
     return redirect()->back();
