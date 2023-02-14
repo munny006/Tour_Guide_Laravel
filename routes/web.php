@@ -46,11 +46,14 @@ Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->n
 Route::get('/tag/{name}', [App\Http\Controllers\HomeController::class, 'tagPosts'])->name('tag.posts');
 
 
-Route::POST('/comment/{post}',[App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
+Route::POST('/comment/{post}',[App\Http\Controllers\CommentController::class, 'store'])->name('comment.store')->middleware('auth');
 
 //comment reply
 
-Route::POST('/comment-reply/{comment}',[App\Http\Controllers\CommentReplyController::class, 'store'])->name('reply.store');
+Route::POST('/comment-reply/{comment}',[App\Http\Controllers\CommentReplyController::class, 'store'])->name('reply.store')->middleware('auth');
+
+
+
 
 //Route::get('/category/{slug}', [App\Http\Controllers\HomeController::class, 'categoryPost'])->name('category.post');
 
