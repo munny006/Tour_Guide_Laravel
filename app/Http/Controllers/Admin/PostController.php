@@ -133,7 +133,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+
        $this->validate($request,[
         'title' =>'required',
         'image' =>'required|mimes:jpg,png,jpeg',
@@ -155,7 +155,7 @@ class PostController extends Controller
 
 
     Storage::put('post',$imageName,'public');;
-    
+
     $post = new Post();
     $post->title = $request->title;
     $post->user_id = Auth::id();
@@ -206,5 +206,9 @@ class PostController extends Controller
      $post->delete();
       Toastr::success('Post Deleted Successfully');
       return redirect()->back();
+    }
+    public function likedUsers($post){
+        $post = Post::find($post);
+        return view('admin.post.likedUsers',compact('post'));
     }
 }

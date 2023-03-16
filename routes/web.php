@@ -87,6 +87,7 @@ Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::c
 
 	Route::POST('reply/comment/{id}',[App\Http\Controllers\Admin\CommentReplyController::class,'delete'])->name('admin.comment-Reply.delete');
 
+    Route::GET('/post-liked-users/{post}',[App\Http\Controllers\Admin\PostController::class,'likedUsers'])->name('admin.post.like.users');
 
 
 	//category

@@ -80,7 +80,7 @@
    <td>{{$key+1}}</td>
    <td>{{$post->title}}</td>
    <td>{{$post->slug}}</td>
-   <td><button class="btn btn-danger" type="button"><i class="fa fa-heart"></i> {{$post->likedUsers->count() }}</button> <button class="btn btn-info" type="button"> <i class="fa fa-eye"></i> {{$post->view_count }}</button></td>
+   <td><a href="{{ route('admin.post.like.users',$post->id) }}"  class="btn btn-danger" type="button"><i class="fa fa-heart"></i> {{$post->likedUsers->count() }}</a> <a class="btn btn-info" type="button"> <i class="fa fa-eye"></i> {{$post->view_count }}</a></td>
    <td>{{$post->created_at}}</td>
 
    <td>
