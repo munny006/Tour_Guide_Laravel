@@ -136,7 +136,7 @@ Route::group(['prefix' => 'user'], function(){
       Route::GET('/reply-comment',[App\Http\Controllers\User\CommentReplyController::class,'index'])->name('user.comment-reply.index');
 
 	Route::POST('reply/comment/{id}',[App\Http\Controllers\User\CommentReplyController::class,'delete'])->name('user.comment-Reply.delete');
-
+    Route::GET('/user-liked-posts',[App\Http\Controllers\User\DashboardController::class,'likedPosts'])->name('user.like.posts');
 
 
 });

@@ -10,7 +10,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Post</h1>
+                        <h1>Liked Post</h1>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
                             <li>
-                                <a href="#" class="active">Post Table</a>
+                                <a href="#" class="active">Comments</a>
                             </li>
                         </ol>
                     </div>
@@ -52,36 +52,38 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">{{ $post->title }} Liked User Table</strong>
-                            {{-- <a href="{{route('admin.post.create')}}" class="btn btn-primary"> --}}
-                            {{-- <i class="fa fa-plus"></i></a> --}}
-
+                            <strong class="card-title">liked Post Table</strong>
+                            {{--  <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
+data-target="#createModal">
+<i class="fa fa-plus"></i>
+</button> --}}
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>User Name</th>
-                                        <th>User Id</th>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Views & Likes</th>
 
-
-
+                                        <th>created_At</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
 
 
-                                    @foreach ($post->likedUsers as $key => $likeUser)
+                                    @foreach (Auth::user()->likedPosts as $key => $post)
                                         <tr>
 
                                             <td>{{ $key + 1 }}</td>
-                                            <td>{{  $likeUser->name }}</td>
-                                            <td>{{ $likeUser->id}}</td>
-
-
-
+                                            <td><a href="{{ route('post',$post->slug) }}">{{ $post->title }}</a></td>
+                                            <td>{{ $post->category->name}}</td>
+                                            <td>
+                                                <button class="btn btn-danger" type="button"><i class="fa fa-heart"></i> {{$post->likedUsers->count() }}</button> <button class="btn btn-info" type="button"> <i class="fa fa-eye"></i> {{$post->view_count }}</button>
+                                            </td>
+                                            <td>{{ $post->created_at->diffForHumans() }}</td>
 
                                         </tr>
                                     @endforeach
@@ -95,8 +97,6 @@
                 </div>
             </div>
         </div>
-        <!-- .animated -->
-        <div class="animated">
 
 
         <!-- .content -->

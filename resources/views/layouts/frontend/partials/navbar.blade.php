@@ -7,7 +7,7 @@
 
 
 
-                
+
 
 
 
@@ -55,11 +55,11 @@
                               </div>
                           </li> -->
                           @if (Route::has('login'))
-              
+
                     @auth
-                    
-                       
-                 
+
+
+
                       <!-- Dropdown -->
                       <li class="dropdown">
                         <a href="#"  onclick="dropMenu()">
@@ -72,23 +72,23 @@
                           <a href="{{route('admin.profile')}}" class="dropdown-item" target="_blank">
 
                           </a>
-                           
+
                         @if(Auth::user()->role->id == 1)
-                    
+
                     <a class="dropdown-item" href="{{route('admin.dashboard')}}">
                       <i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Dashboard</a>
                       <a class="dropdown-item" href="{{route('admin.dashboard')}}"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
-                    
+
 
                     @elseif(Auth::user()->role->id == 2)
                     <a href="{{route('user.dashboard')}}"><i class="fa fa-tv" aria-hidden="true"></i>&nbsp;Dashboard</a>
-                    <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
+                    <a class="dropdown-item" href="{{route('user.like.posts')}}"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
                     @else
                     null
                     @endif
-                          
 
-                          
+
+
 
                      <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
@@ -109,7 +109,7 @@
                             <li><a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a></li>
                         @endif
                     @endauth
-              
+
             @endif
                     <script>
                         function dropMenu(){
