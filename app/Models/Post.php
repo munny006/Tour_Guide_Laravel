@@ -12,12 +12,12 @@ class Post extends Model
   public function user()
   {
     return $this->belongsTo('App\Models\User');
-   } 
+   }
 
    public function category()
   {
     return $this->belongsTo('App\Models\Category');
-   } 
+   }
    public function tags(){
     return $this->hasMany('App\Models\Tag','postID','id');
    }
@@ -29,4 +29,11 @@ class Post extends Model
     return $query->where('status',1);
 
    }
+
+   //many to many
+    public function likedUsers(){
+      return $this->belongsToMany('App\Models\User')->withTimestamps();
+    }
+
+
 }

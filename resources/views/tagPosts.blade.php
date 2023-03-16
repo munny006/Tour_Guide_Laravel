@@ -49,12 +49,12 @@
                         </p>
                         <p class="footer pt-20">
                           <i class="fa fa-heart-o" aria-hidden="true"></i>
-                          <a href="#">06 Likes</a>
+                          <a href="#">{{ $tag->$post->likedUsers->count() }}</a>
                           <i
                             class="ml-20 fa fa-comment-o"
                             aria-hidden="true"
                           ></i>
-                          <a href="#">02 Comments</a>
+                          <a href="#">{{  $tag->$post->comments->count() }}</a>
                         </p>
                       </div>
                     </div>
@@ -76,5 +76,5 @@
       <!-- End post Area -->
     </div>
     <!-- End post Area -->
- 
+
 @endsection

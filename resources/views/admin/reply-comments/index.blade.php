@@ -83,7 +83,12 @@
    <td>{{$reply_comment->message}}</td>
    <td>{{$reply_comment->comment->comment}}</td>
    <td>{{$reply_comment->user->name}}</td>
-   <td><a href="{{route('post',$reply_comment->comment->post->slug)}}">{{$reply_comment->comment->post->title}}</a></td>
+   <td>
+       @if(isset($comment->post))
+       <a href="{{route('post',$reply_comment->comment->post->slug)}}">{{$reply_comment->comment->post->title}}</a>
+         @else <p>.....</p>
+      @endif
+    </td>
    <td>{{$reply_comment->created_at->diffForHumans()}}</td>
    <td>
     <!-- Button trigger modal -->

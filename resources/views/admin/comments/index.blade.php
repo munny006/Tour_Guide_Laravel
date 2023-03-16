@@ -81,7 +81,13 @@
    <td>{{$key+1}}</td>
    <td>{{$comment->comment}}</td>
    <td>{{$comment->user->name}}</td>
-   <td><a href="{{route('post',$comment->post->slug)}}">{{$comment->post->slug}}</a></td>
+   <td>
+      @if(isset($comment->post))
+      <a href="{{route('post',$comment->post->title)}}">{{$comment->post->title}}</a>
+      @else <p>...</p>
+      @endif
+   </td>
+
    <td>{{$comment->created_at->diffForHumans()}}</td>
    <td>
     <!-- Button trigger modal -->

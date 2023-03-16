@@ -5,12 +5,19 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{route('home')}}">Admin Section</a>
+                @if(Auth::user()->role_id == 1)
+                <a class="navbar-brand" href="{{route('home')}}"> Admin Section</a>
+                @elseif(Auth::user()->role_id == 2)
+                 <a class="navbar-brand" href="{{route('home')}}"> User Section</a>
+                 @else 
+                  <a class="navbar-brand" href="{{route('home')}}"> Suspend Section</a>
+                 @endif
                 
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 @if(Auth::user()->role_id ==1)
+
 
                 <ul class="nav navbar-nav">
                     <li class="active">

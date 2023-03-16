@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\CommentReplyController;
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\view;
 use App\Models\Category;
 use App\Models\Post;
@@ -33,6 +34,7 @@ use App\Models\Comment;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/posts', [App\Http\Controllers\HomeController::class, 'posts'])->name('posts');
 Route::get('/posts', [App\Http\Controllers\HomeController::class, 'posts'])->name('posts');
 
 Route::get('/post/{slug}', [App\Http\Controllers\HomeController::class, 'post'])->name('post');
@@ -52,7 +54,7 @@ Route::POST('/comment/{post}',[App\Http\Controllers\CommentController::class, 's
 
 Route::POST('/comment-reply/{comment}',[App\Http\Controllers\CommentReplyController::class, 'store'])->name('reply.store')->middleware('auth');
 
-
+Route::POST('/like-post/{post}',[App\Http\Controllers\HomeController::class, 'likePost'])->name('post.like')->middleware('auth');
 
 
 //Route::get('/category/{slug}', [App\Http\Controllers\HomeController::class, 'categoryPost'])->name('category.post');
@@ -111,7 +113,7 @@ Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::c
 
 
 });
-	
+
 
 
 
@@ -120,7 +122,7 @@ Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::c
 
 // Route::group(['prefix' =>'user','as' =>'user.' ,'namespace'=>'User','middleware'=>['auth','user']],function(){
 // 	// Route::get('dashboard','DashboardController@index')->name('dashboard');
-// 	Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');	
+// 	Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
 // });
 
 Route::group(['prefix' => 'user'], function(){
@@ -144,7 +146,7 @@ Route::group(['prefix' => 'user'], function(){
 View::composer('layouts.frontend.partials.sidebar',function($view){
 $categories = Category::all()->take(10);
 $recentTags = Tag::all();
-$recentPosts = Post::latest()->take(3)->get();
+// $recentPosts = Post::latest()->take(3)->get();
 return $view->with('categories',$categories)->with('recentPosts',$recentPosts)->with('recentTags',$recentTags);
 });
 

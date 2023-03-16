@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password',
         'role_id',
         'userid',
-        
+
     ];
 
     /**
@@ -60,5 +60,14 @@ class User extends Authenticatable
 
      public function replies(){
         return $this->hasMany('App\Models\CommentReply');
+    }
+
+     public function likedPost(){
+        return $this->belongsToMany('App\Models\Post');
+    }
+
+    public function likedPosts()
+    {
+        return $this->belongsToMany('App\Models\Post')->withTimestamps();
     }
 }

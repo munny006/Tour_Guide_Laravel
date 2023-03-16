@@ -15,7 +15,7 @@
                                         </button>
                                     </span>
                                 </div>
-                                  
+
                                 </form>
                             </div>
                             <p class="mt-20 text-center text-white">{{$posts->count() ?? "0"}} results found for “{{$search}}”</p>
@@ -43,19 +43,19 @@
                       </div>
                         <div class="detail">
                             <a href="{{route('post',$post->slug)}}"><h4 class="pb-20">{{$post->title}}</h4></a>
-                         
+
                         <p>{!!Str::limit($post->body,400)!!}</p>
 
                         <p class="footer pt-20">
                               <i class="fa fa-heart-o" aria-hidden="true"></i>
-                              <a href="#">06 Likes</a>
+                              <a href="#">{{ $post->likedUsers->count() }}</a>
                               <i class="ml-20 fa fa-comment-o"aria-hidden="true"></i>
-                              <a href="#">02 Comments</a>
+                              <a href="#">{{ $post->comments->count() }}</a>
                         </p>
                       </div>
                     </div>
- 
-                      @endforeach 
+
+                      @endforeach
                       @else
                       <h3>No Post available</h3>
                       @endif
@@ -63,10 +63,10 @@
                <div class="justify-content-center d-flex mt-5">
                       {{$posts->appends(Request::all())->links()}}
                     </div>
-                
-                   
+
+
                   </div>
-              
+
               </div>
             </div>
 
@@ -77,5 +77,5 @@
       </section>
       <!-- End post Area -->
     </div>
- 
+
 @endsection
