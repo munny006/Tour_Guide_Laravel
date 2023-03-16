@@ -55,10 +55,10 @@
               <p>Find the Latest Post from all category.</p>
             </div>
           </div>
-        
-          
+
+
      <div class="row d-flex justify-content-center">
-       
+
             @foreach($posts as $post)
         <div class="single-posts col-lg-4 col-sm-4 mb-3">
             <div class="item single-cat">
@@ -79,7 +79,7 @@
          </div>
          </div>
 
-    
+
           @endforeach
         </div>
       </div>
@@ -112,16 +112,16 @@
               <p class="" footer="">
                 <br>
                 </p><ul class="d-flex space-around">
-                    <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> 0</span></a></li>
-                  <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> 0</span></li>
-                  <li><i class="fa fa-eye" aria-hidden="true"></i> <span>5</span></li>
+                    <li><a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })"><i class="fa fa-heart-o" aria-hidden="true"></i><span> {{$post->likedUsers->count()}} </span></a></li>
+                  <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> {{$post->comments->count()}} </span></li>
+                  <li><i class="fa fa-eye" aria-hidden="true"></i> <span> {{$post->view_count}} </span></li>
                 </ul>
 
-       
+
             </div>
           </div>
 
-        @endforeach           
+        @endforeach
       </div>
     </div>
   </div>

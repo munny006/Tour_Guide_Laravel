@@ -146,7 +146,7 @@ Route::group(['prefix' => 'user'], function(){
 View::composer('layouts.frontend.partials.sidebar',function($view){
 $categories = Category::all()->take(10);
 $recentTags = Tag::all();
-// $recentPosts = Post::latest()->take(3)->get();
+$recentPosts = Post::latest()->take(3)->get();
 return $view->with('categories',$categories)->with('recentPosts',$recentPosts)->with('recentTags',$recentTags);
 });
 
