@@ -34,7 +34,7 @@
          <div class="col-md-12">
             <!--error msg-->
             @if ($errors->any())
-            
+
                @foreach ($errors->all() as $error)
                 <div class="alert  alert-danger alert-dismissible fade show" role="alert">
            <span class="badge badge-pill badge-danger">Error !!</span>{{$error}}
@@ -43,11 +43,11 @@
          </button>
       </div>
                @endforeach
-           
+
          </div>
-         @endif 
+         @endif
          <!--End error msg-->
-        
+
 
    </div>
    <div class="col-md-12">
@@ -56,7 +56,7 @@
       <strong class="card-title">Post Table</strong>
       <a href="{{route('admin.post.create')}}" class="btn btn-primary">
       <i class="fa fa-plus"></i></a>
-   
+
 </div>
 <div class="card-body">
    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -65,8 +65,9 @@
       <th>ID</th>
       <th>Title</th>
       <th>Slug</th>
+      <th>Views & Likes</th>
       <th>Created_At</th>
-      <th>Updated_At</th>
+
       <th>Action</th>
    </tr>
 </thead>
@@ -79,8 +80,9 @@
    <td>{{$key+1}}</td>
    <td>{{$post->title}}</td>
    <td>{{$post->slug}}</td>
+   <td><button class="btn btn-danger" type="button"><i class="fa fa-heart"></i> {{$post->likedUsers->count() }}</button> <button class="btn btn-info" type="button"> <i class="fa fa-eye"></i> {{$post->view_count }}</button></td>
    <td>{{$post->created_at}}</td>
-   <td>{{$post->updated_at}}</td>
+
    <td>
     <!-- Button trigger modal -->
     <a href="{{route('admin.post.show',$post->id)}}" class="btn btn-info">
@@ -130,7 +132,7 @@ data-target="#deleteModal-{{$post->id}}">
    <button type="button" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('deleteUser-{{$post->id}}').submit();">Confirm</button>
    <form action="{{route('admin.post.delete',$post->id)}}" style="display: none" id="deleteUser-{{$post->id}}" method="POST">
       @csrf
-      
+
    </form>
 </div>
 </div>
