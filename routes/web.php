@@ -9,10 +9,12 @@ use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\CommentReplyController;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\view;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Comment;
+use App\Mail\NewPost;
 
 /*
 |--------------------------------------------------------------------------
@@ -149,5 +151,22 @@ $categories = Category::all()->take(10);
 $recentTags = Tag::all();
 $recentPosts = Post::latest()->take(3)->get();
 return $view->with('categories',$categories)->with('recentPosts',$recentPosts)->with('recentTags',$recentTags);
+});
+
+// Route::GET('/send', function(){
+//     $post = Post::find(7);
+//     // // Send Mail
+//     // Mail::to('user@user.com')->send(new NewPost($post))
+//     //     ->queue(new NewPost($post));
+
+//     return (new App\Mail\NewPost($post))->render();
+// });
+
+
+Route::get('/send', function() {
+    $post = App\Models\Post::find(27);
+
+   return (new App\Mail\NewPost($post))->render();
+    // return "Send Mail";
 });
 
