@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New Post Available</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <style>
         *{
             margin: 0;
@@ -96,7 +97,7 @@
     <div class="container">
         <div class="post">
             <img src="{{asset('storage/post/'.$post->image)}}" alt="" class="img-fluid">
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, similique.</h2>
+            <h2>{{ $post->title }}</h2>
             <div class="post-info">
                 <h2>{{$post->category->name}}</h2>
                 <div class="author">
@@ -110,6 +111,12 @@
                 </div>
             </div>
             <p class="post-body">{!!Str::limit($post->body, 300)!!}</p>
+            <p class="pt-20">
+                <i class="fa fa-heart-o ml-20"></i>
+            <a href="#" style="text-decoration: none;color:black"> {{ $post->likedUsers->count() }} Like</a>
+            <i class="fa fa-comments"></i>
+            <a href="#" style="text-decoration: none;color:black"> {{ $post->comments->count() }} Comment</a>
+        </p>
             <a href="{{route('post',$post->slug)}}" class="btn">Read More</a>
         </div>
         <div class="footer text-center">
