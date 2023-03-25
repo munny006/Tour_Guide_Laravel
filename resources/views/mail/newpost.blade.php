@@ -113,9 +113,9 @@
             <p class="post-body">{!!Str::limit($post->body, 300)!!}</p>
             <p class="pt-20">
                 <i class="fa fa-heart-o ml-20"></i>
-            <a href="#" style="text-decoration: none;color:black"> {{ $post->likedUsers->count() }} Like</a>
-            <i class="fa fa-comments"></i>
-            <a href="#" style="text-decoration: none;color:black"> {{ $post->comments->count() }} Comment</a>
+            <a href="#" style="text-decoration: none;color:black"> {{ $post->likedUsers->count() }} Like   </a>
+            <i class="fa fa-comments">  </i>
+            <a href="#" style="text-decoration: none;color:black">    {{ $post->comments->count() }} Comment</a>
         </p>
             <a href="{{route('post',$post->slug)}}" class="btn">Read More</a>
         </div>
