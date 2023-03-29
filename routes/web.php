@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\view;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Category;
+use App\Http\Controllers\Auth\LoginController;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Comment;
@@ -34,6 +35,13 @@ use App\Mail\NewPost;
 
 
 Auth::routes();
+
+//social login
+Route::get('login/google','Auth\LoginController@redirectToProvider');
+Route::get('login/google/callback','Auth\LoginController@handleProviderCallback');
+
+
+
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/posts', [App\Http\Controllers\HomeController::class, 'posts'])->name('posts');
