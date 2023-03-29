@@ -166,8 +166,10 @@ return $view->with('categories',$categories)->with('recentPosts',$recentPosts)->
 Route::get('/send', function() {
     $post = App\Models\Post::find(27);
         //send mail
-        Mail::to('user@user.com')->send(new NewPost($post));
-      
+        Mail::to('user@user.com')
+        ->cc(['user1@user.com','user2@user.com'])
+        ->queue(new NewPost($post));
+
    return (new App\Mail\NewPost($post))->render();
     // return "Send Mail";
 });

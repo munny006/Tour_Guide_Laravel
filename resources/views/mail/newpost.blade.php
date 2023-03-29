@@ -90,9 +90,9 @@
 </head>
 <body>
     <div class="container">
-        {{-- <div class="navbar">
-            <img src="{{url('frontend/img/sitelogo.png')}}" alt="logo" />
-        </div> --}}
+      <div class="navbar">
+            <img src="{{asset('frontend/img/logo2.jpg')}}" alt="logo" />
+        </div>
     </div>
     <div class="container">
         <div class="post">
@@ -120,8 +120,8 @@
             <a href="{{route('post',$post->slug)}}" class="btn">Read More</a>
         </div>
         <div class="footer text-center">
-            <p>This mail is from myiotlab.in.</p>
-            <p>© <script>let t = new Date(); document.write(t.getFullYear());</script> myiotlab. All rights reserved.</p>
+            <p>This mail is from TourGuide.in.</p>
+            <p>© <script>let t = new Date(); document.write(t.getFullYear());</script>TG. All rights reserved.</p>
         </div>
     </div>
 

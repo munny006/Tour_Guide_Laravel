@@ -8,6 +8,8 @@ use App\Models\CommentReply;
 use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\User;
+use App\Mail\NewPost;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
@@ -85,6 +87,17 @@ class PostController extends Controller
         $post->status =1;
     }
     $post->save();
+
+    //notification by email
+
+    if($post->status){
+
+       $users = User::all();
+       foreach($users as  $user){
+        Mail::to($user->email)->queue(new NewPost($post));
+       }
+
+    }
 
     $tags=[];
     $stingTags = array_map('trim',explode(',',$request->tags));
@@ -172,6 +185,14 @@ class PostController extends Controller
     }
     $post->save();
 
+    if($post->status){
+
+        $users = User::all();
+        foreach($users as  $user){
+         Mail::to($user->email)->queue(new NewPost($post));
+        }
+
+     }
     //delete old tag system
     $post->tags()->delete();
 
