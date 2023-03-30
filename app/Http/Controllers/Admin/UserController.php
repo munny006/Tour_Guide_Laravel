@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+
 use App\Models\Role;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -19,7 +20,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
 
         $users = User::all();
         $roles = Role::All();
@@ -113,7 +114,7 @@ class UserController extends Controller
         if($user->image !== 'default.jpg' && Storage::disk('public')->exists('user/'.$user->image)){
             Storage::disk('public')->delete('user/'.$user->image);
         }
-        
+
         $user->delete();
          Toastr::success('Role Deleted successfully');
         return redirect()->back();

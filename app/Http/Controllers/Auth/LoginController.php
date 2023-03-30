@@ -7,11 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
-use Brian2694\Toastr\Facades\Toastr;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
-
 class LoginController extends Controller
 {
     /*
@@ -45,25 +42,30 @@ class LoginController extends Controller
     }
 public function redirectToProvider()
 {
-    Socialite::driver('google')->stateless()->redirect();
+   return Socialite::driver('google')->stateless()->redirect();
 
 }
 public function handleProviderCallback()
 {
     $user = Socialite::driver('google')->stateless()->user();
-    $authUser =User::where('email',$user->email)->first();
-    if($authUser){
-        Auth::login($authUser);
-        return redirect()->route('home');
-    }
-    else{
-        $newUser =new User();
-        $newUser->email = $user->email;
-        $newUser->user_id = $user->user_id;
-        $newUser->password= uniqid();
-    }
+   $authUser = User::where('email',$user->email)->first();
+   if($authUser ){
+    Auth::login($authUser);
+    return redirect()->route('home');
+   }
+   else{
+    $newUser = new User();
+    $newUser->email = $user->email;
+    $newUser->name = $user->name;
 
-    return $user->token;
+    $newUser->userid = $user->id;
+    $newUser->password = uniqid();
+    $newUser->save();
+    //login
+    Auth::login($newUser);
+
+    return redirect()->route('home');
+   }
 }
 
 }
