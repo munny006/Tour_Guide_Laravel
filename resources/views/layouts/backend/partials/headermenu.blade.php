@@ -6,8 +6,8 @@
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
                         <a href="/">Home</a>
-                          
-                           
+
+
                     </div>
                 </div>
 
@@ -17,16 +17,23 @@
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                              <span class="mr-2 d-none d-lg-inline text-black-700 medium">{{Auth::user()->name}}</span>
-                            
-                            <img class="user-avatar rounded-circle" src="{{asset('storage/user/'.Auth::user()->image)}}" alt="User Avatar" style="    float: left; margin-top: 1px;    margin-left: -44px;"> 
 
-                            
+                            <img class="user-avatar rounded-circle" src="{{asset('storage/user/'.Auth::user()->image)}}" alt="User Avatar" style="    float: left; margin-top: 1px;    margin-left: -44px;">
+
+
                         </a>
-                        
+
 
                         <div class="user-menu dropdown-menu">
+                            @if (Auth::user()->role->id == 1)
                             <a class="nav-link" href="{{route('admin.profile')}}"><i class="fa fa-user"></i> My Profile</a>
-                            
+                            @elseif(Auth::user()->role->id == 2)
+                            <a class="nav-link" href="{{route('user.profile')}}"><i class="fa fa-user"></i> My Profile</a>
+                            @else
+                            null
+                        @endif
+
+
                             <a class="nav-link" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -39,7 +46,7 @@
                         </div>
                     </div>
 
-                   
+
 
                 </div>
             </div>

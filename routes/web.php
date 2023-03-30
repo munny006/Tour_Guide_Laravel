@@ -138,6 +138,9 @@ Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::c
 
 Route::group(['prefix' => 'user'], function(){
     Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('profile',[App\Http\Controllers\Admin\DeshboardController::class, 'showProfile'])->name('user.profile');
+    Route::PUT('profile',[App\Http\Controllers\Admin\DeshboardController::class, 'updateProfile'])->name('user.profile.update');
+    Route::PUT('profile/password',[App\Http\Controllers\Admin\DeshboardController::class, 'changePassword'])->name('user.profile.password');
 
       Route::get('comments', [App\Http\Controllers\User\CommentController::class, 'index'])->name('user.comments.index');
       Route::POST('comment/{id}',[App\Http\Controllers\User\CommentController::class,'delete'])->name('user.comment.delete');
