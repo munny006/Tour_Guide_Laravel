@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
+
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class LoginController extends Controller
 {
@@ -40,13 +45,24 @@ class LoginController extends Controller
     }
 public function redirectToProvider()
 {
-    return Socialite::driver('google')->redirect();
+    Socialite::driver('google')->stateless()->redirect();
 
 }
 public function handleProviderCallback()
 {
-    $user = Socialite::driver('google')->user();
-    dd($user);
+    $user = Socialite::driver('google')->stateless()->user();
+    $authUser =User::where('email',$user->email)->first();
+    if($authUser){
+        Auth::login($authUser);
+        return redirect()->route('home');
+    }
+    else{
+        $newUser =new User();
+        $newUser->email = $user->email;
+        $newUser->user_id = $user->user_id;
+        $newUser->password= uniqid();
+    }
+
     return $user->token;
 }
 
