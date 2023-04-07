@@ -115,7 +115,7 @@
                 <section class="comment-sec-area pt-80 pb-80">
                   <div class="container">
                     <div class="row flex-column">
-                      <h5 class="text-uppercase pb-80">05 Comments</h5>
+                      <h5 class="text-uppercase pb-80"></h5>
                       <br />
                       <!-- Frist Comment -->
                       <div class="comment">

@@ -19,8 +19,8 @@ class CommentController extends Controller
    public function delete($id)
    {
     $comment = Comment::find($id);
-    $replies = CommentReply::where('comment_id',$id)->delete();
-    $comment->delete();
+    // $replies = CommentReply::where('comment_id',$id)->delete();
+     $comment->delete();
      Toastr::success('success','Comment Successfully Deleted!!!');
         return redirect()->back();
    }

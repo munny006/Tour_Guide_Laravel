@@ -222,8 +222,11 @@ class PostController extends Controller
     public function delete($id)
     {
          $post = Post::find($id);
-         Storage::disk('public')->delete('post/'.$post->image);
-          $post->tags()->delete();
+         if($post->image !=='63d2d5797de73.jpg' && Storage::disk('public')->exists('post/'.$post->image))
+         {
+            Storage::disk('public')->delete('post/'.$post->image);
+         }
+        // $post->tags()->delete();
      $post->delete();
       Toastr::success('Post Deleted Successfully');
       return redirect()->back();
