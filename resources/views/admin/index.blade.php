@@ -6,7 +6,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Dashboard</h1>
+                    <h1>Admin Dashboard</h1>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                         <div class="stat-icon dib"><i class="ti-file text-success border-success"></i></div>
                         <div class="stat-content dib">
                             <div class="stat-text">Post Count</div>
-                            <div class="stat-digit">1,012</div>
+                            <div class="stat-digit">{{ $posts->count() }}</div>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                         <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
                         <div class="stat-content dib">
                             <div class="stat-text">Users Count</div>
-                            <div class="stat-digit">961</div>
+                            <div class="stat-digit">{{ $users->count() }}</div>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         <div class="stat-icon dib"><i class="ti-comment-alt -grid2 text-warning border-warning"></i></div>
                         <div class="stat-content dib">
                             <div class="stat-text">Comments</div>
-                            <div class="stat-digit">770</div>
+                            <div class="stat-digit">{{ $comments->count() }}</div>
                         </div>
                     </div>
                 </div>
@@ -82,8 +82,8 @@
                     <div class="stat-widget-one">
                         <div class="stat-icon dib"><i class="ti-thumb-up -grid2 text-warning border-warning"></i></div>
                         <div class="stat-content dib">
-                            <div class="stat-text">Likes</div>
-                            <div class="stat-digit">770</div>
+                            <div class="stat-text">Category</div>
+                            <div class="stat-digit">{{ $categories->count() }}</div>
                         </div>
                     </div>
                 </div>
@@ -99,37 +99,28 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Commeny</th>
+                            <th scope="col">From</th>
+                            <th scope="col">To</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                       @foreach ($comments as $key => $comment)
+                       <tr>
+                        <th scope="row">{{ $key  + 1 }}</th>
+                        <td>{{Str::limit( $comment->message,30) }}</td>
+                        <td>{{ $comment->user->name }}</td>
+                        <td><a href="{{ route('post',$post->slug) }}"></a></td>
+                    </tr>
+                       @endforeach
+
                     </tbody>
                 </table>
                 </div>
             </div>
         </div>
 
-            
+
         </div>
 </div>
 @endsection

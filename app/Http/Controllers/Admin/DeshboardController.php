@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Comment;
+
 use Illuminate\Support\Facades\Auth;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
@@ -14,7 +18,11 @@ use Illuminate\Support\Facades\Storage;
 class DeshboardController extends Controller
 {
    public function index(){
-   	return view('admin.index');
+    $posts = Post::all();
+    $comments = Comment::all();
+    $users = User::all();
+    $categories = Category::all();
+   	return view('admin.index',compact('posts','comments','users','categories'));
    }
    public function showProfile(){
         // dd(Auth::user());
@@ -78,7 +86,7 @@ public function changePassword(Request $request){
                 $user->save();
 
                 ///Logout
-               
+
                 return redirect('/');
             } else {
                 Toastr::error('New password should not be same as old password :(');

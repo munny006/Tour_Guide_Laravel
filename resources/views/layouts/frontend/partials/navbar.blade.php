@@ -83,16 +83,16 @@
                                         </a>
                                             <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
                                                 <i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Dashboard</a>
-                                            <a class="dropdown-item" href="{{ route('admin.post.like.users',$post->id) }}"><i
-                                                    class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
+                                            {{-- <a class="dropdown-item" href=""><i
+                                                    class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a> --}}
                                         @elseif(Auth::user()->role->id == 2)
                                         <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
 
                                         </a>
                                             <a href="{{ route('user.dashboard') }}"><i class="fa fa-tv"
                                                     aria-hidden="true"></i>&nbsp;Dashboard</a>
-                                            <a class="dropdown-item" href="{{ route('user.like.posts') }}"><i
-                                                    class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a>
+                                            {{-- <a class="dropdown-item" href="{{ route('user.like.posts') }}"><i
+                                                    class="fa fa-heart" aria-hidden="true"></i>&nbsp; Favorite List</a> --}}
                                         @else
                                             null
                                         @endif
