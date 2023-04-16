@@ -99,18 +99,18 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Commeny</th>
+                            <th scope="col">Comment</th>
                             <th scope="col">From</th>
-                            <th scope="col">To</th>
+                            <th scope="col">Post</th>
                         </tr>
                     </thead>
                     <tbody>
-                       @foreach ($comments as $key => $comment)
+                       @foreach ($comments->take(2) as $key => $comment)
                        <tr>
-                        <th scope="row">{{ $key  + 1 }}</th>
-                        <td>{{Str::limit( $comment->message,30) }}</td>
+                        <th scope="row">{{ $key + 1}}</th>
+                        <td>{{Str::limit( $comment->comment,30) }}</td>
                         <td>{{ $comment->user->name }}</td>
-                        <td><a href="{{ route('post',$post->slug) }}"></a></td>
+                        <td><a href="{{ route('post',$comment->post->slug) }}">{{ Str::limit($comment->post->title) }}</a></td>
                     </tr>
                        @endforeach
 

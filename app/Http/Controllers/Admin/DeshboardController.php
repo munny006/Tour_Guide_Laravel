@@ -19,7 +19,7 @@ class DeshboardController extends Controller
 {
    public function index(){
     $posts = Post::all();
-    $comments = Comment::all();
+    $comments = Comment::latest()->get();
     $users = User::all();
     $categories = Category::all();
    	return view('admin.index',compact('posts','comments','users','categories'));
