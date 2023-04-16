@@ -105,7 +105,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                       @foreach ($comments->take(2) as $key => $comment)
+                       @foreach ($comments->take(10) as $key => $comment)
                        <tr>
                         <th scope="row">{{ $key + 1}}</th>
                         <td>{{Str::limit( $comment->comment,30) }}</td>
