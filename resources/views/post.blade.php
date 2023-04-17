@@ -87,36 +87,54 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6 single-b-wrap col-md-12">
-                                            <h5 style="    font-size: 14px;
-                                            margin-top: 40px;">Share This post on your Social Accounts </h5>
+                                            <h5
+                                                style="    font-size: 14px;
+                                            margin-top: 40px;">
+                                                Share it on your Social Accounts </h5>
                                         </div>
 
-                                        <div class="col-lg-6 single-b-wrap col-md-12">
+                                        <div class="col-lg-6 single-b-wrap col-md-12 mt-4">
                                             <ul class="social-icons">
                                                 <li>
-                                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true" style="font-size:15px; margin-top: 40px; color:#1877f2!important;margin-left: 203px;"></i></a>
+                                                    <a href="#"id="facebook-btn"><i class="fa fa-facebook" aria-hidden="true"
+                                                            style="font-size:15px;
+                                                     /* margin-top: 40px; */color:#1877f2!important;
+                                                     margin-left: 203px;"></i></a>
                                                 </li>
 
                                                 <li>
-                                                   <a href="#"><i class="fa fa-envelope-o" aria-hidden="true" style="font-size: 15px;    color: red;"></i></a>
-                                               </li>
+                                                    <a href="#" id="envelope-btn"><i class="fa fa-envelope-o" aria-hidden="true"
+                                                            style="font-size: 15px;
+                                                         color: red;"></i></a>
+                                                </li>
 
-                                               <li>
-                                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true" style="color:red;
+                                                <li>
+                                                    <a href="#" id="google-btn"><i class="fa fa-google-plus" aria-hidden="true"
+                                                            style="color:red;
                                                    float: left;
-                                                   margin-left: 285px;
+                                                   margin-left: 278px;
                                                    font-size: 15px;
-                                                   margin-top:-34px;"></i></a>
-                                            </li>
+                                                 margin-top:-34px;"></i></a>
+                                                </li>
 
-                                            <li>
-                                             <a href="#"><i class="fa fa-linkedin" aria-hidden="true" style="color:blue;
-                                                    color: blue;
-                                                      float: left;
-                                                      margin-left: 330px;
-                                                      font-size: 15px;
-                                                      margin-top:-57px;   "></i></a>
-                                         </li>
+                                                <li>
+                                                    <a href="#" id="linkedin-btn"><i class="fa fa-linkedin" aria-hidden="true" style="color:blue;
+
+                                                 float: left;
+                                                 margin-left:322px;
+                                                 font-size: 17px;
+                                                 margin-top: -58px;    "></i></a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#" id="whatsapp-btn"><i class="fa fa-whatsapp" aria-hidden="true"
+                                                            style="color:green;
+
+                                                   float: left;
+                                                   margin-left:363px;
+                                                   font-size: 17px;
+                                                   margin-top: -79px; "></i></a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -179,7 +197,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="">
-                                                                    <button class="btn-reply text-uppercase" id="reply-btn"
+                                                                    <button class="btn-reply text-uppercase"
+                                                                        id="reply-btn"
                                                                         onclick="showReplyForm('{{ $comment->id }}','{{ $reply->user->name }}')">reply
                                                                     </button>
                                                                 </div>
@@ -190,8 +209,8 @@
                                                     @guest
                                                     @endif
 
-                                                    <div class="comment-list left-padding" id="reply-form-{{ $comment->id }}"
-                                                        style="display: none">
+                                                    <div class="comment-list left-padding"
+                                                        id="reply-form-{{ $comment->id }}" style="display: none">
                                                         <div class="single-comment justify-content-between d-flex">
                                                             <div class="user justify-content-between d-flex">
                                                                 <div class="thumb">
@@ -277,5 +296,13 @@
                 x.style.display = "none";
             }
         }
+
+        //social share link
+
+        const facebookBtn = document.getElementById('facebook-btn');
+        const envelopeBtn = document.getElementById('envelope-btn');
+        const googleBtn = document.getElementById('google-btn');
+        const linkedinBtn = document.getElementById('linkedin-btn');
+        const whatsappBtn = document.getElementById('whatsapp-btn');
     </script>
 @endpush
