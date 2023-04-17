@@ -137,6 +137,15 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                        <div class="col-lg-6 single-b-wrap col-md-12 mt-4">
+                                            <button class="btn btn-info" style="color: black;
+                                            background-color: #17a2b8;
+                                            border-color: #17a2b8;
+                                            margin-top: -108px;">
+                                                <i class="fa fa-share-alt"></i> Share
+
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -304,5 +313,13 @@
         const googleBtn = document.getElementById('google-btn');
         const linkedinBtn = document.getElementById('linkedin-btn');
         const whatsappBtn = document.getElementById('whatsapp-btn');
+        let postUrl = encodeURI(document.location.href);
+        let postTitle= encodeURI('{{ $post->title }}');
+
+        facebookBtn.setAttribute("href",`https://www.facebook.com/share.php?u=${postUrl}`);
+        envelopeBtn.setAttribute("href",`https://mail.google.com/mail/?view=cm$su=${postTitle}$body=${postUrl}`);
+        googleBtn.setAttribute("href",`https://www.plus.google.com/share?url=${postTitle}`);
+        linkedinBtn.setAttribute("href",`https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`);
+        whatsappBtn.setAttribute("href",`https://wa.me/?text=${postTitle}${postUrl}`);
     </script>
 @endpush
