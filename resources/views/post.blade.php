@@ -93,7 +93,7 @@
                                                 Share it on your Social Accounts </h5>
                                         </div>
 
-                                        <div class="col-lg-6 single-b-wrap col-md-12 mt-4">
+                                        <div class="col-lg-6 single-b-wrap col-md-12 mt-3"  id="social-links">
                                             <ul class="social-icons">
                                                 <li>
                                                     <a href="#"id="facebook-btn"><i class="fa fa-facebook" aria-hidden="true"
@@ -141,8 +141,12 @@
                                             <button class="btn btn-info" style="color: black;
                                             background-color: #17a2b8;
                                             border-color: #17a2b8;
-                                            margin-top: -108px;">
-                                                <i class="fa fa-share-alt"></i> Share
+                                            margin-top: 87px;
+                                            margin-left: -142px;
+                                            display:none;
+
+                                            " id="shareBtn">
+                                                <i class="fa fa-share"></i> Share
 
                                             </button>
                                         </div>
@@ -312,7 +316,10 @@
         const envelopeBtn = document.getElementById('envelope-btn');
         const googleBtn = document.getElementById('google-btn');
         const linkedinBtn = document.getElementById('linkedin-btn');
+
         const whatsappBtn = document.getElementById('whatsapp-btn');
+
+
         let postUrl = encodeURI(document.location.href);
         let postTitle= encodeURI('{{ $post->title }}');
 
@@ -321,5 +328,27 @@
         googleBtn.setAttribute("href",`https://www.plus.google.com/share?url=${postTitle}`);
         linkedinBtn.setAttribute("href",`https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`);
         whatsappBtn.setAttribute("href",`https://wa.me/?text=${postTitle}${postUrl}`);
+
+        const  socialLinks = document.getElementById('social-links');
+
+        const shareBtn = document.getElementById('shareBtn');
+        if(navigator.share){
+            shareBtn.style.display = 'block';
+            socialLinks.style.display = 'none';
+            shareBtn.addEventListener('click',() =>{
+                navigator.share({
+                    title:postTitle,
+                    url:postUrl
+
+                }).then((result) => {
+                    alert('Thank u for sharing')
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+            });
+        }
+        else{
+
+        }
     </script>
 @endpush
