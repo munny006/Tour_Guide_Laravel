@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         $posts = Post::latest()->take(6)->published()->get();
         return view('index',compact('posts'));
+        Toastr::success('success','You are now Registered ! please confirm your  email address');
     }
     public function posts()
     {

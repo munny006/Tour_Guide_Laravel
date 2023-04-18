@@ -3,6 +3,22 @@
 
   <div class="login-area page-area py-5 my-5" style="padding-top: 7rem !important;">
     <div class="container">
+             <!--error msg-->
+             @if ($errors->any())
+
+             @foreach ($errors->all() as $error)
+              <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+         <span class="badge badge-pill badge-danger">Error !!</span>{{$error}}
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+       </button>
+       </div>
+             @endforeach
+
+       </div>
+       @endif
+       <!--End error msg-->
+
       <div class="row">
           <div class="col-md-8 border p-4">
            <form method="POST" action="{{ route('register') }}">
@@ -61,7 +77,7 @@
                   </div>
                 </div>
               </div>
-              
+
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -70,9 +86,9 @@
                   </div>
                 </div>
 
-             
+
               </div>
-              
+
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" style="margin-left: -0.25rem;">
                 <label class="form-check-label" for="exampleCheck1">Remember Me</label>

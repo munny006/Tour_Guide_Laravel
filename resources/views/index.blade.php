@@ -7,6 +7,7 @@
       data-image-src="{{asset('frontend/img/nilachal-bandarban-01.jpg')}}" style="height: 820px;">
       <div class="overlay-bg overlay"></div>
       <div class="container">
+ 
         <div class="row fullscreen">
           <div class="banner-content d-flex align-items-center col-lg-12 col-md-12">
             <h1 style="float: left;margin-left: 144px;">
@@ -48,6 +49,9 @@
     <!-- Start category Area -->
     <section class="category-area section-gap" id="news">
       <div class="container">
+
+
+
         <div class="row d-flex justify-content-center">
           <div class="menu-content pb-70 col-lg-12">
             <div class="title text-center">
@@ -63,7 +67,7 @@
         <div class="single-posts col-lg-4 col-sm-4 mb-3">
             <div class="item single-cat">
             <div  style="width:190px">
-            <img src="{{asset('storage/post/'.$post->image)}}" class="img-fluid " alt="{{$post->image}}" /style="width:1000px; height: 200px;">
+            <img src="{{asset('storage/post/'.$post->image)}}" class="img-fluid " alt="{{$post->image}}" style="width:1000px; height: 200px;"/>
            </div>
 
             <div>
