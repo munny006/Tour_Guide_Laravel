@@ -34,7 +34,7 @@ use App\Mail\NewPost;
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 //social login
 Route::get('login/google','Auth\LoginController@redirectToProvider');

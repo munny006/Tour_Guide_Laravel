@@ -61,6 +61,11 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+            'dump' => [
+                'dum_binary_path' =>'c:/xampp/mysql/bin',
+                'use_single_transaction',
+                'timeout' => 60 * 5,
+            ],
         ],
 
         'pgsql' => [
