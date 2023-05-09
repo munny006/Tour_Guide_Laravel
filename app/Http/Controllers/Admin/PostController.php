@@ -149,7 +149,7 @@ class PostController extends Controller
 
        $this->validate($request,[
         'title' =>'required',
-        'image' =>'required|mimes:jpg,png,jpeg',
+        'image' =>'sometimes|mimes:jpg,png,jpeg',
         'category'=> 'required',
         'tags' =>'required',
         'body' => 'required',
@@ -169,14 +169,14 @@ class PostController extends Controller
 
     Storage::put('post',$imageName,'public');;
 
-    $post = new Post();
+    // $post = new Post();
     $post->title = $request->title;
     $post->user_id = Auth::id();
 
     $post->category_id =$request->category;
     $post->slug = $slug ;
     $post->image = $imageName ;
-    $post->body =$request->body;
+    // $post->body =$request->body;
     $post->body =$request->body;
     if(isset($request->status)){
         $post->status =true;

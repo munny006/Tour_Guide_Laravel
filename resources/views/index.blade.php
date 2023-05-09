@@ -116,7 +116,7 @@
                     {{-- {!!Str::limit($post->body,300)!!} --}}
                     {{-- {{ Str::limit($your_string, 50) }} --}}
                     {{-- {!! Str::limit($post->body,20,'...') !!} --}}
-                    {!!  substr(strip_tags($post->body), 0, 200) !!}
+                    {!!  substr(strip_tags($post->body), 0, 100) !!}
                     </p>
               </div>
               <p class="py-2" footer="">
