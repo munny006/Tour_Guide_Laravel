@@ -6,7 +6,7 @@
          @endpush
          @section('content')
          <div id="right-panel" class="right-panel">
-            <div class="breadcrumbs">
+            <div class="breadcrumbs"style="font-family: 'Gill Sans', sans-serif; color:black;">
                <div class="col-sm-4">
                  <div class="page-header float-left">
                   <div class="page-title">
@@ -17,7 +17,7 @@
           <div class="col-sm-8">
             <div class="page-header float-right">
                <div class="page-title">
-                <ol class="breadcrumb text-right">
+                <ol class="breadcrumb text-right"style="font-family: 'Gill Sans', sans-serif; color:black;">
                  <li><a href="#">Dashboard</a></li>
                  <li>
                   <a href="#" class="active">Comments</a>
@@ -34,7 +34,7 @@
          <div class="col-md-12">
             <!--error msg-->
             @if ($errors->any())
-            
+
                @foreach ($errors->all() as $error)
                 <div class="alert  alert-danger alert-dismissible fade show" role="alert">
            <span class="badge badge-pill badge-danger">Error !!</span>{{$error}}
@@ -43,15 +43,15 @@
          </button>
       </div>
                @endforeach
-           
+
          </div>
-         @endif 
+         @endif
          <!--End error msg-->
-        
+
 
    </div>
    <div class="col-md-12">
-    <div class="card">
+    <div class="card"style="font-family: 'Gill Sans', sans-serif; color:black;">
      <div class="card-header">
       <strong class="card-title">Comments Table</strong>
      {{--  <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
@@ -59,15 +59,15 @@
       <i class="fa fa-plus"></i>
    </button> --}}
 </div>
-<div class="card-body">
-   <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+<div class="card-body"style="font-family: 'Gill Sans', sans-serif; color:black;">
+   <table id="bootstrap-data-table-export" class="table table-striped table-bordered"style="font-family: 'Gill Sans', sans-serif; color:black;">
     <thead>
      <tr>
       <th>ID</th>
       <th>Comment</th>
       <th>User</th>
       <th>Post</th>
-      
+
       <th>created_At</th>
       <th>Action</th>
    </tr>

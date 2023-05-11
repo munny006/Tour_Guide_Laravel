@@ -1,21 +1,21 @@
 @extends('layouts.frontend.app')
 @section('content')
   <!-- Start top-section Area -->
-    <section class="top-section-area section-gap">
-      <div class="container">
+    <section class="top-section-area section-gap" style="font-family: 'Gill Sans', sans-serif; color:black;">
+      <div class="container" style="font-family: 'Gill Sans', sans-serif; color:black;">
         <div class="row justify-content-between align-items-center d-flex">
           <div class="col-lg-8 top-left">
-            <h1 class="text-white mb-20">All Post of Category 1</h1>
+            <h1 class=" mb-20"style="font-family: 'Gill Sans', sans-serif;color:black;">All Post of Category 1</h1>
             <ul>
               <li>
-                <a href="index.html">Home</a
-                ><span class="lnr lnr-arrow-right"></span>
+                <a href="index.html"style="font-family: 'Gill Sans', sans-serif; color:black;">Home</a
+                ><span class="lnr lnr-arrow-right" style="color:black;"></span>
               </li>
               <li>
-                <a href="category.html">Category</a
-                ><span class="lnr lnr-arrow-right"></span>
+                <a href="category.html"style="font-family: 'Gill Sans', sans-serif; color:black;">Category</a
+                ><span class="lnr lnr-arrow-right"style="color:black;"></span>
               </li>
-              <li><a href="single.html">Posts</a></li>
+              <li><a href="single.html"style="font-family: 'Gill Sans', sans-serif; color:black;">Posts</a></li>
             </ul>
           </div>
         </div>
@@ -24,7 +24,7 @@
     <!-- End top-section Area -->
 
     <!-- Start post Area -->
-    <div class="post-wrapper pt-100">
+    <div class="post-wrapper pt-100" style="font-family: 'Gill Sans', sans-serif; color:black;">
       <!-- Start post Area -->
       <section class="post-area">
         <div class="container">
@@ -36,15 +36,15 @@
                     @if($posts->count() > 0)
                     @foreach($posts as $post)
                       <div class="single-posts col-lg-6 col-sm-6">
-                      <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}" /style="width:1000px; height: 200px;">
-                      <div class="date mt-20 mb-20">{{$post->created_at->format('D,d M Y H:i')}}</div>
+                      <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}"style="width:1000px; height: 200px;">
+                      <div class="date mt-20 mb-20" style="font-family: 'Gill Sans', sans-serif; color:white;">{{$post->created_at->format('D,d M Y H:i')}}</div>
                       <div class="detail">
                         <a href="{{route('post',$post->slug)}}"
-                          ><h4 class="pb-20">
+                          ><h4 class="pb-20"style="font-family: 'Gill Sans', sans-serif; color:black;">
                            {{$post->title}}
                           </h4></a
                         >
-                        <p>
+                        <p style="font-family: 'Gill Sans', sans-serif; color:black;">
                           {!!Str::limit($post->body,300)!!}
                         </p>
                         <p class="footer pt-20">
@@ -60,7 +60,7 @@
                     </div>
                     @endforeach
                     @else
-                    <h1>No Posts Available</h1>
+                    <h1 style="font-family: 'Gill Sans', sans-serif; color:black;">No Posts Available</h1>
                    @endif
                     <div class="justify-content-center d-flex mb-3">
                       {{$posts->links()}}
@@ -76,5 +76,5 @@
       <!-- End post Area -->
     </div>
     <!-- End post Area -->
- 
+
 @endsection

@@ -38,7 +38,7 @@
                       @foreach($posts as $post)
                     <div class="single-posts col-lg-6 col-sm-6">
                         <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="$post->image" / style="width:980px; height: 200px;">
-                      <div class="date mt-20 mb-20" style="font-family: 'Gill Sans', sans-serif; color:black;">
+                      <div class="date mt-20 mb-20" style="font-family: 'Gill Sans', sans-serif; color:white;">
                         {{$post->created_at->diffForHumans()}}
                       </div>
                         <div class="detail">

@@ -4,15 +4,15 @@
         <div class="container">
             <div class="row justify-content-between align-items-center d-flex">
                 <div class="col-lg-8 top-left">
-                    <h1 class="text-white mb-20" style="font-family: 'Work Sans';">Post Details</h1>
+                    <h1 class="text-white mb-20" style="font-family: 'Gill Sans', sans-serif; color:black;">Post Details</h1>
                     <ul>
                         <li>
-                            <a href="index.html" style="font-family: 'Work Sans';">Home</a><span class="lnr lnr-arrow-right"></span>
+                            <a href="index.html" style="font-family: 'Gill Sans', sans-serif; color:black;">Home</a><span class="lnr lnr-arrow-right"></span>
                         </li>
                         <li>
-                            <a href="category.html"  style="font-family: 'Work Sans';">Category</a><span class="lnr lnr-arrow-right"></span>
+                            <a href="category.html"  style="font-family: 'Gill Sans', sans-serif; color:black;">Category</a><span class="lnr lnr-arrow-right"></span>
                         </li>
-                        <li><a href="single.html"  style="font-family: 'Work Sans';">Fashion</a></li>
+                        <li><a href="single.html"  style="font-family: 'Gill Sans', sans-serif; color:black;">Fashion</a></li>
                     </ul>
                 </div>
             </div>
@@ -24,20 +24,20 @@
     <div class="post-wrapper pt-100">
         <!-- Start post Area -->
         <section class="post-area">
-            <div class="container"  style="font-family: 'Work Sans';">
+            <div class="container"  style="font-family: 'Gill Sans', sans-serif; color:black;">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8"  style="font-family: 'Work Sans';">
+                    <div class="col-lg-8"  style="font-family: 'Gill Sans', sans-serif; color:black;">
                         <div class="single-page-post">
                             <img class="img-fluid" src="{{ asset('storage/post/' . $post->image) }}" alt="$post->image" />
                             <div class="top-wrapper">
                                 <div class="row d-flex justify-content-between">
-                                    <h2 class="col-lg-8 col-md-12 text-uppercase"  style="font-family: 'Work Sans';">
+                                    <h2 class="col-lg-8 col-md-12 text-uppercase"  style="font-family: 'Gill Sans', sans-serif; color:black;">
                                         {{ $post->title }}
                                     </h2>
                                     <div class="col-lg-4 col-md-12 right-side d-flex justify-content-end">
                                         <div class="desc">
-                                            <h2  style="font-family: 'Work Sans';">{{ $post->user->name }}</h2>
-                                            <h3  style="font-family: 'Work Sans';">{{ $post->created_at->diffForHumans() }}</h3>
+                                            <h2  style="font-family: 'Gill Sans', sans-serif; color:black;">{{ $post->user->name }}</h2>
+                                            <h3  style="font-family: 'Gill Sans', sans-serif; color:white;">{{ $post->created_at->diffForHumans() }}</h3>
                                         </div>
                                         <div class="user-img">
                                             <img src="{{ asset('storage/user/' . $post->user->image) }}"
@@ -45,30 +45,30 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h4 class="text-muted"  style="font-family: 'Work Sans';">{{ $post->category->name }}</h4>
+                                <h4 class="text-muted"  style="font-family: 'Gill Sans', sans-serif; color:black;">{{ $post->category->name }}</h4>
                             </div>
-                            <div class="tags" style="font-family: 'Work Sans';">
-                                <ul  style="font-family: 'Work Sans';">
+                            <div class="tags" style="font-family: 'Gill Sans', sans-serif; color:black;">
+                                <ul  style="font-family: 'Gill Sans', sans-serif; color:black;">
                                     @foreach ($post->tags as $tag)
                                         <li><a href="#">{{ $tag->name }}</a></li>
                                     @endforeach
 
                                 </ul>
                             </div>
-                            <div class="single-post-content" style="font-family: 'Work Sans';">
+                            <div class="single-post-content" style="font-family: 'Gill Sans', sans-serif; color:black;">
                                 {!! $post->body !!}
                             </div>
                             <div class="bottom-wrapper">
                                 <div class="row">
-                                    <div class="col-lg-4 single-b-wrap col-md-12" style="font-family: 'Work Sans';">
+                                    <div class="col-lg-4 single-b-wrap col-md-12" style="font-family: 'Gill Sans', sans-serif; color:black;">
                                         @guest
-                                            <i class="fa fa-heart-o" aria-hidden="true"  style="font-family: 'Work Sans';"></i> {{ $post->likedUsers->count() }}
+                                            <i class="fa fa-heart-o" aria-hidden="true"  style="font-family: 'Gill Sans', sans-serif; color:black;;"></i> {{ $post->likedUsers->count() }}
                                             people like this
                                         @else
                                             <a href="#"
                                                 onclick="document.getElementById('like-form-{{ $post->id }}').submit();"><i
                                                     class="fa fa-heart" aria-hidden="true"
-                                                    style="color:{{ Auth::user()->likedPost()->where('post_id', $post->id)->count() > 0? 'red': '' }}"></i></a>
+                                                    style="color:{{ Auth::user()->likedPost()->where('post_id', $post->id)->count() > 0? 'red': '' }} font-family: 'Gill Sans', sans-serif; color:black;"></i></a>
                                             {{ $post->likedUsers->count() }} people like this
 
                                             <form action="{{ route('post.like', $post->id) }}" method="POST"
@@ -77,11 +77,11 @@
                                             </form>
                                         @endguest
                                     </div>
-                                    <div class="col-lg-4 single-b-wrap col-md-12">
+                                    <div class="col-lg-4 single-b-wrap col-md-12" style="font-family: 'Gill Sans', sans-serif; color:black;">
                                         <i class="fa fa-eye" aria-hidden="true"></i> {{ $post->view_count }}
                                         Views
                                     </div>
-                                    <div class="col-lg-4 single-b-wrap col-md-12">
+                                    <div class="col-lg-4 single-b-wrap col-md-12" style="font-family: 'Gill Sans', sans-serif; color:black;">
                                         <i class="fa fa-comment-o" aria-hidden="true"></i> {{ $post->comments->count() }}
                                         comments
                                     </div>
@@ -143,10 +143,10 @@
                                             border-color: #17a2b8;
                                             margin-top: 87px;
                                             margin-left: -142px;
-                                            display:none; font-family: 'Work Sans';"
+                                            display:none; font-family: 'Gill Sans', sans-serif; "
 
                                             id="shareBtn">
-                                                <i class="fa fa-share"></i> Share
+                                                <i class="fa fa-share" style="font-family: 'Gill Sans', sans-serif; color:black;"></i> Share
 
                                             </button>
                                         </div>
@@ -172,16 +172,16 @@
                                                                     alt="{{ $comment->user->image }}" width="50px" />
                                                             </div>
                                                             <div class="desc">
-                                                                <h5><a href="#">{{ $comment->user->name }}</a></h5>
-                                                                <p class="date">
+                                                                <h5 style="font-family: 'Gill Sans', sans-serif; color:black;"><a href="#" style="font-family: 'Gill Sans', sans-serif; color:white;">{{ $comment->user->name }}</a></h5>
+                                                                <p class="date" style="font-family: 'Gill Sans', sans-serif; color:white;">
                                                                     {{ $comment->created_at->format('D,d M Y H :i') }}</p>
-                                                                <p class="comment">
+                                                                <p class="comment" style="font-family: 'Gill Sans', sans-serif; color:black;">
                                                                     {{ $comment->comment }}
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <div class="">
-                                                            <button class="btn-reply text-uppercase" id="reply-btn"
+                                                            <button class="btn-reply text-uppercase"  style="font-family: 'Gill Sans', sans-serif; color:black;" id="reply-btn"
                                                                 onclick="showReplyForm('{{ $comment->id }}','{{ $comment->user->name }}')">reply
                                                             </button>
                                                         </div>
@@ -198,20 +198,20 @@
                                                                             alt="{{ $reply->user->image }}"
                                                                             width="50px" />
                                                                     </div>
-                                                                    <div class="desc">
+                                                                    <div class="desc" style="font-family: 'Gill Sans', sans-serif; color:black;">
                                                                         <h5><a href="#">{{ $reply->user->name }}</a>
                                                                         </h5>
-                                                                        <p class="date">
+                                                                        <p class="date" style="font-family: 'Gill Sans', sans-serif; color:white;">
                                                                             {{ $reply->created_at->format('D,d M Y H:i') }}
                                                                         </p>
-                                                                        <p class="comment">
+                                                                        <p class="comment" style="font-family: 'Gill Sans', sans-serif; color:black;">
                                                                             {{ $reply->message }}
                                                                         </p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="">
                                                                     <button class="btn-reply text-uppercase"
-                                                                        id="reply-btn"
+                                                                        id="reply-btn" style="font-family: 'Gill Sans', sans-serif; color:black;"
                                                                         onclick="showReplyForm('{{ $comment->id }}','{{ $reply->user->name }}')">reply
                                                                     </button>
                                                                 </div>
@@ -230,7 +230,7 @@
                                                                     <img src="img/asset/c2.jpg" alt="" />
                                                                 </div>
                                                                 <div class="desc">
-                                                                    <h5><a href="#">{{ Auth::user()->name }}</a></h5>
+                                                                    <h5 style="font-family: 'Gill Sans', sans-serif; color:black;"><a href="#" style="font-family: 'Gill Sans', sans-serif; color:black;">{{ Auth::user()->name }}</a></h5>
                                                                     <p class="date">{{ date('D,d,M,Y H:i') }}</p>
                                                                     <div class="row flex-row d-flex">
                                                                         <form
@@ -239,11 +239,11 @@
                                                                             @csrf
                                                                             <div class="col-lg-12">
                                                                                 <textarea id="reply-form-{{ $comment->id }}-text" cols="60" rows="2" class="form-control mb-10"
-                                                                                    name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
+                                                                                    name="message" style="font-family: 'Gill Sans', sans-serif; color:black;" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
                                                                                     required=""></textarea>
                                                                             </div>
                                                                             <button type="submit"
-                                                                                class="btn-reply text-uppercase ml-3">Reply</button>
+                                                                                class="btn-reply text-uppercase ml-3" style="font-family: 'Gill Sans', sans-serif; color:black;">Reply</button>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -263,12 +263,12 @@
                             <section class="commentform-area pb-120 pt-80 mb-100">
                                 @guest
                                     <div class="container">
-                                        <h4 class="py-3">Please Log in to Comment</h4>
+                                        <h4 class="py-3" style="font-family: 'Gill Sans', sans-serif; color:black;">Please Log in to Comment</h4>
 
                                     </div>
                                 @else
                                     <div class="container">
-                                        <h5 class="text-uppercas pb-50">Leave a Reply</h5>
+                                        <h5 class="text-uppercas pb-50" style="font-family: 'Gill Sans', sans-serif; color:black;">Leave a Reply</h5>
                                         <div class="row flex-row d-flex">
 
                                             <div class="col-lg-12">
@@ -276,7 +276,7 @@
                                                     @csrf
                                                     <textarea class="form-control mb-10" name="comment" placeholder="Messege" onfocus="this.placeholder = ''"
                                                         onblur="this.placeholder = 'Messege'" required=""></textarea>
-                                                    <button type="submit" class="primary-btn mt-20">Comment</button>
+                                                    <button type="submit" class="primary-btn mt-20" style="font-family: 'Gill Sans', sans-serif; color:black;">Comment</button>
                                             </div>
                                             </form>
                                         </div>

@@ -1,5 +1,5 @@
     <header class="default-header">
-        <nav class="navbar navbar-expand-lg" style="background-color: #f9f9ff4f;font-family: 'Work Sans';">
+        <nav class="navbar navbar-expand-lg" style="background-color: #f9f9ff4f;font-family: 'Gill Sans', sans-serif; color:black;">
             <div class="container px-3">
                 <a class="navbar-brand" href="index.html">
                     <img src="{{ asset('frontend/img/logo2.jpg') }}" alt="" width="59px">
@@ -10,7 +10,7 @@
         @if ($errors->any())
 
         @foreach ($errors->all() as $error)
-         <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+         <div class="alert  alert-danger alert-dismissible fade show" role="alert"style="font-family: 'Gill Sans', sans-serif; color:black;">
     <span class="badge badge-pill badge-danger">Error !!</span>{{$error}}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
      <span aria-hidden="true">×</span>
@@ -45,7 +45,7 @@
 
                 <div class="collapse navbar-collapse justify-content-end align-items-center"
                     id="navbarSupportedContent">
-                    <ul class="navbar-nav scrollable-menu">
+                    <ul class="navbar-nav scrollable-menu"style="font-family: 'Gill Sans', sans-serif; color:black;">
                         <li><a href="/">Home</a></li>
                         <li><a href="/posts">Posts</a></li>
                         <li><a href="/categories">Categories</a></li>
@@ -78,7 +78,7 @@
 
 
                                 <!-- Dropdown -->
-                                <li class="dropdown">
+                                <li class="dropdown" style="font-family: 'Gill Sans', sans-serif; color:black;">
                                     <a href="#" onclick="dropMenu()">
                                         <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;
                                         <span
@@ -120,7 +120,7 @@
                                             <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; {{ __('Logout') }}
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"style="font-family: 'Gill Sans', sans-serif; color:black;">
                                             @csrf
                                         </form>
 
@@ -128,7 +128,7 @@
                                 </li>
                             @else
                                 <li><a href="{{ route('login') }}"
-                                        class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
+                                        class="text-sm text-gray-700 dark:text-gray-500 underline"style="font-family: 'Gill Sans', sans-serif; color:black;">Log in</a></li>
 
                                 @if (Route::has('register'))
                                     <li><a href="{{ route('register') }}"

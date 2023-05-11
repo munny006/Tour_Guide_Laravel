@@ -1,14 +1,14 @@
 @extends('layouts.frontend.app')
 @section('content')
  <section class="generic-banner relative">
-    
+
       <!-- End Header Area -->
-      <div class="container">
+      <div class="container" style="font-family: 'Gill Sans', sans-serif; color:black;">
         <div class="row height align-items-center justify-content-center">
           <div class="col-lg-10">
             <div class="generic-banner-content">
-              <h2 class="text-dark text-center">The Category Page</h2>
-              <p class="text-dark">
+              <h2 class="text-dark text-center"style="font-family: 'Gill Sans', sans-serif; color:black;">The Category Page</h2>
+              <p class="text-dark" style="font-family: 'Gill Sans', sans-serif; color:black;">
                 This page shows all the categories that available by the site
               </p>
             </div>
@@ -19,24 +19,24 @@
 <div class="main-wrapper">
       <!-- Start fashion Area -->
       <section class="fashion-area section-gap" id="fashion">
-        <div class="container">
+        <div class="container" style="font-family: 'Gill Sans', sans-serif; color:black;">
           <div class="row">
             @foreach($categories as $category)
             	<div class="col-lg-3 col-md-6 single-fashion">
-              <img class="img-fluid" src="{{asset('storage/category/'.$category->image)}}" alt="{{$category->image}}" /style="width:1000px; height: 200px;">
-              <p class="date">{{$category->created_at->format('D,d M Y H:i')}}</p>
-           <a href="{{route('category.post',$category->slug)}}"><h4>{{$category->name}}</h4></a>
-             
+              <img class="img-fluid" src="{{asset('storage/category/'.$category->image)}}" alt="{{$category->image}}" style="width:1000px; height: 200px;">
+              <p class="date" style="font-family: 'Gill Sans', sans-serif; color:white;">{{$category->created_at->format('D,d M Y H:i')}}</p>
+           <a href="{{route('category.post',$category->slug)}}" style="font-family: 'Gill Sans', sans-serif; color:black;"><h4 style="font-family: 'Gill Sans', sans-serif; color:black;">{{$category->name}}</h4></a>
+
             </div>
             @endforeach
-            
+
           </div>
         </div>
       </section>
       <!-- End fashion Area -->
 
       <!-- start footer Area -->
-      <footer class="footer-area section-gap">
+      <footer class="footer-area section-gap" >
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-md-12">
