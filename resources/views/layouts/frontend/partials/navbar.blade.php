@@ -1,5 +1,5 @@
     <header class="default-header">
-        <nav class="navbar navbar-expand-lg" style="background-color: #f9f9ff4f;">
+        <nav class="navbar navbar-expand-lg" style="background-color: #f9f9ff4f;font-family: 'Work Sans';">
             <div class="container px-3">
                 <a class="navbar-brand" href="index.html">
                     <img src="{{ asset('frontend/img/logo2.jpg') }}" alt="" width="59px">

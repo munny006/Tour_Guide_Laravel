@@ -4,15 +4,15 @@
         <div class="container">
             <div class="row justify-content-between align-items-center d-flex">
                 <div class="col-lg-8 top-left">
-                    <h1 class="text-white mb-20">Post Details</h1>
+                    <h1 class="text-white mb-20" style="font-family: 'Work Sans';">Post Details</h1>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a><span class="lnr lnr-arrow-right"></span>
+                            <a href="index.html" style="font-family: 'Work Sans';">Home</a><span class="lnr lnr-arrow-right"></span>
                         </li>
                         <li>
-                            <a href="category.html">Category</a><span class="lnr lnr-arrow-right"></span>
+                            <a href="category.html"  style="font-family: 'Work Sans';">Category</a><span class="lnr lnr-arrow-right"></span>
                         </li>
-                        <li><a href="single.html">Fashion</a></li>
+                        <li><a href="single.html"  style="font-family: 'Work Sans';">Fashion</a></li>
                     </ul>
                 </div>
             </div>
@@ -24,20 +24,20 @@
     <div class="post-wrapper pt-100">
         <!-- Start post Area -->
         <section class="post-area">
-            <div class="container">
+            <div class="container"  style="font-family: 'Work Sans';">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8"  style="font-family: 'Work Sans';">
                         <div class="single-page-post">
                             <img class="img-fluid" src="{{ asset('storage/post/' . $post->image) }}" alt="$post->image" />
                             <div class="top-wrapper">
                                 <div class="row d-flex justify-content-between">
-                                    <h2 class="col-lg-8 col-md-12 text-uppercase">
+                                    <h2 class="col-lg-8 col-md-12 text-uppercase"  style="font-family: 'Work Sans';">
                                         {{ $post->title }}
                                     </h2>
                                     <div class="col-lg-4 col-md-12 right-side d-flex justify-content-end">
                                         <div class="desc">
-                                            <h2>{{ $post->user->name }}</h2>
-                                            <h3>{{ $post->created_at->diffForHumans() }}</h3>
+                                            <h2  style="font-family: 'Work Sans';">{{ $post->user->name }}</h2>
+                                            <h3  style="font-family: 'Work Sans';">{{ $post->created_at->diffForHumans() }}</h3>
                                         </div>
                                         <div class="user-img">
                                             <img src="{{ asset('storage/user/' . $post->user->image) }}"
@@ -45,24 +45,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h4 class="text-muted">{{ $post->category->name }}</h4>
+                                <h4 class="text-muted"  style="font-family: 'Work Sans';">{{ $post->category->name }}</h4>
                             </div>
-                            <div class="tags">
-                                <ul>
+                            <div class="tags" style="font-family: 'Work Sans';">
+                                <ul  style="font-family: 'Work Sans';">
                                     @foreach ($post->tags as $tag)
                                         <li><a href="#">{{ $tag->name }}</a></li>
                                     @endforeach
 
                                 </ul>
                             </div>
-                            <div class="single-post-content">
+                            <div class="single-post-content" style="font-family: 'Work Sans';">
                                 {!! $post->body !!}
                             </div>
                             <div class="bottom-wrapper">
                                 <div class="row">
-                                    <div class="col-lg-4 single-b-wrap col-md-12">
+                                    <div class="col-lg-4 single-b-wrap col-md-12" style="font-family: 'Work Sans';">
                                         @guest
-                                            <i class="fa fa-heart-o" aria-hidden="true"></i> {{ $post->likedUsers->count() }}
+                                            <i class="fa fa-heart-o" aria-hidden="true"  style="font-family: 'Work Sans';"></i> {{ $post->likedUsers->count() }}
                                             people like this
                                         @else
                                             <a href="#"
@@ -143,9 +143,9 @@
                                             border-color: #17a2b8;
                                             margin-top: 87px;
                                             margin-left: -142px;
-                                            display:none;
+                                            display:none; font-family: 'Work Sans';"
 
-                                            " id="shareBtn">
+                                            id="shareBtn">
                                                 <i class="fa fa-share"></i> Share
 
                                             </button>

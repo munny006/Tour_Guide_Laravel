@@ -10,7 +10,7 @@
 
         <div class="row fullscreen">
           <div class="banner-content d-flex align-items-center col-lg-12 col-md-12">
-            <h1 style="float: left;margin-left: 144px;">
+            <h1 style="float: left;margin-left: 144px;font-family: 'Work Sans';">
               TIRED OF A BUSY LIFE ?? <br />
               TAKE A BREAK & A RELAX TOUR..
               {{-- <p>
@@ -54,9 +54,9 @@
 
         <div class="row d-flex justify-content-center">
           <div class="menu-content pb-70 col-lg-12">
-            <div class="title text-center">
-              <h1 class="mb-10">Latest Posts from all categories</h1>
-              <p>Find the Latest Post from all category.</p>
+            <div class="title text-center" >
+              <h1 class="mb-10"style="font-family: 'Work Sans';">Latest Posts from all categories</h1>
+              <p style="font-family: 'Gill Sans', sans-serif;">Find the Latest Post from all category.</p>
             </div>
           </div>
 
@@ -64,19 +64,19 @@
      <div class="row d-flex justify-content-center">
 
             @foreach($posts as $post)
-        <div class="single-posts col-lg-4 col-sm-4 mb-3">
+        <div class="single-posts col-lg-4 col-sm-4 mb-3" style="style=font-family: 'Work Sans';">
             <div class="item single-cat">
             {{-- <div  style="width:190px"> --}}
             <img src="{{asset('storage/post/'.$post->image)}}" class="img-fluid " alt="{{$post->image}}" style="width:1000px; height: 200px;"/>
            {{-- </div> --}}
 
             <div>
-            <p class="date" style="float: left;margin-left: -1px; width: 140px;">{{$post->created_at->diffForHumans()}}</p>
+            <p class="date" style="float: left;margin-left: -1px; width: 140px;font-family: 'Work Sans';">{{$post->created_at->diffForHumans()}}</p>
           </div>
           <div>
-            <h4  style="float: left;margin-left: -144px; margin-top: 81px;">
+            <h4  style="float: left;margin-left: -144px; margin-top: 81px;font-family: 'Work Sans';">
               <br>
-              <a href="{{route('post',$post->slug)}}">{{$post->title}}</a>
+              <a style="font-family: 'Work Sans';" href="{{route('post',$post->slug)}}">{{$post->title}}</a>
             </h4>
            </div>
 
@@ -95,24 +95,24 @@
     <section class="travel-area section-gap" id="travel">
     <div class="container">
       <div class="row d-flex justify-content-center">
-        <div class="menu-content pb-70 col-lg-8">
+        <div class="menu-content pb-70 col-lg-8" style="font-family: 'Work Sans';">
           <div class="title text-center">
-            <h1 class="mb-10">Hot topics of this Week</h1>
-            <p>The posts which are most views in this week.</p>
+            <h1 class="mb-10" style="font-family: 'Work Sans';">Hot topics of this Week</h1>
+            <p style="font-family: 'Gill Sans', sans-serif; color:black;">The posts which are most views in this week.</p>
           </div>
         </div>
       </div>
-        <div class="container">
+        <div class="container" style="font-family: 'Work Sans';">
         <div class="row justify-content-center">
          @foreach($posts as $post)
           <div class="single-posts col-lg-4 col-sm-4 mb-3 py-3"style="width:250px">
-            <img class="img-fluid  mx-auto" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}"style="width:1000px; height: 200px;">
-            <div class="date mt-20 mb-20" style=" width: 140px;">{{$post->created_at->diffForHumans()}}</div>
+            <img class="img-fluid  mx-auto" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}"style="width:1000px; height: 200px;font-family: 'Work Sans';">
+            <div class="date mt-20 mb-20" style=" width: 140px;font-family: 'Work Sans';">{{$post->created_at->diffForHumans()}}</div>
             <div class="detail py-2">
-              <a href="{{route('post',$post->slug)}}"><h4 class="pb-20">{{$post->title}}</h4></a>
+              <a href="{{route('post',$post->slug)}}" style="font-family: 'Work Sans';color: black!important;"><h4 class="pb-20" style="font-family: 'Work Sans';">{{$post->title}}</h4></a>
 
-              <div>
-                <p>
+              <div style="font-family: 'Work Sans';color: black!important;">
+                <p style="font-family: 'Gill Sans', sans-serif; color:black;">
                     {{-- {!!Str::limit($post->body,300)!!} --}}
                     {{-- {{ Str::limit($your_string, 50) }} --}}
                     {{-- {!! Str::limit($post->body,20,'...') !!} --}}
@@ -125,15 +125,15 @@
 
           <div >
             <ul   style="display: flex;
-            gap: 23px;margin-top: 95px;">
+            gap: 23px;margin-top: 95px; color:black">
             <li>
                 <a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })">
                 <i class="fa fa-heart-o" aria-hidden="true"></i>
-                <span> {{$post->likedUsers->count()}} </span>
+                <span style="color:black;font-weight: bold;"> {{$post->likedUsers->count()}} </span>
             </a>
         </li>
-          <li><i class="fa fa-comment-o" aria-hidden="true"></i><span> {{$post->comments->count()}} </span></li>
-          <li><i class="fa fa-eye" aria-hidden="true"></i> <span> {{$post->view_count}} </span></li>
+          <li><i class="fa fa-comment-o" aria-hidden="true"></i><span style="color:black;font-weight: bold;" > {{$post->comments->count()}} </span></li>
+          <li><i class="fa fa-eye" style="color:black;" aria-hidden="true"></i> <span style="color:black;font-weight: bold;"> {{$post->view_count}} </span></li>
         </ul>
           </div>
 

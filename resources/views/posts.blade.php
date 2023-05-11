@@ -5,19 +5,19 @@
       <div class="container">
         <div class="row justify-content-between align-items-center d-flex">
           <div class="col-lg-8 top-left">
-            <h1 class="text-dark mb-20" style="color: #343a40 !important; float:right; margin-right: 96px;">All Post</h1>
+            <h1 class="text-dark mb-20" style="color: #343a40 !important; float:right; margin-right: 96px; font-family: 'Gill Sans', sans-serif; color:black;">All Post</h1>
             <ul >
               <li>
                 <a href="{{route('home')}}" style="color: #343a40 !important;
     float: left;
-    margin-left: 443px;">Home</a
-                ><span class="lnr lnr-arrow-right"style="color: #343a40 !important;"></span>
+    margin-left: 443px;font-family: 'Gill Sans', sans-serif; color:black;">Home</a
+                ><span class="lnr lnr-arrow-right"style="color: #343a40 !important;font-family: 'Work Sans';"></span>
               </li>
               <li>
-                <a href="{{route('categories')}}"style="color: #343a40 !important;">Category</a
-                ><span class="lnr lnr-arrow-right"style="color: #343a40 !important;"></span>
+                <a href="{{route('categories')}}"style="color: #343a40 !important;font-family: 'Gill Sans', sans-serif; color:black;">Category</a
+                ><span class="lnr lnr-arrow-right"style="color: #343a40 !important;font-family: 'Gill Sans', sans-serif; color:black;"></span>
               </li>
-              <li><a href="{{route('posts')}}"style="color: #343a40 !important;">Posts</a></li>
+              <li><a href="{{route('posts')}}"style="color: #343a40 !important;font-family: 'Gill Sans', sans-serif; color:black;">Posts</a></li>
             </ul>
           </div>
         </div>
@@ -38,13 +38,13 @@
                       @foreach($posts as $post)
                     <div class="single-posts col-lg-6 col-sm-6">
                         <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="$post->image" / style="width:980px; height: 200px;">
-                      <div class="date mt-20 mb-20">
+                      <div class="date mt-20 mb-20" style="font-family: 'Gill Sans', sans-serif; color:black;">
                         {{$post->created_at->diffForHumans()}}
                       </div>
                         <div class="detail">
-                            <a href="{{route('post',$post->slug)}}"><h4 class="pb-20">{{$post->title}}</h4></a>
+                            <a href="{{route('post',$post->slug)}}" style="font-family: 'Work Sans';"><h4 class="pb-20">{{$post->title}}</h4></a>
 
-                        <p>{!!Str::limit($post->body,400)!!}</p>
+                        <p style="font-family: 'Gill Sans', sans-serif; color:black;">{!!Str::limit($post->body,400)!!}</p>
 
                         <p class="footer pt-20">
                               <i class="fa fa-heart-o" aria-hidden="true"></i>

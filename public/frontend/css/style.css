@@ -1,0 +1,8 @@
+#getstarted{
+    background-image: asset('frontend/img/nilachal-bandarban-01.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	min-height: 950px;
+	position: relative;
+ }
