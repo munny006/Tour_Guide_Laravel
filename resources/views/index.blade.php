@@ -10,7 +10,7 @@
 
         <div class="row fullscreen">
           <div class="banner-content d-flex align-items-center col-lg-12 col-md-12">
-            <h1 style="float: left;margin-left: 144px;font-family: 'Work Sans';">
+            <h1 style="float: left;margin-left: 144px;font-family: 'Gill Sans', sans-serif;">
               TIRED OF A BUSY LIFE ?? <br />
               TAKE A BREAK & A RELAX TOUR..
               {{-- <p>
@@ -55,7 +55,7 @@
         <div class="row d-flex justify-content-center">
           <div class="menu-content pb-70 col-lg-12">
             <div class="title text-center" >
-              <h1 class="mb-10"style="font-family: 'Work Sans';">Latest Posts from all categories</h1>
+              <h1 class="mb-10"style="font-family: 'Gill Sans', sans-serif;">Latest Posts from all categories</h1>
               <p style="font-family: 'Gill Sans', sans-serif;">Find the Latest Post from all category.</p>
             </div>
           </div>
@@ -71,12 +71,12 @@
            {{-- </div> --}}
 
             <div>
-            <p class="date" style="float: left;margin-left: -1px; width: 140px;font-family: 'Work Sans';">{{$post->created_at->diffForHumans()}}</p>
+            <p class="date" style="float: left;margin-left: -1px; width: 140px;font-family: 'Gill Sans', sans-serif;">{{$post->created_at->diffForHumans()}}</p>
           </div>
           <div>
-            <h4  style="float: left;margin-left: -144px; margin-top: 81px;font-family: 'Work Sans';">
+            <h4  style="float: left;margin-left: -144px; margin-top: 81px;font-family: 'Gill Sans', sans-serif;">
               <br>
-              <a style="font-family: 'Work Sans';" href="{{route('post',$post->slug)}}">{{$post->title}}</a>
+              <a style="font-family: 'Gill Sans', sans-serif;" href="{{route('post',$post->slug)}}">{{$post->title}}</a>
             </h4>
            </div>
 
@@ -95,9 +95,9 @@
     <section class="travel-area section-gap" id="travel">
     <div class="container">
       <div class="row d-flex justify-content-center">
-        <div class="menu-content pb-70 col-lg-8" style="font-family: 'Work Sans';">
+        <div class="menu-content pb-70 col-lg-8" style="font-family: 'Gill Sans', sans-serif;">
           <div class="title text-center">
-            <h1 class="mb-10" style="font-family: 'Work Sans';">Hot topics of this Week</h1>
+            <h1 class="mb-10" style="font-family: 'Gill Sans', sans-serif;">Hot topics of this Week</h1>
             <p style="font-family: 'Gill Sans', sans-serif; color:black;">The posts which are most views in this week.</p>
           </div>
         </div>
@@ -107,16 +107,16 @@
          @foreach($posts as $post)
           <div class="single-posts col-lg-4 col-sm-4 mb-3 py-3"style="width:250px">
             <img class="img-fluid  mx-auto" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}"style="width:1000px; height: 200px;font-family: 'Work Sans';">
-            <div class="date mt-20 mb-20" style=" width: 140px;font-family: 'Work Sans';">{{$post->created_at->diffForHumans()}}</div>
+            <div class="date mt-20 mb-20" style=" width: 140px;font-family: 'Gill Sans', sans-serif;">{{$post->created_at->diffForHumans()}}</div>
             <div class="detail py-2">
-              <a href="{{route('post',$post->slug)}}" style="font-family: 'Work Sans';color: black!important;"><h4 class="pb-20" style="font-family: 'Work Sans';">{{$post->title}}</h4></a>
+              <a href="{{route('post',$post->slug)}}" style="font-family: 'Gill Sans', sans-serif;color: black!important;"><h4 class="pb-20" style="font-family: 'Work Sans';">{{$post->title}}</h4></a>
 
-              <div style="font-family: 'Work Sans';color: black!important;">
-                <p style="font-family: 'Gill Sans', sans-serif; color:black;">
+              <div style="font-family: 'Work Sans';color: black!important; text-align:justify;">
+                <p style="font-family: 'Gill Sans', sans-serif; color:black;text-align:justify;">
                     {{-- {!!Str::limit($post->body,300)!!} --}}
                     {{-- {{ Str::limit($your_string, 50) }} --}}
                     {{-- {!! Str::limit($post->body,20,'...') !!} --}}
-                    {!!  substr(strip_tags($post->body), 0, 100) !!}
+                    {!!  substr(strip_tags($post->body), 0, 100) !!}..<a href="{{ route('post',$post->slug) }}" style="font-size:12px;color:blue;font-family: 'Gill Sans', sans-serif;">See More</a>
                     </p>
               </div>
               <p class="py-2" footer="">
@@ -125,7 +125,7 @@
 
           <div >
             <ul   style="display: flex;
-            gap: 23px;margin-top: 95px; color:black">
+            gap: 23px;margin-top: 55px; color:black">
             <li>
                 <a href="javascript:void(0);" onclick=" toastr.info('To add to your favorite list you have to login first.', 'Info', { closeButton: true, progressBar: true, })">
                 <i class="fa fa-heart-o" aria-hidden="true"></i>
@@ -154,25 +154,25 @@
       <div class="row d-flex justify-content-center">
         <div class="menu-content pb-70 col-lg-8">
           <div class="title text-center">
-            <h1 class="mb-10">About This Site</h1>
-            <p>This is personal blogging site related to Internet of Things &amp; Web Development Tutorials</p>
+            <h1 class="mb-10" style="font-family: 'Gill Sans', sans-serif;">About This Site</h1>
+            <p style="font-family: 'Gill Sans', sans-serif;">This is personal blogging site related to Internet of Things &amp; Web Development Tutorials</p>
           </div>
         </div>
       </div>
-      <div class="row justify-content-center d-flex align-items-center">
-        <div class="col-lg-6 team-left">
-          <p>
+      <div class="row justify-content-center d-flex align-items-center"style="font-family: 'Gill Sans', sans-serif;">
+        <div class="col-lg-6 team-left"style="font-family: 'Gill Sans', sans-serif;">
+          <p style="font-family: 'Gill Sans', sans-serif;">
             Find a blogs and tutorials related to Internet of things, Web Designe, Web Development, GIS Web applications and more.
           </p>
-          <p>
-            This site is made with laravel framework. The theme is <a href="">Blogger Theme</a> and the Admin Panel theme is <a href="https://github.com/puikinsh/sufee-admin-dashboard">Sufee Admin</a>.
+          <p style="font-family: 'Gill Sans', sans-serif;">
+            This site is made with laravel framework. The theme is <a href=""style="font-family: 'Gill Sans', sans-serif;">Blogger Theme</a> and the Admin Panel theme is <a href="https://github.com/puikinsh/sufee-admin-dashboard"style="font-family: 'Gill Sans', sans-serif;">Sufee Admin</a>.
           </p>
-          <p>Checkout the full tutorial how this site is made on <span class="c1">Youtube</span>.</p>
+          <p style="font-family: 'Gill Sans', sans-serif;">Checkout the full tutorial how this site is made on <span class="c1"style="font-family: 'Gill Sans', sans-serif;">Youtube</span>.</p>
           <h4>About the Creator</h4>
           <br>
-          <p>I am <span class="c1">Full stack Web Developer</span> specialized <span class="c1">LARAVEL</span> - PHP. Currently Studing GEOSPATIAL SCIENCE and learning <span class="c1">GIS Web Applications Development</span>. </p>
+          <p style="font-family: 'Gill Sans', sans-serif;">I am <span class="c1"style="font-family: 'Gill Sans', sans-serif;">Full stack Web Developer</span> specialized <span class="c1">LARAVEL</span> - PHP. Currently Studing GEOSPATIAL SCIENCE and learning <span class="c1">GIS Web Applications Development</span>. </p>
           <br>
-          <h4>Email: <span style="font-size: medium; font-weight: lighter;">mahmudaaktermunny4@gmail.com</span></h4>
+          <h4 style="font-family: 'Gill Sans', sans-serif;">Email: <span style="font-size: medium; font-weight: lighter;">mahmudaaktermunny4@gmail.com</span></h4>
           <br>
           <div class="col-md-12 d-flex justify-content-center py-3 mt-2">
             <a href="https://subhadipghorui.github.io" class="genric-btn info circle arrow mr-md-auto" target="_blank">Know More<span class="lnr lnr-arrow-right"></span></a>

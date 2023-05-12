@@ -36,7 +36,7 @@
                                     </h2>
                                     <div class="col-lg-4 col-md-12 right-side d-flex justify-content-end">
                                         <div class="desc">
-                                            <h2  style="font-family: 'Gill Sans', sans-serif; color:black;">{{ $post->user->name }}</h2>
+                                            <h2>{{ $post->user->name }}</h2>
                                             <h3  style="font-family: 'Gill Sans', sans-serif; color:white;">{{ $post->created_at->diffForHumans() }}</h3>
                                         </div>
                                         <div class="user-img">
@@ -55,7 +55,7 @@
 
                                 </ul>
                             </div>
-                            <div class="single-post-content" style="font-family: 'Gill Sans', sans-serif; color:black;">
+                            <div class="single-post-content" style="font-family: 'Gill Sans', sans-serif; color:black;text-align:justify;">
                                 {!! $post->body !!}
                             </div>
                             <div class="bottom-wrapper">

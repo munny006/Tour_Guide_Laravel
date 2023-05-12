@@ -37,14 +37,20 @@
                      @if($posts->count()>0)
                       @foreach($posts as $post)
                     <div class="single-posts col-lg-6 col-sm-6">
-                        <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="$post->image" / style="width:980px; height: 200px;">
+                        <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="$post->image"  style="width:980px; height: 200px;">
                       <div class="date mt-20 mb-20" style="font-family: 'Gill Sans', sans-serif; color:white;">
                         {{$post->created_at->diffForHumans()}}
                       </div>
-                        <div class="detail">
-                            <a href="{{route('post',$post->slug)}}" style="font-family: 'Work Sans';"><h4 class="pb-20">{{$post->title}}</h4></a>
+                        <div class="detail my-5">
+                            <a href="{{route('post',$post->slug)}}" style="font-family: 'Gill Sans', sans-serif; color:black;">
+                                <h4 class="pb-20">{{$post->title}}</h4>
+                            </a>
 
-                        <p style="font-family: 'Gill Sans', sans-serif; color:black;">{!!Str::limit($post->body,400)!!}</p>
+                       {{-- <div style="margin-top:30px;"> --}}
+                        <p style="font-family: 'Gill Sans', sans-serif; color:black; text-align:justify;margin-top: 50px">
+                            {!!  substr(strip_tags($post->body), 0, 200) !!}..<a href="{{ route('post',$post->slug) }}" style="font-size:12px;color:blue;font-family: 'Gill Sans', sans-serif;text-align:justify;">See More</a>
+                        </p>
+                       {{-- </div> --}}
 
                         <p class="footer pt-20">
                               <i class="fa fa-heart-o" aria-hidden="true"></i>
