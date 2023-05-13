@@ -2,7 +2,7 @@
         <nav class="navbar navbar-expand-lg" style="background-color: #f9f9ff4f;font-family: 'Gill Sans', sans-serif; color:black;">
             <div class="container px-3">
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('frontend/img/logo2.jpg') }}" alt="" width="59px">
+                    <img src="{{ asset('frontend/img/tourguidelogo.jpg') }}" alt="" width="59px">
                 </a>
 
 
@@ -49,7 +49,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/posts">Posts</a></li>
                         <li><a href="/categories">Categories</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="/about">About</a></li>
                         <!-- ll
                           <li class="dropdown">
                               <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">

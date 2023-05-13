@@ -154,7 +154,7 @@
       <div class="row d-flex justify-content-center">
         <div class="menu-content pb-70 col-lg-8">
           <div class="title text-center">
-            <h1 class="mb-10" style="font-family: 'Gill Sans', sans-serif;">About This Site</h1>
+            <h1 class="mb-10" style="font-family: 'Gill Sans', sans-serif;">About Us</h1>
             <p style="font-family: 'Gill Sans', sans-serif;">This is personal blogging site related to Internet of Things &amp; Web Development Tutorials</p>
           </div>
         </div>
@@ -165,13 +165,10 @@
             Find a blogs and tutorials related to Internet of things, Web Designe, Web Development, GIS Web applications and more.
           </p>
           <p style="font-family: 'Gill Sans', sans-serif;">
-            This site is made with laravel framework. The theme is <a href=""style="font-family: 'Gill Sans', sans-serif;">Blogger Theme</a> and the Admin Panel theme is <a href="https://github.com/puikinsh/sufee-admin-dashboard"style="font-family: 'Gill Sans', sans-serif;">Sufee Admin</a>.
+            This site is made with laravel framework..
           </p>
-          <p style="font-family: 'Gill Sans', sans-serif;">Checkout the full tutorial how this site is made on <span class="c1"style="font-family: 'Gill Sans', sans-serif;">Youtube</span>.</p>
-          <h4>About the Creator</h4>
-          <br>
-          <p style="font-family: 'Gill Sans', sans-serif;">I am <span class="c1"style="font-family: 'Gill Sans', sans-serif;">Full stack Web Developer</span> specialized <span class="c1">LARAVEL</span> - PHP. Currently Studing GEOSPATIAL SCIENCE and learning <span class="c1">GIS Web Applications Development</span>. </p>
-          <br>
+
+
           <h4 style="font-family: 'Gill Sans', sans-serif;">Email: <span style="font-size: medium; font-weight: lighter;">mahmudaaktermunny4@gmail.com</span></h4>
           <br>
           <div class="col-md-12 d-flex justify-content-center py-3 mt-2">

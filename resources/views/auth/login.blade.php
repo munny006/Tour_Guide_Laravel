@@ -1,14 +1,16 @@
 @extends('layouts.frontend.app')
 @section('content')
-    <div class="login-area page-area py-5 my-5" style="padding-top: 7rem !important;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 border p-4">
+    <div class="login-area page-area py-5 my-5" style="padding-top: 7rem !important;background-image:url('/frontend/img/bg(1)jpg');background-repeat: no-repeat;background-attachment: fixed;
+    background-size: cover;">
+
+        <div class="container ">
+            <div class="row" style="background-color:#80808099!important;box-shadow: 1px 1px 2px 1px gray font-family: 'Gill Sans', sans-serif;">
+                <div class="col-md-8  border p-4" style="font-family: 'Gill Sans', sans-serif;">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <h3>Login to your Account</h3>
+                        <h3 >Login to your Account</h3>
                         <hr>
-                        <div class="form-group">
+                        <div class="form-group" style="color:black;">
                             <label for="exampleInputEmail1">Email address</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                 name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -19,7 +21,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        <div class="form-group"style="color:black;">
                             <label for="exampleInputPassword1">Password</label>
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
@@ -31,7 +33,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-3"style="color:black;">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember"
@@ -43,13 +45,13 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary float-left">Login Now</button>
+                        <button type="submit" class="btn btn-primary float-left"style="font-family: 'Gill Sans', sans-serif;">Login Now</button>
 
-                        <div class="row d-flex justify-content-center space-between" style="margin-left:469px;">
-                            <a href="{{ url('/login/google') }} " class="btn btn-outline-info ">Sign in with Google <i class="fa fa-google-plus" style="color:rgb(185,57,11);"></i></a><span class="text-dark font-weight-bold mt-3"></span>
+                        <div class="row d-flex justify-content-center space-between" style="margin-left:469px;font-family: 'Gill Sans', sans-serif;">
+                            <a href="{{ url('/login/google') }} " class="btn btn-info text-light" style="font-family: 'Gill Sans', sans-serif;">Sign in with Google <i class="fa fa-google-plus" style="color:rgb(185,57,11);"></i></a><span class="text-dark font-weight-bold mt-3"></span>
                         </div>
 
-                        <div class="float-right">
+                        <div class="float-right"style="font-family: 'Gill Sans', sans-serif;">
 
 
                             @if (Route::has('password.request'))
@@ -61,7 +63,7 @@
 
                     </form>
                 </div>
-                <div class="col-md-4 border p-4">
+                <div class="col-md-4 border p-4"style="font-family: 'Gill Sans', sans-serif;">
                     <h4 class="py-4">Don't have an account ?</h4>
                     <p>
                         <a href="{{ route('register') }}" class="btn btn-success btn-lg">Create New Account</a>
