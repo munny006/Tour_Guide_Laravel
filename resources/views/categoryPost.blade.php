@@ -37,17 +37,16 @@
                     @foreach($posts as $post)
                       <div class="single-posts col-lg-6 col-sm-6">
                       <img class="img-fluid" src="{{asset('storage/post/'.$post->image)}}" alt="{{$post->image}}"style="width:1000px; height: 200px;">
-                      <div class="date mt-20 mb-20" style="font-family: 'Gill Sans', sans-serif; color:white;">{{$post->created_at->format('D,d M Y H:i')}}</div>
+                      <div class="date mt-20 mb-20" style="font-family: 'Gill Sans', sans-serif; color:white;text-align:justify;">{{$post->created_at->format('D,d M Y H:i')}}</div>
                       <div class="detail">
                         <a href="{{route('post',$post->slug)}}"
-                          ><h4 class="pb-20"style="font-family: 'Gill Sans', sans-serif; color:black;">
+                          ><h4 class="pb-20"style="font-family: 'Gill Sans', sans-serif; color:black;text-align:justify;">
                            {{$post->title}}
                           </h4></a
                         >
-                        <p style="font-family: 'Gill Sans', sans-serif; color:black;">
-                          {!!Str::limit($post->body,300)!!}
+                        <p style="font-family: 'Gill Sans', sans-serif; color:black;text-align:justify;">
+                          {!!Str::limit($post->body,300)!!}..<a href="{{ route('post',$post->slug) }}" style="font-size:12px;color:blue;font-family: 'Gill Sans', sans-serif;">See More</a>
                         </p>
-                        <p class="footer pt-20">
                           <i class="fa fa-heart-o" aria-hidden="true"></i>
                           <a href="#">06 Likes</a>
                           <i

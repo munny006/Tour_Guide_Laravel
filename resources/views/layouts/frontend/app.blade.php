@@ -64,8 +64,8 @@
               <h6>Top Products</h6>
               <ul class="footer-nav">
                 <li><a href="#">Managed Website</a></li>
-                <li><a href="#">Manage Reputation</a></li>
-                <li><a href="#">Power Tools</a></li>
+
+               
                 <li><a href="#">Marketing Service</a></li>
               </ul>
             </div>
@@ -132,16 +132,16 @@
           </div>
         </div>
 
-        <div class="row footer-bottom d-flex justify-content-between">
+        <div class="row footer-bottom d-flex justify-content-between" style="font-family: 'Gill Sans', sans-serif;">
           <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           <p class="col-lg-8 col-sm-12 footer-text">
             Copyright &copy;
             <script>
               document.write(new Date().getFullYear());
             </script>
-            All rights reserved | This template is made with
-            <i class="fa fa-heart-o" aria-hidden="true"></i> by
-            <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            All rights reserved | This template is made
+            by
+            <a href="#" target="_blank">Munny & Tanzim</a>
           </p>
           <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           <div class="col-lg-4 col-sm-12 footer-social">
