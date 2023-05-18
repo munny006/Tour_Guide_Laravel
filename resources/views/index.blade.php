@@ -4,13 +4,13 @@
       class="banner-area relative"
       id="home"
       data-parallax="scroll"
-      data-image-src="{{asset('frontend/img/nilachal-bandarban-01.jpg')}}" style="height: 820px;">
+      data-image-src="{{asset('frontend/img/Sunrise_Seen_from_the_Helipad_at_Sajek_Valley.jpg')}}" style="height: 820px;">
       <div class="overlay-bg overlay"></div>
       <div class="container">
 
         <div class="row fullscreen">
           <div class="banner-content d-flex align-items-center col-lg-12 col-md-12">
-            <h1 style="float: left;margin-left: 144px;font-family: 'Gill Sans', sans-serif;">
+            <h1 style="float: left;margin-left: 144px;font-family: 'Gill Sans', sans-serif;margin-top:-198px;">
               TIRED OF A BUSY LIFE ?? <br />
               TAKE A BREAK & A RELAX TOUR..
               {{-- <p>

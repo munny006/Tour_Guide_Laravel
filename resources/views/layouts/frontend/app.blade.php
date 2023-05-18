@@ -17,7 +17,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8" />
     <!-- Site Title -->
-    <title>Blogger</title>
+    <title>Tour Guide</title>
 
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/main.css')}}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;500&display=swap" rel="stylesheet">
-   
+
 
     <style>
       .menu1{

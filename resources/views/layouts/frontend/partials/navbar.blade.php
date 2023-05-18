@@ -143,75 +143,107 @@
 
 
 
-                    <li class="dropdownmenu" style="font-family: 'Gill Sans', sans-serif; color:black;">
-                        <a href="#" onclick="dropNenu()">
-                            <i class="fa fa-bell position-relative medium" aria-hidden="true"
-                                style="margin-right: -44px;
-                                font-size: 22px;
-                                margin-top: -1px;"></i>&nbsp;
-                            <span class=" translate-middle badge rounded-pill bg-danger"
-                                style="float: right;
-                                    margin-top: -10px;
-                                    margin-right: -37px;">
-                                                            99+
+<li class="dropdownmenu" style="font-family: 'Gill Sans', sans-serif; color:black;">
+    <a href="#" onclick="dropNenu()">
+        <i class="fa fa-bell position-relative medium" aria-hidden="true"
+            style="margin-right: -44px;
+            font-size: 22px;
+            margin-top: -1px;"></i>&nbsp;
+        <span class=" translate-middle badge rounded-pill bg-danger"
+            style="float: right;
+                margin-top: -10px;
+                margin-right: -37px;">
+                                        99+
 
-                            </span>
-                            <!-- <i class="fas fa-user"></i> -->
-                        </a>
-                        <div id="dropNenu" class="dropdown-menu menu2 "
-                            style="display:none;
-                            float: left;
-                            margin-left: 1220px;
-                            margin-top: -17px;">
-
-
-                            <div class="scrollable-menu"
-                                style=" height: auto;
-                                    max-height: 200px;
-                                    overflow-x: hidden;">
-                                <a href="{{ route('admin.profile') }}" class="dropdown-item" target="_blank">
-
-                                </a>
-                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
-                                    <i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Dashboard</a>
-
-                                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
-
-                                </a>
-                                <a href="{{ route('user.dashboard') }}"><i class="fa fa-tv"
-                                        aria-hidden="true"></i>&nbsp;Dashboard</a>
-
-                                <a href="{{ route('admin.profile') }}" class="dropdown-item" target="_blank">
-
-                                </a>
-                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
-                                    <i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Dashboard</a>
-
-                                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
-
-                                </a>
-                                <a href="{{ route('user.dashboard') }}"><i class="fa fa-tv"
-                                        aria-hidden="true"></i>&nbsp;Dashboard</a>
-                                <a href="{{ route('admin.profile') }}" class="dropdown-item" target="_blank">
-
-                                </a>
-                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
-                                    <i class="fa fa-tv" aria-hidden="true"></i>&nbsp; Dashboard</a>
-
-                                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
-
-                                </a>
-                                <a href="{{ route('user.dashboard') }}"><i class="fa fa-tv"
-                                        aria-hidden="true"></i>&nbsp;Dashboard</a>
-
-                            </div>
+        </span>
+        <!-- <i class="fas fa-user"></i> -->
+    </a>
+    <div id="dropNenu" class="dropdown-menu menu2 "
+        style="display:none;
+        float: left;
+        margin-left: 1220px;
+        margin-top: -17px;">
 
 
+        {{-- <div class="scrollable-menu"
+            style=" height: auto;
+                max-height: 200px;
+                overflow-x: hidden;width: 299px;"> --}}
+            <ul style="height: 241px;
+            width: 292px;
+            list-style: none;
+            overflow: auto; ">
+                <a href="{{ route('admin.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a class="dropdown-item" href="{{ route('admin.dashboard') }}" style="padding: 12px 16px;">
+                 DashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboardDashboard</a>
+
+                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a href="{{ route('user.dashboard') }}"style="padding: 12px 16px;">Dashboard</a>
+
+                <a href="{{ route('admin.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                    Dashboard</a>
+
+                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a href="{{ route('user.dashboard') }}"style="padding: 12px 16px;">Dashboard</a>
+                <a href="{{ route('admin.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                     Dashboard</a>
+
+                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a href="{{ route('user.dashboard') }}"style="padding: 12px 16px;">Dashboard</a>
+
+                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a href="{{ route('user.dashboard') }}"style="padding: 12px 16px;">Dashboard</a>
+
+                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a href="{{ route('user.dashboard') }}"style="padding: 12px 16px;">Dashboard</a>
+
+                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a href="{{ route('user.dashboard') }}"style="padding: 12px 16px;">Dashboard</a>
+
+                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a href="{{ route('user.dashboard') }}"style="padding: 12px 16px;">Dashboard</a>
+
+                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a href="{{ route('user.dashboard') }}"style="padding: 12px 16px;">Dashboard</a>
+
+                <a href="{{ route('user.profile') }}" class="dropdown-item" target="_blank">
+
+                </a>
+                <a href="{{ route('user.dashboard') }}"style="padding: 12px 16px;">Dashboard</a>
+            </ul>
 
 
 
-                        </div>
-                    </li>
+
+
+
+
+    </div>
+</li>
 
                     <script>
                         function dropNenu() {
