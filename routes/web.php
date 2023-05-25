@@ -39,7 +39,7 @@ Auth::routes(['verify' => true]);
 //social login
 Route::get('login/google','Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback','Auth\LoginController@handleProviderCallback');
-
+Route::get('/about',[App\Http\Controllers\aboutController::class, 'index'])->name('about');
 
 
 

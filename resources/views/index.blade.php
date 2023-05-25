@@ -4,7 +4,7 @@
       class="banner-area relative"
       id="home"
       data-parallax="scroll"
-      data-image-src="{{asset('frontend/img/Sunrise_Seen_from_the_Helipad_at_Sajek_Valley.jpg')}}" style="height: 820px;">
+      data-image-src="{{asset('frontend/img/image028.jpg')}}" style="height: 820px;">
       <div class="overlay-bg overlay"></div>
       <div class="container">
 
@@ -119,9 +119,9 @@
                     {!!  substr(strip_tags($post->body), 0, 100) !!}..<a href="{{ route('post',$post->slug) }}" style="font-size:12px;color:blue;font-family: 'Gill Sans', sans-serif;">See More</a>
                     </p>
               </div>
-              <p class="py-2" footer="">
+              {{-- <p class="py-2" footer="">
                 <br>
-                </p>
+                </p> --}}
 
           <div >
             <ul   style="display: flex;
@@ -154,40 +154,46 @@
       <div class="row d-flex justify-content-center">
         <div class="menu-content pb-70 col-lg-8">
           <div class="title text-center">
-            <h1 class="mb-10" style="font-family: 'Gill Sans', sans-serif;">About Us</h1>
-            <p style="font-family: 'Gill Sans', sans-serif;">This is personal blogging site related to Internet of Things &amp; Web Development Tutorials</p>
+            <h1 class="mb-10" style="font-family: 'Gill Sans', sans-serif; font-weight:bold;">About Us</h1>
+
           </div>
         </div>
       </div>
       <div class="row justify-content-center d-flex align-items-center"style="font-family: 'Gill Sans', sans-serif;">
         <div class="col-lg-6 team-left"style="font-family: 'Gill Sans', sans-serif;">
-          <p style="font-family: 'Gill Sans', sans-serif;">
+          {{-- <p style="font-family: 'Gill Sans', sans-serif;">
             Find a blogs and tutorials related to Internet of things, Web Designe, Web Development, GIS Web applications and more.
-          </p>
-          <p style="font-family: 'Gill Sans', sans-serif;">
+          </p> --}}
+          {{-- <p style="font-family: 'Gill Sans', sans-serif;">
             This site is made with laravel framework..
+          </p> --}}
+
+
+          <p style="font-family: 'Gill Sans', sans-serif;text-align:justify; ">
+              We will work with you to plan a worry free adventure that meets your travel needs,expectations and budget.When you plan your vacation with us we are there through out the entire process.This means making ourselves available to you before during and after travel.
+
           </p>
 
 
-          <h4 style="font-family: 'Gill Sans', sans-serif;">Email: <span style="font-size: medium; font-weight: lighter;">mahmudaaktermunny4@gmail.com</span></h4>
+
           <br>
           <div class="col-md-12 d-flex justify-content-center py-3 mt-2">
-            <a href="https://subhadipghorui.github.io" class="genric-btn info circle arrow mr-md-auto" target="_blank">Know More<span class="lnr lnr-arrow-right"></span></a>
+            <a href="https://subhadipghorui.github.io" class="genric-btn btn-warning circle arrow mr-md-auto" target="_blank">Read More<span class="lnr lnr-arrow-right"></span></a>
           </div>
         </div>
         <div class="col-lg-6 team-right d-flex justify-content-center">
           <div class="row">
             <div class="single-team">
               <div class="thumb">
-                <img class="img-fluid w-75 mx-auto" src="{{asset('frontend/img/mahmuda-akter-munny6425f563bda1c.jpg')}}" alt="admin">
+                <img class="img-fluid  mx-auto" src="{{asset('frontend/img/download (1).jpg')}}" alt="admin">
                 <div class="align-items-center justify-content-center d-flex">
                   <a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                   <a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                 </div>
               </div>
               <div class="meta-text mt-30 text-center">
-                <h4>Mahmuda Akter Munny</h4>
-                <p>Creator</p>
+                {{-- <h4>Mahmuda Akter Munny</h4>
+                <p>Creator</p> --}}
               </div>
             </div>
           </div>
@@ -195,4 +201,5 @@
       </div>
     </div>
   </section>
+
 @endsection
